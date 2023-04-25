@@ -42,11 +42,12 @@ License: For each use you must have a valid license purchased only from above li
 		<!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
 		<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 		<link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css"/>
 		<!--end::Global Stylesheets Bundle-->
 	</head>
 	<!--end::Head-->
 	<!--begin::Body-->
-	<body id="kt_app_body" data-kt-app-layout="light-sidebar" data-kt-app-header-fixed="true" data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="true" data-kt-app-sidebar-hoverable="true" data-kt-app-sidebar-push-header="true" data-kt-app-sidebar-push-toolbar="true" data-kt-app-sidebar-push-footer="true" data-kt-app-toolbar-enabled="true" class="app-default">
+	<body id="kt_app_body" data-kt-app-layout="light-sidebar" data-kt-app-header-fixed="true" data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="true" data-kt-app-sidebar-hoverable="true" data-kt-app-sidebar-push-header="true" data-kt-app-sidebar-push-toolbar="true" data-kt-app-sidebar-push-footer="true" data-kt-app-toolbar-enabled="true" class="app-default" ng-app="users" ng-controller="usersCtrl" account-profile>
 		<!--begin::Theme mode setup on page load-->
 		<script>var defaultThemeMode = "light"; var themeMode; if ( document.documentElement ) { if ( document.documentElement.hasAttribute("data-bs-theme-mode")) { themeMode = document.documentElement.getAttribute("data-bs-theme-mode"); } else { if ( localStorage.getItem("data-bs-theme") !== null ) { themeMode = localStorage.getItem("data-bs-theme"); } else { themeMode = defaultThemeMode; } } if (themeMode === "system") { themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; } document.documentElement.setAttribute("data-bs-theme", themeMode); }</script>
 		<!--end::Theme mode setup on page load-->
@@ -799,7 +800,7 @@ License: For each use you must have a valid license purchased only from above li
 								<div id="kt_app_content_container" class="app-container container-fluid">
 									<!--begin::Row-->
 									<div class="row g-5 g-xl-10 mb-5 mb-xl-10">
-										
+										<div id="content"></div>	
 									</div>
 									<!--end::Row-->
 								</div>
@@ -4251,6 +4252,7 @@ License: For each use you must have a valid license purchased only from above li
 		<!--begin::Global Javascript Bundle(mandatory for all pages)-->
 		<script src="assets/plugins/global/plugins.bundle.js"></script>
 		<script src="assets/js/scripts.bundle.js"></script>
+		<script src="assets/plugins/global/plugins.bundle.js"></script>
 		<!--end::Global Javascript Bundle-->
 		<!--begin::Vendors Javascript(used for this page only)-->
 		<script src="assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
@@ -4276,6 +4278,27 @@ License: For each use you must have a valid license purchased only from above li
 		<script src="assets/js/custom/utilities/modals/users-search.js"></script>
 		<!--end::Custom Javascript-->
 		<!--end::Javascript-->
+		<script src="angular/modules/bootbox/bootbox.min.js"></script>
+		<script src="angular/modules/growl/jquery.bootstrap-growl.min.js"></script>
+		<script src="angular/modules/blockui/jquery.blockUI.js"></script>
+		
+		<!-- dependencies -->
+		<script src="angular/angular.min.js"></script>
+		<script src="angular/angular-route.min.js"></script>
+		<script src="angular/angular-sanitize.min.js"></script>
+		<script src="angular/ui-bootstrap-tpls-3.0.6.min.js"></script>
+
+		<script src="angular/modules/my-pagination/my-pagination.js"></script>
+		<script src="angular/modules/account/account.js"></script>
+		<script src="angular/modules/bootbox/bootstrap-modal.js"></script>
+		<script src="angular/modules/growl/growl.js"></script>
+		<script src="angular/modules/blockui/blockui.js"></script>
+		<script src="angular/modules/validation/validate.js"></script>
+
+		<script src="modules/notifications.js"></script><!--  for notifications --> 	  
+		<script src="modules/module-access.js"></script>
+		<script src="modules/users.js?ver=1.0.0.0"></script>
+		<script src="controllers/users.js?ver=1.0.0.0"></script>
 	</body>
 	<!--end::Body-->
 </html>

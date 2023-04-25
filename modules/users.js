@@ -1,4 +1,4 @@
-angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','bootstrap-growl','block-ui','module-access']).factory('app', function($compile,$timeout,$http,bootstrapModal,growl,bui,validate,access) {
+angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','bootstrap-growl','block-ui']).factory('app', function($compile,$timeout,$http,bootstrapModal,growl,bui,validate) {
 	
 	function app() {
 		
@@ -58,7 +58,7 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 
 			$http({
 			  method: 'POST',
-			  url: 'handlers/users/list.php',
+			  url: 'handlers/MgaUsers/list.php',
 			  data: scope.users
 			}).then(function mySucces(response) {
 				
@@ -97,7 +97,7 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 				if (scope.$id > 2) scope = scope.$parent;				
 				$http({
 				  method: 'POST',
-				  url: 'handlers/users/view.php',
+				  url: 'handlers/MgaUsers/view.php',
 				  data: {id: row.id}
 				}).then(function mySucces(response) {
 					
@@ -127,7 +127,7 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 			
 			$http({
 			  method: 'POST',
-			  url: 'handlers/users/save.php',
+			  url: 'handlers/MgaUsers/save.php',
 			  data: scope.user
 			}).then(function mySuccess(response) {
 				
@@ -180,12 +180,12 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 				
 				$http({
 				  method: 'POST',
-				  url: 'handlers/users/delete.php',
+				  url: 'handlers/MgaUsers/delete.php',
 				  data: {id: [row.id]}
 				}).then(function mySucces(response) {
 
 					self.list(scope);
-					
+				
 					Swal.fire("Deleted", "User Info Successfully Deleted", "success");
 					
 				}, function myError(response) {
