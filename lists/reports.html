@@ -1,0 +1,142 @@
+<style>
+#style-4::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+#style-4::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: #F5F5F5;
+}
+
+#style-4::-webkit-scrollbar-thumb
+{
+	background-color: #8914fe;
+	border: 2px solid #8914fe;
+}
+#table-reports{
+	overflow-y: none; 
+}
+</style>
+<script>
+	new ClipboardJS('.btn');
+</script>
+<div class="card mb-3">
+	<div class="card-body">
+		<div class="row">
+			<div class="col-lg-12">
+				<div id="accordion4" class="according accordion-s3 gradiant-bg">
+					<div class="card">
+						<div class="card-header">
+							<a class="collapsed card-link" data-toggle="collapse" href="#accordion43">Filter Here</a>
+						</div>
+						<div id="accordion43" class="collapse" data-parent="#accordion4">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-md-3">
+									  <label class="form-label">Communication Type</label>
+									  <select class="form-control" ng-model="filter.communication_type" ng-options="c.communication for c in communications track by c.id" style="height: 46px;"></select>
+									</div>
+									<div class="col-md-3">
+									  <label class="form-label">Category</label>
+									  <select class="form-control" ng-model="filter.category" style="height: 46px;">
+										<option value="Communication">Communication</option>
+										<option value="Financial">Financial</option>
+									  </select>
+									</div>
+									<div class="col-md-3">
+									  <label class="form-label">Transaction Type</label>
+									  <select class="form-control" ng-model="filter.transaction" ng-options="t.transaction for t in transactions track by t.id" style="height: 46px;"></select>
+									</div>
+									<div class="col-md-3">
+									  <label class="form-label">Document Type</label>
+									  <select class="form-control" ng-model="filter.document_type" ng-options="dt.document_type for dt in document_types track by dt.id" style="height: 46px;"></select>
+									</div>
+									<div class="col-md-3">
+									  <label class="form-label">Originating Office</label>
+									  <select class="form-control" ng-model="filter.office" ng-options="o.shortname for o in offices track by o.id" style="height: 46px;"></select>
+									</div>
+									<div class="col-md-3">
+										<label class="form-label">From</label>
+										<input type="date" class="form-control" ng-model="filter.from">
+									</div>
+									<div class="col-md-3">
+										<label class="form-label">To</label>
+										<input type="date" class="form-control" ng-model="filter.to">
+									</div>
+									<div class="col-md-3">
+										<label class="form-label">Status</label>
+										<select class="form-control" ng-model="filter.status" style="height: 46px;">
+											<option value="Completed">Completed</option>
+											<option value="For Receive">For Receive</option>
+											<option value="Picked up">Picked up</option>
+											<option value="Received">Received</option>
+											<option value="For Pick Up">For Pick Up</option>
+											<option value="For Pick Up (Completion)">For Pick Up (Completion)</option>
+											<option value="Cancelled">Cancelled</option>
+											<option value="For Pick Up with Revision">For Pick Up with Revision</option>
+										</select>
+									</div>
+									<div class="col-md-2">
+										<button type="button" class="btn btn-primary" ng-click="app.list(this)" style="margin-top:32px;"><i class="fa fa-search"></i> Search</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="card">
+	<div class="card-body">
+		<h5 class="mb-4">Reports Table</h5>
+		<div class="row mb-2">
+			<div class="col-lg-12">
+			<button class="btn btn-primary mb-2" ng-click="app.excel();"><i class="fa fa-download"></i> Excel</button>
+			<button class="btn btn-info mb-2" ng-click="app.print(this);"><i class="fa fa-download"></i> PDF</button>
+			<button class="btn btn-primary mb-2" data-clipboard-target="#table-reports">
+				<i class="fa fa-copy"></i> Copy
+			</button>
+			<button class="btn btn-info mb-2" ng-click="app.winprint();">
+				<i class="fa fa-print"></i> Print
+			</button>
+			</div>
+		</div>
+		<div class="single-table">
+			<div class="table-responsive" style="height:720px;" id="style-4">
+			<table class="table text-center" id="table-reports">
+				<thead class="text-uppercase text-white" style="background:#8914fe;">
+					<tr>
+						<th>Seq #</th>
+						<th>Tracking Code</th>
+						<th>Transaction No.</th>
+						<th>Subject</th>
+						<th>Document Type</th>
+						<th>Originating Office</th>
+						<th>Category</th>
+						<th>Transaction</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="report in filterData = (reports | filter:search)">
+						<td>{{$index+1}}</td>
+						<td>{{report.qrcode}}</td>
+						<td>{{report.transaction_no}}</td>
+						<td>{{report.doc_name}}</td>
+						<td>{{report.doc_type.document_type}}</td>
+						<td>{{report.origin.shortname}}</td>
+						<td>{{report.category}}</td>
+						<td>{{report.document_transaction_type.transaction}}</td>
+						<td><button class="btn btn-{{report.color}} btn-xs btn-rounded"><strong>{{report.is_completed}}</strong></button></td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+		</div>
+	</div>
+</div>

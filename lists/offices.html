@@ -1,0 +1,51 @@
+<div class="card">
+	<div class="card-body">
+		<div class="row mb-3">
+			<div class="col-lg-7">
+				<h5>Offices Table</h5>
+			</div>
+			<div class="col-lg-5">
+				<div class="input-group mb-3">
+					<input type="text" class="form-control" placeholder="Search Keywords Here" ng-model="search" style="border-top-left-radius:1.5rem; border-bottom-left-radius:1.5rem; height:40px !important;">
+					<div class="input-group-append">
+						<button class="btn btn-primary" type="button" ng-click="app.office(this)" style="height:40px;">Add New Office</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="single-table">
+			<div class="table-responsive">
+			<table class="table text-center">
+				<thead class="text-uppercase text-white" style="background:#8914fe;">
+					<tr>
+						<th>Names</th>
+						<th>Shortname</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="data in filterData = (offices | filter:search) | pagination: currentPage:pageSize">
+						<td>{{data.office}}</td>
+						<td>{{data.shortname}}</td>
+						<td>
+							<ul class="d-flex justify-content-center">
+								<button id="button_s" type="button" class="btn btn-primary btn-xs mr-1" ng-click="app.office(this,data)"><i class="fa fa-edit"></i></button>
+								<button id="button_s" type="button" class="btn btn-danger btn-xs" ng-click="app.delete(this,data)"><i class="ti-trash"></i></button>
+								<!-- <h5><li class="mr-3"><a ng-click="app.office(this,data)" class="text-secondary"><i class="fa fa-edit"></i></a></li></h5> -->
+								<!-- <h5><li><a ng-click="app.delete(this,data)" class="text-danger"><i class="ti-trash"></i></a></li></h5> -->
+							</ul>
+						</td>
+					  </tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="12" style="text-align: center;">
+							<div class="float-right"><ul uib-pagination direction-links="false" boundary-links="true" total-items="filterData.length" ng-model="currentPage" max-size="maxSize"></ul></div>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+			</div>
+		</div>
+	</div>
+</div>
