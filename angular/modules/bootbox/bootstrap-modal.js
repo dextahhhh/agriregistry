@@ -8,11 +8,11 @@ angular.module('bootstrap-modal',[]).service('bootstrapModal', function($compile
 			buttons: {
 				cancel: {
 					label: 'Close',
-					className: 'btn-danger move-right'
+					className: 'btn-light move-right'
 				},
 				confirm: {
 					label: 'Ok',
-					className: 'btn-success'
+					className: 'btn-primary'
 				}
 			},
 			callback: function (result) {
