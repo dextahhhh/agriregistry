@@ -1,7 +1,7 @@
 <?php 
 
 	include_once 'authentication.php'; 
-	$page="groups";
+	$page="individual";
 
 ?>
 <!DOCTYPE html>
@@ -459,7 +459,16 @@ License: For each use you must have a valid license purchased only from above li
 											<a href="demo1/dist/account/overview.html" class="menu-link px-5">My Profile</a>
 										</div>
 										<!--end::Menu item-->
-										
+										<!--begin::Menu item-->
+										<div class="menu-item px-5">
+											<a href="demo1/dist/apps/projects/list.html" class="menu-link px-5">
+												<span class="menu-text">My Projects</span>
+												<span class="menu-badge">
+													<span class="badge badge-light-danger badge-circle fw-bold fs-7">3</span>
+												</span>
+											</a>
+										</div>
+										<!--end::Menu item-->
 										<!--begin::Menu item-->
 										<div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="left-start" data-kt-menu-offset="-15px, 0">
 											<a href="#" class="menu-link px-5">
@@ -614,9 +623,9 @@ License: For each use you must have a valid license purchased only from above li
 						<div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
 							<!--begin::Logo image-->
 							<a href="demo1/dist/index.html">
-								<img alt="Logo" src="assets/media/logos/AGRI-DIGITALIZATION-LOGO.png" class="h-50px app-sidebar-logo-default theme-light-show" />
+								<img alt="Logo" src="assets/media/logos/default.svg" class="h-25px app-sidebar-logo-default theme-light-show" />
 								<img alt="Logo" src="assets/media/logos/default-dark.svg" class="h-25px app-sidebar-logo-default theme-dark-show" />
-								<img alt="Logo" src="assets/media/logos/AGRI-DIGITALIZATION-LOGO.png" class="h-20px app-sidebar-logo-minimize" />
+								<img alt="Logo" src="assets/media/logos/default-small.svg" class="h-20px app-sidebar-logo-minimize" />
 							</a>
 							<!--end::Logo image-->
 							<!--begin::Sidebar toggle-->
@@ -664,7 +673,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--begin::Page title-->
 									<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
 										<!--begin::Title-->
-										<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Groups</h1>
+										<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Individual</h1>
 										<!--end::Title-->
 										<!--begin::Breadcrumb-->
 										<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -679,7 +688,7 @@ License: For each use you must have a valid license purchased only from above li
 											</li>
 											<!--end::Item-->
 											<!--begin::Item-->
-											<li class="breadcrumb-item text-muted">Groups</li>
+											<li class="breadcrumb-item text-muted">Individual</li>
 											<!--end::Item-->
 										</ul>
 										<!--end::Breadcrumb-->
@@ -4237,26 +4246,17 @@ License: For each use you must have a valid license purchased only from above li
 		<!--begin::Javascript-->
 		<script>var hostUrl = "assets/";</script>
 		<!--begin::Global Javascript Bundle(mandatory for all pages)-->
-		<script src="assets/plugins/global/plugins.bundle.js"></script>
 		<script src="assets/js/scripts.bundle.js"></script>
 		<script src="assets/plugins/global/plugins.bundle.js"></script>
 		<!--end::Global Javascript Bundle-->
 		<!--begin::Vendors Javascript(used for this page only)-->
-		<script src="assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/map.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
+		
 		<script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
 		<!--end::Vendors Javascript-->
 		<!--begin::Custom Javascript(used for this page only)-->
+		<script src="assets/js/custom/apps/user-management/users/list/table.js"></script>
+		<script src="assets/js/custom/apps/user-management/users/list/export-users.js"></script>
+		<script src="assets/js/custom/apps/user-management/users/list/add.js"></script>
 		<script src="assets/js/widgets.bundle.js"></script>
 		<script src="assets/js/custom/widgets.js"></script>
 		<script src="assets/js/custom/apps/chat/chat.js"></script>
@@ -4284,8 +4284,8 @@ License: For each use you must have a valid license purchased only from above li
 
 		<script src="modules/notifications.js"></script><!--  for notifications --> 	  
 		<script src="modules/module-access.js"></script>
-		<script src="modules/groups.js?ver=1.0.0.0"></script>
-		<script src="controllers/groups.js?ver=1.0.0.0"></script>
+		<script src="modules/individual.js?ver=1.0.0.0"></script>
+		<script src="controllers/individual.js?ver=1.0.0.0"></script>
 	</body>
 	<!--end::Body-->
 </html>
