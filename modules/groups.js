@@ -21,10 +21,10 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 				icon: {label: 'fa-eye'}
 			};
 
-			scope.user = {};
-			scope.user.id = 0;
+			scope.group = {};
+			scope.group.id = 0;
 			
-			scope.users = []; // list
+			scope.groups = []; // list
 
 		};
 		
@@ -58,11 +58,11 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 
 			$http({
 			  method: 'POST',
-			  url: 'handlers/MgaUsers/list.php',
-			  data: scope.users
+			  url: 'handlers/MgaGroups/list.php',
+			  data: scope.groups
 			}).then(function mySucces(response) {
 				
-				scope.users = angular.copy(response.data);
+				scope.groups = angular.copy(response.data);
 				
 				bui.hide();
 				
@@ -79,16 +79,16 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 		};
 		
 		// addEdit
-		self.user = function(scope,row) {
+		self.group = function(scope,row) {
 			
-			if (!access.has(scope,scope.accountProfile.groups,scope.module.id,scope.module.privileges.add)) return;
+			// if (!access.has(scope,scope.accountProfile.groups,scope.module.id,scope.module.privileges.add)) return;
 			
-			scope.user = {};
-			scope.user.id = 0;
+			scope.group = {};
+			scope.group.id = 0;
 			
 			mode(scope,row);
 			
-			$('#content').load('forms/user.html',function() {
+			$('#content').load('forms/groups.html',function() {
 				$timeout(function() { $compile($('#content')[0])(scope); },200);
 			});
 			
@@ -97,11 +97,11 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 				if (scope.$id > 2) scope = scope.$parent;				
 				$http({
 				  method: 'POST',
-				  url: 'handlers/MgaUsers/view.php',
+				  url: 'handlers/MgaGroups/view.php',
 				  data: {id: row.id}
 				}).then(function mySucces(response) {
 					
-					angular.copy(response.data, scope.user);
+					angular.copy(response.data, scope.group);
 					
 					mode(scope,row);
 					
@@ -112,9 +112,6 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 				});
 				
 			};
-			
-			groups(scope);
-			offices(scope);
 			
 		};
 		
