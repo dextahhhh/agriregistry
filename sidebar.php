@@ -104,6 +104,26 @@
 				<!--end:Menu link-->
 			</div>
 			<!--end:Menu item-->
+			
+			<!--begin:Menu item-->
+			<div class="menu-item">
+				<!--begin:Menu link-->
+				<a class="menu-link <?=($page=="groups")?'active':''?>" href="groups.php">
+					<span class="menu-icon">
+						<i class="ki-duotone ki-people fs-2">
+							 <i class="path1"></i>
+							 <i class="path2"></i>
+							 <i class="path3"></i>
+							 <i class="path4"></i>
+							 <i class="path5"></i>
+							</i>
+					</span>
+					<span class="menu-title">Groups</span>
+				</a>
+				<!--end:Menu link-->
+			</div>
+			<!--end:Menu item-->
+			
 		</div>
 		<!--end::Menu-->
 	</div>
