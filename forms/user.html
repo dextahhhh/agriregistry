@@ -1,148 +1,194 @@
-<div class="row">
-	<div class="col-12">
-		<div class="card">
-			<div class="card-body">
-				<h4 class="header-title">Account Information</h4>
-				<div class="text-right">
-					<button type="button" class="btn btn-primary" ng-click="app.edit(this)"><i class="fa fa-edit"></i> Edit Account</button>
-				</div>
-				<hr>
-				
-				<form class="needs-validation" novalidate="" role="form" name="formHolder.user">
-					<div class="form-row mb-1">
-						<div class="col-md-4 mb-3">
-							<label for="validationCustom01">Employee ID</label>
-							<input class="form-control" type="text" name="employee_id" ng-model="user.employee_id" ng-disabled="controls.ok.btn" ng-class="{'is-invalid': formHolder.user.employee_id.$touched && formHolder.user.employee_id.$invalid}" required>
-							<div class="valid-feedback">
-								Looks good!
-							</div>
-						</div>
-						<div class="col-md-4 mb-3">
-							<label for="validationCustom02">Offices</label>
-							<select class="form-control" name="div_id" ng-model="user.div_id" ng-disabled="controls.ok.btn" ng-options="office.shortname for office in offices track by office.id" ng-class="{'is-invalid': formHolder.user.div_id.$touched && formHolder.user.div_id.$invalid}" required>
-							</select>
-							<div class="valid-feedback">
-								Looks good!
-							</div>
-						</div>
-						<div class="col-md-4 mb-3">
-							<label for="validationCustom02">Groups</label>
-							<select class="form-control" name="group_id" ng-model="user.group_id" ng-disabled="controls.ok.btn" ng-options="group.group_name for group in groups track by group.id" ng-class="{'is-invalid': formHolder.user.group_id.$touched && formHolder.user.group_id.$invalid}" required>
-							</select>
-							<div class="valid-feedback">
-								Looks good!
-							</div>
-						</div>
-					</div>
-					<div class="form-row mb-1">
-						<div class="col-md-4 mb-3">
-							<label for="validationCustom01">First Name</label>
-							<input class="form-control" type="text" name="firstname" ng-model="user.firstname" ng-disabled="controls.ok.btn" ng-class="{'is-invalid': formHolder.user.firstname.$touched && formHolder.user.firstname.$invalid}" required>
-							<div class="valid-feedback">
-								Looks good!
-							</div>
-						</div>
-						<div class="col-md-4 mb-3">
-							<label for="validationCustom02">Middle Name</label>
-							<input class="form-control" type="text" name="middlename" ng-model="user.middlename" ng-disabled="controls.ok.btn">
-							<div class="valid-feedback">
-								Looks good!
-							</div>
-						</div>
-						<div class="col-md-4 mb-3">
-							<label for="validationCustom02">Last Name</label>
-							<input class="form-control" type="text" name="lastname" ng-model="user.lastname" ng-disabled="controls.ok.btn" ng-class="{'is-invalid': formHolder.user.lastname.$touched && formHolder.user.lastname.$invalid}" required>
-							<div class="valid-feedback">
-								Looks good!
-							</div>
-						</div>
-					</div>
-					<div class="form-row mb-1">
-						<div class="col-md-4 mb-3">
-							<label for="validationCustom01">Gender</label>
-							<select class="form-control" name="gender" ng-model="user.gender" ng-disabled="controls.ok.btn" ng-class="{'is-invalid': formHolder.user.position.$touched && formHolder.user.position.$invalid}" required>
-								<option value="Male">Male</option>
-								<option value="Female">Female</option>
-							</select>
-							<div class="valid-feedback">
-								Looks good!
-							</div>
-						</div>
-						<div class="col-md-4 mb-3">
-							<label for="validationCustom01">Position</label>
-							<input class="form-control" type="text" name="position" ng-model="user.position" ng-disabled="controls.ok.btn" ng-class="{'is-invalid': formHolder.user.position.$touched && formHolder.user.position.$invalid}" required>
-							<div class="valid-feedback">
-								Looks good!
-							</div>
-						</div>
-						<div class="col-md-4 mb-3">
-							<label for="validationCustom02">Email Address</label>
-							<input class="form-control" type="text" name="email_address" ng-model="user.email_address" ng-disabled="controls.ok.btn">
-							<div class="valid-feedback">
-								Looks good!
-							</div>
-						</div>
-					</div>
-					<div class="form-row mb-1">
-						<div class="col-md-4 mb-3">
-							<label for="validationCustom02">Phone Number</label>
-							<input class="form-control" type="text" name="phone_number" ng-model="user.phone_number" ng-disabled="controls.ok.btn">
-							<div class="valid-feedback">
-								Looks good!
-							</div>
-						</div>
-						<div class="col-md-4 mb-3">
-							<label for="validationCustom01">Username</label>
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-									<span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
-								</div>
-								<input class="form-control" type="text" name="username" ng-model="user.username" ng-disabled="controls.ok.btn" ng-class="{'is-invalid': formHolder.user.username.$touched && formHolder.user.username.$invalid}" required>
-								<div class="valid-feedback">
-									Looks good!
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 mb-3">
-							<label for="validationCustom02">Password</label>
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-									<span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i></span>
-								</div>
-								<input class="form-control" type="password" name="password" ng-model="user.password" ng-disabled="controls.ok.btn">
-							<div class="valid-feedback">
-								Looks good!
-							</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4 mb-3">
-							<div class="alert alert-success md-12" role="alert">
-								<h4 class="alert-heading">Actions</h4>
-								<div class="col-md-12 mb-3">
-									<label class="text-muted d-block"><i>Can initial documents?</i></label>
-									<div class="custom-control custom-radio">
-										<input type="checkbox" name="can_initial" ng-model="user.can_initial" ng-disabled="controls.ok.btn">
-										<label>Yes</label>
-									</div>
-									<hr>
-									<div class="col-md-12 mb-3">
-										<label class="text-muted d-block"><i>Can sign documents?</i></label>
-										<div class="custom-control custom-radio">
-											<input type="checkbox" name="can_signature" ng-model="user.can_signature" ng-disabled="controls.ok.btn">
-											<label>Yes</label>
+<div class="flex-lg-row-fluid ms-lg-15">
+											<!--begin:::Tabs-->
+											<ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-semibold mb-8">
+												
+												<!--begin:::Tab item-->
+												<li class="nav-item">
+													<a class="nav-link text-active-primary pb-4 active" data-bs-toggle="tab" href="#user_profile">User Profile</a>
+												</li>
+												<!--end:::Tab item-->
+												<!--begin:::Tab item-->
+												<li class="nav-item">
+													<a class="nav-link text-active-primary pb-4" data-bs-toggle="tab" href="#change_password">Change Password</a>
+												</li>
+												<!--end:::Tab item-->
+											</ul>
+											<!--end:::Tabs-->
+											<!--begin:::Tab content-->
+											<div class="tab-content" id="myTabContent">
+												<!--begin:::Tab pane-->
+												
+												<!--end:::Tab pane-->
+												<!--begin:::Tab pane-->
+												<div class="tab-pane fade show active" id="user_profile" role="tabpanel">
+													<!--begin::Card-->
+													<div class="card pt-4 mb-6 mb-xl-9">
+														<!--begin::Card header-->
+														<div class="card-header border-0">
+															<!--begin::Card title-->
+															<div class="card-title">
+																<h2>Profile</h2>
+															</div>
+															<!--end::Card title-->
+														</div>
+														<!--end::Card header-->
+														<!--begin::Card body-->
+														<div class="card-body pt-0 pb-5">
+															<!--begin::Form-->
+															<form class="form" action="#" id="kt_ecommerce_customer_profile">
+																<!--begin::Row-->
+																<div class="row row-cols-1 row-cols-md-2">
+																	<!--begin::Col-->
+																	<div class="col">
+																		<!--begin::Input group-->
+																		<div class="fv-row mb-7">
+																			<!--begin::Label-->
+																			<label class="fs-6 fw-semibold mb-2">
+																				<span class="required">First Name</span>
+																				<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+																					<i class="ki-duotone ki-information fs-7">
+																						<span class="path1"></span>
+																						<span class="path2"></span>
+																						<span class="path3"></span>
+																					</i>
+																				</span>
+																			</label>
+																			<!--end::Label-->
+																			<!--begin::Input-->
+																			<input type="email" class="form-control form-control-solid" placeholder="" name="gen_email" value="max@kt.com" />
+																			<!--end::Input-->
+																		</div>
+																		<!--end::Input group-->
+																	</div>
+																	<!--end::Col-->
+																	<!--begin::Col-->
+																	<div class="col">
+																		<!--begin::Input group-->
+																		<div class="fv-row mb-7">
+																			<!--begin::Label-->
+																			<label class="fs-6 fw-semibold mb-2">
+																				<span>Last Name</span>
+																				<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+																					<i class="ki-duotone ki-information fs-7">
+																						<span class="path1"></span>
+																						<span class="path2"></span>
+																						<span class="path3"></span>
+																					</i>
+																				</span>
+																			</label>
+																			<!--end::Label-->
+																			<!--begin::Input-->
+																			<input type="email" class="form-control form-control-solid" placeholder="" name="bill_email" value="info@keenthemes.com" />
+																			<!--end::Input-->
+																		</div>
+																		<!--end::Input group-->
+																	</div>
+																	<!--end::Col-->
+																</div>
+																<!--end::Row-->
+																<div class="d-flex justify-content-end">
+																	<!--begin::Button-->
+																	<button type="submit" id="kt_ecommerce_customer_profile_submit" class="btn btn-light-primary">
+																		<span class="indicator-label">Save</span>
+																		<span class="indicator-progress">Please wait...
+																		<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+																	</button>
+																	<!--end::Button-->
+																</div>
+															</form>
+															<!--end::Form-->
+														</div>
+														<!--end::Card body-->
+													</div>
+													<!--end::Card-->
+												</div>
+												<!--end:::Tab pane-->
+												
+												
+												<!--begin:::Tab pane-->
+												<div class="tab-pane fade" id="change_password" role="tabpanel">
+													<!--begin::Card-->
+													<div class="card pt-4 mb-6 mb-xl-9">
+														<!--begin::Card header-->
+														<div class="card-header border-0">
+															<!--begin::Card title-->
+															<div class="card-title">
+																<h2>Account Settings</h2>
+															</div>
+															<!--end::Card title-->
+														</div>
+														<!--end::Card header-->
+														<!--begin::Card body-->
+														<div class="card-body pt-0 pb-5">
+															<!--begin::Form-->
+															<form class="form" action="#" id="kt_ecommerce_customer_profile">
+																<!--begin::Row-->
+																<div class="row row-cols-1 row-cols-md-2">
+																	<!--begin::Col-->
+																	<div class="col">
+																		<!--begin::Input group-->
+																		<div class="fv-row mb-7">
+																			<!--begin::Label-->
+																			<label class="fs-6 fw-semibold mb-2">
+																				<span class="required">Old Password</span>
+																				<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+																					<i class="ki-duotone ki-information fs-7">
+																						<span class="path1"></span>
+																						<span class="path2"></span>
+																						<span class="path3"></span>
+																					</i>
+																				</span>
+																			</label>
+																			<!--end::Label-->
+																			<!--begin::Input-->
+																			<input type="email" class="form-control form-control-solid" placeholder="" name="gen_email" value="max@kt.com" />
+																			<!--end::Input-->
+																		</div>
+																		<!--end::Input group-->
+																	</div>
+																	<!--end::Col-->
+																	<!--begin::Col-->
+																	<div class="col">
+																		<!--begin::Input group-->
+																		<div class="fv-row mb-7">
+																			<!--begin::Label-->
+																			<label class="fs-6 fw-semibold mb-2">
+																				<span>New Password</span>
+																				<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+																					<i class="ki-duotone ki-information fs-7">
+																						<span class="path1"></span>
+																						<span class="path2"></span>
+																						<span class="path3"></span>
+																					</i>
+																				</span>
+																			</label>
+																			<!--end::Label-->
+																			<!--begin::Input-->
+																			<input type="email" class="form-control form-control-solid" placeholder="" name="bill_email" value="info@keenthemes.com" />
+																			<!--end::Input-->
+																		</div>
+																		<!--end::Input group-->
+																	</div>
+																	<!--end::Col-->
+																</div>
+																<!--end::Row-->
+																<div class="d-flex justify-content-end">
+																	<!--begin::Button-->
+																	<button type="submit" id="kt_ecommerce_customer_profile_submit" class="btn btn-light-primary">
+																		<span class="indicator-label">Save</span>
+																		<span class="indicator-progress">Please wait...
+																		<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+																	</button>
+																	<!--end::Button-->
+																</div>
+															</form>
+															<!--end::Form-->
+														</div>
+														<!--end::Card body-->
+													</div>
+													<!--end::Card-->
+												</div>
+												<!--end:::Tab pane-->
+											</div>
+											<!--end:::Tab content-->
 										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<hr>
-					<input type="reset" class="btn btn-danger" value="{{controls.cancel.label}}"  ng-click="app.list(this)">
-					<input type="button" class="btn btn-primary first" value="{{controls.ok.label}}" ng-click="app.save(this)" ng-disabled="controls.ok.btn">
-				</form>
-			</div>
-		</div>
-	</div>
-</div>

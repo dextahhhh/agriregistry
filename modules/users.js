@@ -81,7 +81,7 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 		// addEdit
 		self.user = function(scope,row) {
 			
-			if (!access.has(scope,scope.accountProfile.groups,scope.module.id,scope.module.privileges.add)) return;
+			// if (!access.has(scope,scope.accountProfile.groups,scope.module.id,scope.module.privileges.add)) return;
 			
 			scope.user = {};
 			scope.user.id = 0;
