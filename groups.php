@@ -1,7 +1,7 @@
 <?php 
 
 	include_once 'authentication.php'; 
-	$page="users";
+	$page="groups";
 
 ?>
 <!DOCTYPE html>
@@ -459,16 +459,7 @@ License: For each use you must have a valid license purchased only from above li
 											<a href="demo1/dist/account/overview.html" class="menu-link px-5">My Profile</a>
 										</div>
 										<!--end::Menu item-->
-										<!--begin::Menu item-->
-										<div class="menu-item px-5">
-											<a href="demo1/dist/apps/projects/list.html" class="menu-link px-5">
-												<span class="menu-text">My Projects</span>
-												<span class="menu-badge">
-													<span class="badge badge-light-danger badge-circle fw-bold fs-7">3</span>
-												</span>
-											</a>
-										</div>
-										<!--end::Menu item-->
+										
 										<!--begin::Menu item-->
 										<div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="left-start" data-kt-menu-offset="-15px, 0">
 											<a href="#" class="menu-link px-5">
@@ -673,7 +664,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--begin::Page title-->
 									<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
 										<!--begin::Title-->
-										<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Users</h1>
+										<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Groups</h1>
 										<!--end::Title-->
 										<!--begin::Breadcrumb-->
 										<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -688,7 +679,7 @@ License: For each use you must have a valid license purchased only from above li
 											</li>
 											<!--end::Item-->
 											<!--begin::Item-->
-											<li class="breadcrumb-item text-muted">Users</li>
+											<li class="breadcrumb-item text-muted">Groupsmod</li>
 											<!--end::Item-->
 										</ul>
 										<!--end::Breadcrumb-->
@@ -4293,8 +4284,8 @@ License: For each use you must have a valid license purchased only from above li
 
 		<script src="modules/notifications.js"></script><!--  for notifications --> 	  
 		<script src="modules/module-access.js"></script>
-		<script src="modules/users.js?ver=1.0.0.0"></script>
-		<script src="controllers/users.js?ver=1.0.0.0"></script>
+		<script src="modules/groups.js?ver=1.0.0.0"></script>
+		<script src="controllers/groups.js?ver=1.0.0.0"></script>
 	</body>
 	<!--end::Body-->
 </html>
