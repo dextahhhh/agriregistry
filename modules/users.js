@@ -164,7 +164,7 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 		
 		self.edit = function(scope) {
 			
-			if (!access.has(scope,scope.accountProfile.groups,scope.module.id,scope.module.privileges.edit)) return;
+			// if (!access.has(scope,scope.accountProfile.groups,scope.module.id,scope.module.privileges.edit)) return;
 	
 			scope.controls.ok.btn = !scope.controls.ok.btn;
 			
@@ -172,7 +172,7 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 		
 		self.delete = function(scope,row) {
 			
-			if (!access.has(scope,scope.accountProfile.groups,scope.module.id,scope.module.privileges.delete)) return;
+			// if (!access.has(scope,scope.accountProfile.groups,scope.module.id,scope.module.privileges.delete)) return;
 			
 			var onOk = function() {
 				
