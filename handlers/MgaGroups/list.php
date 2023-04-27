@@ -8,9 +8,9 @@ require_once '../../db.php';
 
 $con = new pdo_db();
 
-$users = $con->getData("SELECT *, CONCAT(firstname,' ',middlename,' ',lastname) fullname FROM users");
+$groups = $con->getData("SELECT * FROM groups");
 
 header("Content-Type: application/json");
-echo json_encode($users);
+echo json_encode($groups);
 
 ?>

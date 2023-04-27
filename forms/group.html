@@ -1,0 +1,130 @@
+<div class="card mb-5 mb-xl-10">
+	<!--begin::Card header-->
+	<div class="card-header mt-6">
+		<!--begin::Card title-->
+		<div class="card-title flex-column">
+			<h2 class="mb-1">Group Information</h2>
+			<div class="fs-6 fw-semibold text-muted">Basic Information</div>
+		</div>
+		<!--end::Card title-->
+		<!--begin::Card toolbar-->
+		<div class="card-toolbar">
+			<!--begin::Button-->
+			<button type="button" class="btn btn-light-primary" ng-click="app.edit(this)">
+			<i class="ki-duotone ki-pencil fs-3">
+				<span class="path1"></span>
+				<span class="path2"></span>
+			</i>Edit Information</button>
+			<!--end::Button-->
+		</div>
+		<!--end::Card toolbar-->
+	</div>
+	<!--end::Card header-->
+	<!--begin::Card body-->
+	<form name="formHolder.group">
+	<div class="card-body pt-0 pb-5 mt-6">
+		<!--begin::Form-->
+		<!--begin::Row-->
+		<div class="row row-cols-1 row-cols-md-2">
+			<!--begin::Col-->
+			<div class="col">
+				<!--begin::Input group-->
+				<div class="fv-row mb-4">
+					<!--begin::Label-->
+					<label class="fs-6 fw-semibold mb-2">
+						<span>Group Name</span>
+						<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+							<i class="ki-duotone ki-information fs-7">
+								<span class="path1"></span>
+								<span class="path2"></span>
+								<span class="path3"></span>
+							</i>
+						</span>
+					</label>
+					<!--end::Label-->
+					<!--begin::Input-->
+					<input type="text" class="form-control" placeholder="" name="group_name" ng-model="group.group_name" value="" ng-disabled="controls.ok.btn" ng-class="{'is-invalid': formHolder.group.group_name.$touched && formHolder.group.group_name.$invalid}" required />
+					<!--end::Input-->
+				</div>
+				<!--end::Input group-->
+			</div>
+			<!--end::Col-->
+			<!--begin::Col-->
+			<div class="col">
+				<!--begin::Input group-->
+				<div class="fv-row mb-4">
+					<!--begin::Label-->
+					<label class="fs-6 fw-semibold mb-2">
+						<span>Group Description</span>
+						<span class="ms-1" data-bs-toggle="tooltip" title="">
+							<i class="ki-duotone ki-information fs-7">
+								<span class="path1"></span>
+								<span class="path2"></span>
+								<span class="path3"></span>
+							</i>
+						</span>
+					</label>
+					<!--end::Label-->
+					<!--begin::Input-->
+					<input type="text" class="form-control" placeholder="" name="group_description" ng-model="group.group_description" value="" ng-disabled="controls.ok.btn" ng-class="{'is-invalid': formHolder.group.group_description.$touched && formHolder.group.group_description.$invalid}" required />
+					<!--end::Input-->
+				</div>
+				<!--end::Input group-->
+			</div>
+			<!--end::Col-->
+		</div>
+		<!--end::Row-->
+	</div>
+	<!--end::Card body-->
+	<div class="card-body pt-0 pb-5">
+		<!--begin::Row-->
+		<div class="row row-cols-1 row-cols-md-3">
+			<!--begin::Col-->
+			<div class="col" ng-repeat="p in privileges">
+			<!--begin::Card-->
+			<div class="card shadow-sm">
+				<!--begin::Card body-->
+				<div class="card-body d-flex flex-center flex-column pt-12 p-9">
+					<!--begin::Avatar-->
+					<div class="symbol symbol-65px symbol-circle mb-5">
+						<i class="ki-duotone ki-user fs-4x">
+						 <i class="path1"></i>
+						 <i class="path2"></i>
+						</i>
+					</div>
+					<!--end::Avatar-->
+					<!--begin::Name-->
+					<a href="#" class="fs-4 text-gray-800 text-hover-primary fw-bold mb-0">{{p.description}}</a>
+					<!--end::Name-->
+					<!--begin::Info-->
+					<div class="row mt-10">
+						<!--begin::Stats-->
+						<div class="d-flex flex-column fv-row" ng-repeat="pp in p.privileges">
+							<div class="form-check form-check-custom form-check-solid mb-5">
+								<input class="form-check-input me-3" id="{{index}}" type="checkbox" ng-checked="pp.value" ng-model="pp.value" ng-disabled="controls.ok.btn"/>
+								<label class="form-check-label" for="{{index}}">
+									<div class="fw-semibold text-gray-800">{{pp.description}}</div>
+								</label>
+							</div>
+						</div>
+						<!--end::Stats-->
+					</div>
+					<!--end::Info-->
+				</div>
+				<!--end::Card body-->
+			</div>
+			<!--end::Card-->
+		</div>
+			<!--end::Col-->
+		</div>
+		<!--end::Row-->
+	</div>
+	
+	</form>
+	
+	
+	<div class="card-footer d-flex justify-content-end py-6 px-9">
+		<input type="reset" class="btn btn-light me-4" value="{{controls.cancel.label}}"  ng-click="app.list(this)">
+		<input type="button" class="btn btn-primary first" value="{{controls.ok.label}}" ng-click="app.save(this)" ng-disabled="controls.ok.btn">
+	</div>
+</div>

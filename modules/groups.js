@@ -5,64 +5,51 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 		var self = this;
 		
 		self.data = function(scope) { // initialize data			
-			
-			scope.formHolder = {};
+						
+			scope.mode = null;
 
 			scope.views = {};
 			scope.views.currentPage = 1;
   
 			scope.views.list = true;
-
+			
 			scope.controls = {
-				ok: {btn: false, label: 'Save'},
-				cancel: {btn: false, label: 'Cancel'},
-				add: {btn: false, label: 'New'},
-				edit: {btn: false, label: 'Edit'},
-				icon: {label: 'fa-eye'}
+				ok: {
+					btn: false,
+					label: 'Save'
+				},
+				cancel: {
+					btn: false,
+					label: 'Cancel'
+				},
 			};
-
+				
 			scope.group = {};
 			scope.group.id = 0;
 			
-			scope.groups = []; // list
-
-		};
-		
-		function mode(scope,row) {
+			scope.icons = [];
 			
-			if (row == null) {
-				scope.controls.ok.label = 'Save';
-				scope.controls.ok.btn = false;
-				scope.controls.cancel.label = 'Cancel';
-				scope.controls.cancel.btn = false;
-				scope.controls.add.btn = true;
-			} else {
-				scope.controls.ok.label = 'Update';
-				scope.controls.ok.btn = true;
-				scope.controls.cancel.label = 'Close';
-				scope.controls.cancel.btn = false;				
-				scope.controls.add.label = 'Edit';				
-			}
+			scope.groups = []; // list
 			
 		};
 		
 		self.list = function(scope) {
 			
 			bui.show();
-				
+			
 			scope.currentPage = scope.views.currentPage;
 			scope.pageSize = 10;
 			scope.maxSize = 5;
-			
-			if (scope.$id > 2) scope = scope.$parent;
 
+			scope.group = {};
+			scope.group.id = 0;
+			
 			$http({
 			  method: 'POST',
 			  url: 'handlers/MgaGroups/list.php',
-			  data: scope.groups
 			}).then(function mySucces(response) {
 				
-				scope.groups = angular.copy(response.data);
+				scope.groups = response.data;
 				
 				bui.hide();
 				
@@ -74,21 +61,40 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 			
 			$('#content').load('lists/groups.html', function() {
 				$timeout(function() { $compile($('#content')[0])(scope); },100);
-			});	
+			});		
 			
 		};
 		
-		// addEdit
+		function mode(scope,row) {
+			
+			if (row == null) {
+				scope.controls.ok.label = 'Save';
+				scope.controls.ok.btn = false;
+				scope.controls.cancel.label = 'Cancel';
+				scope.controls.cancel.btn = false;
+			} else {
+				scope.controls.ok.label = 'Update';
+				scope.controls.ok.btn = true;
+				scope.controls.cancel.label = 'Close';
+				scope.controls.cancel.btn = false;				
+			}
+			
+		};	
+		
 		self.group = function(scope,row) {
 			
 			// if (!access.has(scope,scope.accountProfile.groups,scope.module.id,scope.module.privileges.add)) return;
+
+			bui.show();
 			
 			scope.group = {};
 			scope.group.id = 0;
 			
+			privileges(scope);
+			
 			mode(scope,row);
 			
-			$('#content').load('forms/groups.html',function() {
+			$('#content').load('forms/group.html',function() {
 				$timeout(function() { $compile($('#content')[0])(scope); },200);
 			});
 			
@@ -102,130 +108,125 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 				}).then(function mySucces(response) {
 					
 					angular.copy(response.data, scope.group);
+					privileges(scope);
 					
-					mode(scope,row);
+					bui.hide();
 					
 				}, function myError(response) {
 					
-				  // error
+					bui.hide();
 				  
 				});
-				
-			};
+					
+			}; //row
 			
-		};
-		
-		self.save = function(scope) {
 			
-			if (validate.form(scope,'user')){ 
-				Swal.fire("Oops...", "Some fields are required", "error");
-				return;
-			}
-			
-			$http({
-			  method: 'POST',
-			  url: 'handlers/MgaUsers/save.php',
-			  data: scope.user
-			}).then(function mySuccess(response) {
-				
-				if(scope.user.id==0){
-					scope.user.id = response.data;
-					Swal.fire({ title: "Success!",
-					 icon: 'success',
-					 text: "User Info Successfully Added!",
-					 type: "success"}).then(okay => {
-					   if (okay) {
-						self.list(scope);
-					  }
-					});
-				} else{
-					Swal.fire({ title: "Success!",
-					 icon: 'success',
-					 text: "User Info Successfully Updated!",
-					 type: "success"}).then(okay => {
-					   if (okay) {
-						self.list(scope);
-					  }
-					});
-				};
-				
-				mode(scope,scope.user);
-				
-			}, function myError(response) {
-				
-				// error
-				
-			});	
+			bui.hide();
 			
 		};
 		
 		self.edit = function(scope) {
 			
-			if (!access.has(scope,scope.accountProfile.groups,scope.module.id,scope.module.privileges.edit)) return;
-	
+			// if (!access.has(scope,scope.accountProfile.groups,scope.module.id,scope.module.privileges.edit)) return;
+			
 			scope.controls.ok.btn = !scope.controls.ok.btn;
 			
 		};
 		
+		self.save = function(scope) {
+			
+			if (validate.form(scope,'group')){ 
+				Swal.fire("Oops...", "Some fields are required", "error");
+				return;
+			}
+		
+			$http({
+			  method: 'POST',
+			  url: 'handlers/MgaGroups/save.php',
+			  data: {group: scope.group, privileges: scope.privileges}
+			}).then(function mySucces(response) {
+				
+				if (scope.group.id == 0) {
+					scope.group.id = response.data;
+					Swal.fire({ title: "Success!",
+					 icon: 'success',
+					 text: "Group Info Successfully Added!",
+					 type: "success"}).then(okay => {
+					   if (okay) {
+						self.list(scope);
+					  }
+					});
+				}	else	{
+					Swal.fire({ title: "Success!",
+					 icon: 'success',
+					 text: "Group Info Successfully Updated!",
+					 type: "success"}).then(okay => {
+					   if (okay) {
+						self.list(scope);
+					  }
+					});
+				}
+				mode(scope,scope.group);
+				
+			}, function myError(response) {
+				 
+			  // error
+				
+			});			
+			
+		};		
+		
 		self.delete = function(scope,row) {
 			
-			if (!access.has(scope,scope.accountProfile.groups,scope.module.id,scope.module.privileges.delete)) return;
+		// if (!access.has(scope,scope.accountProfile.groups,scope.module.id,scope.module.privileges.delete)) return;	
 			
-			var onOk = function() {
-				
-				if (scope.$id > 2) scope = scope.$parent;			
-				
-				$http({
-				  method: 'POST',
-				  url: 'handlers/MgaUsers/delete.php',
-				  data: {id: [row.id]}
-				}).then(function mySucces(response) {
+		var onOk = function() {
+			
+			if (scope.$id > 2) scope = scope.$parent;			
+			
+			$http({
+			  method: 'POST',
+			  url: 'handlers/MgaGroups/delete.php',
+			  data: {id: [row.id]}
+			}).then(function mySucces(response) {
 
-					self.list(scope);
+				self.list(scope);
 				
-					Swal.fire("Deleted", "User Info Successfully Deleted", "success");
-					
-				}, function myError(response) {
-					 
-				  // error
-					
-				});
+				Swal.fire("Deleted", "Group Info Successfully Deleted", "success");
+				
+			}, function myError(response) {
+				 
+			  // error
+				
+			});
 
-			};
+		};
 
 		bootstrapModal.confirm(scope,'Confirmation','Are you sure you want to delete this record?',onOk,function() {});
 			
 		};
 		
-		function groups(scope){
-			
-			$http({
-			  method: 'POST',
-			  url: 'api/suggestions/groups.php'
-			}).then(function mySucces(response) {
-				
-				scope.groups = response.data;
-				
-			}, function myError(response) {
-				 
-			});
-			
-		}
+		// Api/Suggestions
 		
-		function offices(scope){
+		function privileges(scope) {
 			
 			$http({
 			  method: 'POST',
-			  url: 'api/suggestions/offices.php'
-			}).then(function mySucces(response) {
+			  url: 'handlers/privileges.php',
+			  data: {id: scope.group.id}
+			}).then(function mySuccess(response) {
 				
-				scope.offices = response.data;
+				scope.privileges = angular.copy(response.data);
+				
+				console.log(scope);
 				
 			}, function myError(response) {
-				 
-			});
+				
+				//
+				
+			});				
 			
-		}
+		};		
 		
 	};
 	
