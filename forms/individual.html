@@ -27,9 +27,20 @@
 				<div class="card-header border-0">
 					<!--begin::Card title-->
 					<div class="card-title">
-						<h2>Profile</h2>
+						
 					</div>
 					<!--end::Card title-->
+					
+					<!--begin::Card toolbar-->
+					<div class="card-toolbar">
+						<button type="button" class="btn btn-light-primary" ng-click="app.edit(this)">
+						<i class="ki-duotone ki-pencil fs-3">
+							<span class="path1"></span>
+							<span class="path2"></span>
+						</i>Edit Information</button>
+						<!--end::Button-->
+					</div>
+					<!--end::Card toolbar-->
 				</div>
 				<!--end::Card header-->
 				<!--begin::Card body-->
@@ -37,64 +48,146 @@
 					<!--begin::Form-->
 					<form class="form" action="#" id="kt_ecommerce_customer_profile">
 					
-					<div class="row mb-6">
-														<!--begin::Label-->
-														<label class="col-lg-4 col-form-label fw-semibold fs-6">Upload Photo Here</label>
-														<!--end::Label-->
-														<!--begin::Col-->
-														<div class="col-lg-8">
-															<!--begin::Image input-->
-															<div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('assets/media/svg/avatars/blank.svg')">
-																<!--begin::Preview existing avatar-->
-																<!-- <div class="image-input-wrapper w-125px h-125px" style="background-image: url(assets/media/avatars/300-1.jpg)"></div> -->
-																<div class="image-input-wrapper w-125px h-125px" style="background-image: url(assets/media/avatars/blank.png)"></div>
-																<!--end::Preview existing avatar-->
-																<!--begin::Label-->
-																<label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
-																	<i class="ki-duotone ki-pencil fs-7">
-																		<span class="path1"></span>
-																		<span class="path2"></span>
-																	</i>
-																	<!--begin::Inputs-->
-																	<input type="file" name="avatar" accept=".png, .jpg, .jpeg" />
-																	<input type="hidden" name="avatar_remove" />
-																	<!--end::Inputs-->
-																</label>
-																<!--end::Label-->
-																<!--begin::Cancel-->
-																<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
-																	<i class="ki-duotone ki-cross fs-2">
-																		<span class="path1"></span>
-																		<span class="path2"></span>
-																	</i>
-																</span>
-																<!--end::Cancel-->
-																<!--begin::Remove-->
-																<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
-																	<i class="ki-duotone ki-cross fs-2">
-																		<span class="path1"></span>
-																		<span class="path2"></span>
-																	</i>
-																</span>
-																<!--end::Remove-->
-															</div>
-															<!--end::Image input-->
-															<!--begin::Hint-->
-															<div class="form-text">Allowed file types: png, jpg, jpeg.</div>
-															<!--end::Hint-->
-														</div>
-														<!--end::Col-->
-													</div>
-													<!--end::Input group-->
-						<!--begin::Row-->
-						<div class="row row-cols-1 row-cols-md-2">
+					<!-- <div class="row mb-4"> -->
+								<!-- <!--begin::Label--> 
+								<!-- <label class="col-lg-4 col-form-label fw-semibold fs-6">Upload Photo Here</label> -->
+								<!-- <!--end::Label--> 
+								<!-- <!--begin::Col--> 
+								<!-- <div class="col-lg-8"> -->
+									<!-- <!--begin::Image input--> 
+									<!-- <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('assets/media/svg/avatars/blank.svg')"> -->
+										<!-- <!--begin::Preview existing avatar-->
+										<!-- <!-- <div class="image-input-wrapper w-125px h-125px" style="background-image: url(assets/media/avatars/300-1.jpg)"></div> --> 
+										<!-- <div class="image-input-wrapper w-125px h-125px" style="background-image: url(assets/media/avatars/blank.png)"></div> -->
+										<!-- <!--end::Preview existing avatar--> 
+										<!-- <!--begin::Label--> 
+										<!-- <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar"> -->
+											<!-- <i class="ki-duotone ki-pencil fs-7"> -->
+												<!-- <span class="path1"></span> -->
+												<!-- <span class="path2"></span> -->
+											<!-- </i> -->
+											<!-- <!--begin::Inputs--> 
+											<!-- <input type="file" name="avatar" accept=".png, .jpg, .jpeg" /> -->
+											<!-- <input type="hidden" name="avatar_remove" /> -->
+											<!-- <!--end::Inputs--> 
+										<!-- </label> -->
+										<!-- <!--end::Label--> 
+										<!-- <!--begin::Cancel--> 
+										<!-- <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar"> -->
+											<!-- <i class="ki-duotone ki-cross fs-2"> -->
+												<!-- <span class="path1"></span> -->
+												<!-- <span class="path2"></span> -->
+											<!-- </i> -->
+										<!-- </span> -->
+										<!-- <!--end::Cancel--> 
+										<!-- <!--begin::Remove--> 
+										<!-- <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar"> -->
+											<!-- <i class="ki-duotone ki-cross fs-2"> -->
+												<!-- <span class="path1"></span> -->
+												<!-- <span class="path2"></span> -->
+											<!-- </i> -->
+										<!-- </span> -->
+										<!-- <!--end::Remove-->
+									<!-- </div> -->
+									<!-- <!--end::Image input--> 
+									<!-- <!--begin::Hint--> 
+									<!-- <div class="form-text">Allowed file types: png, jpg, jpeg.</div> -->
+									<!-- <!--end::Hint--> 
+								<!-- </div> -->
+								<!-- <!--end::Col--> 
+							<!-- </div> -->
+							<!-- <!--end::Input group-->
+							
+							<!--begin::Row-->
+						<div class="row row-cols-1 row-cols-md-4">
+					
 							<!--begin::Col-->
 							<div class="col">
 								<!--begin::Input group-->
-								<div class="fv-row mb-7">
+								<div class="fv-row mb-4">
+								<div class="col-lg-8">
+									<!--begin::Image input-->
+									<div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('assets/media/svg/avatars/blank.svg')">
+										<!--begin::Preview existing avatar-->
+										<!-- <div class="image-input-wrapper w-125px h-125px" style="background-image: url(assets/media/avatars/300-1.jpg)"></div> -->
+										<div class="image-input-wrapper w-125px h-125px" style="background-image: url(assets/media/avatars/blank.png)"></div>
+										<!--end::Preview existing avatar-->
+										<!--begin::Label-->
+										<label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+											<i class="ki-duotone ki-pencil fs-7">
+												<span class="path1"></span>
+												<span class="path2"></span>
+											</i>
+											<!--begin::Inputs-->
+											<input type="file" name="avatar" accept=".png, .jpg, .jpeg" />
+											<input type="hidden" name="avatar_remove" />
+											<!--end::Inputs-->
+										</label>
+										<!--end::Label-->
+										<!--begin::Cancel-->
+										<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
+											<i class="ki-duotone ki-cross fs-2">
+												<span class="path1"></span>
+												<span class="path2"></span>
+											</i>
+										</span>
+										<!--end::Cancel-->
+										<!--begin::Remove-->
+										<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
+											<i class="ki-duotone ki-cross fs-2">
+												<span class="path1"></span>
+												<span class="path2"></span>
+											</i>
+										</span>
+										<!--end::Remove-->
+									</div>
+									<!--end::Image input-->
+									<!--begin::Hint-->
+									<div class="form-text">Allowed file types: png, jpg, jpeg.</div>
+									<!--end::Hint-->
+								</div>
+								<!--end::Col-->
+									
+									
+								</div>
+								<!--end::Input group-->
+							</div>
+							<!--end::Col-->
+						</div>
+						<!--end::Row-->
+						
+						<!--begin::Row-->
+						<div class="row row-cols-1 row-cols-md-4">
+							<!--begin::Col-->
+							<div class="col">
+								<!--begin::Input group-->
+								<div class="fv-row mb-4">
 									<!--begin::Label-->
 									<label class="fs-6 fw-semibold mb-2">
-										<span class="required">First Name</span>
+										<span>Registration No.</span>
+										<span class="ms-1" data-bs-toggle="tooltip" title="">
+											<i class="ki-duotone ki-information fs-7">
+												<span class="path1"></span>
+												<span class="path2"></span>
+												<span class="path3"></span>
+											</i>
+										</span>
+									</label>
+									<!--end::Label-->
+									<!--begin::Input-->
+									<input type="text" class="form-control" placeholder="" name="gen_email" value="" required/>
+									<!--end::Input-->
+								</div>
+								<!--end::Input group-->
+							</div>
+							<!--end::Col-->
+							<!--begin::Col-->
+							<div class="col">
+								<!--begin::Input group-->
+								<div class="fv-row mb-4">
+									<!--begin::Label-->
+									<label class="fs-6 fw-semibold mb-2">
+										<span>Registration Date</span>
 										<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
 											<i class="ki-duotone ki-information fs-7">
 												<span class="path1"></span>
@@ -105,7 +198,7 @@
 									</label>
 									<!--end::Label-->
 									<!--begin::Input-->
-									<input type="email" class="form-control form-control-solid" placeholder="" name="gen_email" value="max@kt.com" />
+									<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
 									<!--end::Input-->
 								</div>
 								<!--end::Input group-->
@@ -114,7 +207,45 @@
 							<!--begin::Col-->
 							<div class="col">
 								<!--begin::Input group-->
-								<div class="fv-row mb-7">
+								<div class="fv-row mb-4">
+									<!--begin::Label-->
+									<label class="fs-6 fw-semibold mb-2">
+										<span>Updated as of</span>
+										<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+											<i class="ki-duotone ki-information fs-7">
+												<span class="path1"></span>
+												<span class="path2"></span>
+												<span class="path3"></span>
+											</i>
+										</span>
+									</label>
+									<!--end::Label-->
+									<!--begin::Input-->
+									<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
+									<!--end::Input-->
+								</div>
+								<!--end::Input group-->
+							</div>
+							<!--end::Col-->
+							<!--begin::Col-->
+							<div class="col">
+								<!--begin::Input group-->
+								
+								<!--end::Input group-->
+							</div>
+							<!--end::Col-->
+						</div>
+						<!--end::Row-->
+						
+						<div class="card-title">
+						<h2 class="mb-1">1. PERSONAL INFORMATION</h2>
+						</div>
+						<!--begin::Row-->
+						<div class="row row-cols-1 row-cols-md-3">
+							<!--begin::Col-->
+							<div class="col">
+								<!--begin::Input group-->
+								<div class="fv-row mb-4">
 									<!--begin::Label-->
 									<label class="fs-6 fw-semibold mb-2">
 										<span>Last Name</span>
@@ -128,7 +259,53 @@
 									</label>
 									<!--end::Label-->
 									<!--begin::Input-->
-									<input type="email" class="form-control form-control-solid" placeholder="" name="bill_email" value="info@keenthemes.com" />
+									<input type="text" class="form-control" placeholder="" name="gen_email" value="" required/>
+									<!--end::Input-->
+								</div>
+								<!--end::Input group-->
+							</div>
+							<!--end::Col-->
+							<!--begin::Col-->
+							<div class="col">
+								<!--begin::Input group-->
+								<div class="fv-row mb-4">
+									<!--begin::Label-->
+									<label class="fs-6 fw-semibold mb-2">
+										<span>First Name</span>
+										<span class="ms-1" data-bs-toggle="tooltip" title="">
+											<i class="ki-duotone ki-information fs-7">
+												<span class="path1"></span>
+												<span class="path2"></span>
+												<span class="path3"></span>
+											</i>
+										</span>
+									</label>
+									<!--end::Label-->
+									<!--begin::Input-->
+									<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
+									<!--end::Input-->
+								</div>
+								<!--end::Input group-->
+							</div>
+							<!--end::Col-->
+							<!--begin::Col-->
+							<div class="col">
+								<!--begin::Input group-->
+								<div class="fv-row mb-4">
+									<!--begin::Label-->
+									<label class="fs-6 fw-semibold mb-2">
+										<span>Middle Name</span>
+										<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+											<i class="ki-duotone ki-information fs-7">
+												<span class="path1"></span>
+												<span class="path2"></span>
+												<span class="path3"></span>
+											</i>
+										</span>
+									</label>
+									<!--end::Label-->
+									<!--begin::Input-->
+									<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
 									<!--end::Input-->
 								</div>
 								<!--end::Input group-->
@@ -136,7 +313,71 @@
 							<!--end::Col-->
 						</div>
 						<!--end::Row-->
-												<div class="card-footer d-flex justify-content-end py-6 px-9">
+						
+						<!--begin::Row-->
+						<div class="row row-cols-1 row-cols-md-3">
+							<!--begin::Col-->
+							<div class="col">
+								<!--begin::Input group-->
+								<div class="fv-row mb-4">
+									<!--begin::Label-->
+									<label class="fs-6 fw-semibold mb-2">
+										<span>Appellation</span>
+										<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+											<i class="ki-duotone ki-information fs-7">
+												<span class="path1"></span>
+												<span class="path2"></span>
+												<span class="path3"></span>
+											</i>
+										</span>
+									</label>
+									<!--end::Label-->
+									<!--begin::Input-->
+									<select class="form-select" aria-label="Select example">
+										<option></option>
+										<option value="None">None</option>
+										<option value="Sr.">Sr.</option>
+										<option value="Jr.">Jr.</option>
+										<option value="III.">III.</option>
+									</select>
+									<!--end::Input-->
+								</div>
+								<!--end::Input group-->
+							</div>
+							<!--end::Col-->
+							<!--begin::Col-->
+							<div class="col">
+								<!--begin::Input group-->
+								<div class="fv-row mb-4">
+									<!--begin::Label-->
+									<label class="fs-6 fw-semibold mb-2">
+										<span>Salutation</span>
+										<span class="ms-1" data-bs-toggle="tooltip" title="">
+											<i class="ki-duotone ki-information fs-7">
+												<span class="path1"></span>
+												<span class="path2"></span>
+												<span class="path3"></span>
+											</i>
+										</span>
+									</label>
+									<!--end::Label-->
+									<!--begin::Input-->
+									<select class="form-select" aria-label="Select example">
+										<option></option>
+										<option value="None">Mr.</option>
+										<option value="Ms.">Ms.</option>
+										<option value="Mrs.">Mrs.</option>
+									</select>
+									<!--end::Input-->
+								</div>
+								<!--end::Input group-->
+							</div>
+							<!--end::Col-->
+							<!--begin::Col-->
+						</div>
+						<!--end::Row-->
+						
+							<div class="card-footer d-flex justify-content-end py-6 px-9">
 							<button type="reset" class="btn btn-light btn-active-light-primary me-2">Cancel</button>
 							<button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">Save Changes</button>
 						</div>
