@@ -114,7 +114,6 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 			};
 			
 			groups(scope);
-			offices(scope);
 			
 		};
 		
@@ -208,21 +207,6 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 			}).then(function mySucces(response) {
 				
 				scope.groups = response.data;
-				
-			}, function myError(response) {
-				 
-			});
-			
-		}
-		
-		function offices(scope){
-			
-			$http({
-			  method: 'POST',
-			  url: 'api/suggestions/offices.php'
-			}).then(function mySucces(response) {
-				
-				scope.offices = response.data;
 				
 			}, function myError(response) {
 				 

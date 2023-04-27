@@ -48,80 +48,115 @@
 				<div class="card-body pt-0 pb-5">
 					<!--begin::Form-->
 					<form class="needs-validation" novalidate="" role="form" name="formHolder.user">
-					<table class="table align-middle table-row-dashed gy-5" >
-						<tbody class="fs-6 fw-semibold text-gray-600">
-							<tr>
-								<td>First Name</td>
-								<td><input type="text" class="form-control" name="firstname" ng-model="user.firstname" ng-disabled="controls.ok.btn" ng-class="{'is-invalid': formHolder.user.firstname.$touched && formHolder.user.firstname.$invalid}" required /></td>
-								<td class="text-end">
-									<button type="button" class="btn btn-icon btn-active-light-primary w-30px h-30px ms-auto" data-bs-toggle="modal" data-bs-target="#kt_modal_update_email">
-										<i class="ki-duotone ki-pencil fs-3">
-											<span class="path1"></span>
-											<span class="path2"></span>
-										</i>
-									</button>
-								</td>
-							</tr>
-							<tr>
-								<td>Middle Name</td>
-								<td><input type="text" class="form-control" name="middlename" ng-model="user.middlename" ng-disabled="controls.ok.btn" ng-class="{'is-invalid': formHolder.user.middlename.$touched && formHolder.user.middlename.$invalid}" required /></td>
-								<td class="text-end">
-									<button type="button" class="btn btn-icon btn-active-light-primary w-30px h-30px ms-auto" data-bs-toggle="modal" data-bs-target="#kt_modal_update_email">
-										<i class="ki-duotone ki-pencil fs-3">
-											<span class="path1"></span>
-											<span class="path2"></span>
-										</i>
-									</button>
-								</td>
-							</tr>
-							<tr>
-								<td>Last Name</td>
-								<td><input type="text" class="form-control " name="lastname" ng-model="user.lastname" ng-disabled="controls.ok.btn" ng-class="{'is-invalid': formHolder.user.lastname.$touched && formHolder.user.lastname.$invalid}" required /></td>
-								<td class="text-end">
-									<button type="button" class="btn btn-icon btn-active-light-primary w-30px h-30px ms-auto" data-bs-toggle="modal" data-bs-target="#kt_modal_update_email">
-										<i class="ki-duotone ki-pencil fs-3">
-											<span class="path1"></span>
-											<span class="path2"></span>
-										</i>
-									</button>
-								</td>
-							</tr>
-							<tr>
-								<td>User Name</td>
-								<td><input type="text" class="form-control " name="username" ng-model="user.username" ng-disabled="controls.ok.btn" ng-class="{'is-invalid': formHolder.user.username.$touched && formHolder.user.username.$invalid}" required /></td>
-								<td class="text-end">
-									<button type="button" class="btn btn-icon btn-active-light-primary w-30px h-30px ms-auto" data-bs-toggle="modal" data-bs-target="#kt_modal_update_email">
-										<i class="ki-duotone ki-pencil fs-3">
-											<span class="path1"></span>
-											<span class="path2"></span>
-										</i>
-									</button>
-								</td>
-							</tr>
-							<tr>
-								<td>Role</td>
-								<td><input type="text" class="form-control " name="groups" ng-model="user.groups" ng-disabled="controls.ok.btn" ng-class="{'is-invalid': formHolder.user.groups.$touched && formHolder.user.groups.$invalid}" required /></td>
-								<td class="text-end">
-									<button type="button" class="btn btn-icon btn-active-light-primary w-30px h-30px ms-auto" data-bs-toggle="modal" data-bs-target="#kt_modal_update_email">
-										<i class="ki-duotone ki-pencil fs-3">
-											<span class="path1"></span>
-											<span class="path2"></span>
-										</i>
-									</button>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					<!--end::Form-->
-					<div class="d-flex justify-content-end align-items-center mt-12">
-						<!--begin::Button-->
-						<input type="reset" class="btn btn-light me-4" value="{{controls.cancel.label}}"  ng-click="app.list(this)">
-						<input type="button" class="btn btn-primary first" value="{{controls.ok.label}}" ng-click="app.save(this)" ng-disabled="controls.ok.btn">
-						<!--end::Button-->
-					</div>
+						<!--begin::Card body-->
+						<div class="card-body border-top p-9">
+							<!--begin::Input group-->
+							<div class="row mb-6">
+								<!--begin::Label-->
+								<label class="col-lg-4 col-form-label fw-semibold fs-6">Avatar</label>
+								<!--end::Label-->
+								<!--begin::Col-->
+								<div class="col-lg-8">
+									<!--begin::Image input-->
+									<div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('assets/media/svg/avatars/blank.svg')">
+										<!--begin::Preview existing avatar-->
+										<div class="image-input-wrapper w-125px h-125px" style="background-image: url(assets/media/avatars/300-1.jpg)"></div>
+										<!--end::Preview existing avatar-->
+										<!--begin::Label-->
+										<label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+											<i class="ki-duotone ki-pencil fs-7">
+												<span class="path1"></span>
+												<span class="path2"></span>
+											</i>
+											<!--begin::Inputs-->
+											<input type="file" name="avatar" accept=".png, .jpg, .jpeg" />
+											<input type="hidden" name="avatar_remove" />
+											<!--end::Inputs-->
+										</label>
+										<!--end::Label-->
+										<!--begin::Cancel-->
+										<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
+											<i class="ki-duotone ki-cross fs-2">
+												<span class="path1"></span>
+												<span class="path2"></span>
+											</i>
+										</span>
+										<!--end::Cancel-->
+										<!--begin::Remove-->
+										<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
+											<i class="ki-duotone ki-cross fs-2">
+												<span class="path1"></span>
+												<span class="path2"></span>
+											</i>
+										</span>
+										<!--end::Remove-->
+									</div>
+									<!--end::Image input-->
+									<!--begin::Hint-->
+									<div class="form-text">Allowed file types: png, jpg, jpeg.</div>
+									<!--end::Hint-->
+								</div>
+								<!--end::Col-->
+							</div>
+							<!--end::Input group-->
+							<!--begin::Input group-->
+							<div class="row mb-6">
+								<!--begin::Label-->
+								<label class="col-lg-4 col-form-label required fw-semibold fs-6">First Name</label>
+								<!--end::Label-->
+								<!--begin::Col-->
+								<div class="col-lg-8 fv-row">
+									<input type="text" class="form-control " name="firstname" ng-model="user.firstname" ng-disabled="controls.ok.btn"/>
+								</div>
+								<!--end::Col-->
+							</div>
+							<!--end::Input group-->
+							<!--begin::Input group-->
+							<div class="row mb-6">
+								<!--begin::Label-->
+								<label class="col-lg-4 col-form-label required fw-semibold fs-6">Middle Name</label>
+								<!--end::Label-->
+								<!--begin::Col-->
+								<div class="col-lg-8 fv-row">
+									<input type="text" class="form-control " name="middlename" ng-model="user.middlename" ng-disabled="controls.ok.btn"/>
+								</div>
+								<!--end::Col-->
+							</div>
+							<!--end::Input group-->
+							<!--begin::Input group-->
+							<div class="row mb-6">
+								<!--begin::Label-->
+								<label class="col-lg-4 col-form-label required fw-semibold fs-6">Last Name</label>
+								<!--end::Label-->
+								<!--begin::Col-->
+								<div class="col-lg-8 fv-row">
+									<input type="text" class="form-control " name="lastname" ng-model="user.lastname" ng-disabled="controls.ok.btn"/>
+								</div>
+								<!--end::Col-->
+							</div>
+							<!--end::Input group-->
+							<!--begin::Input group-->
+							<div class="row mb-6">
+								<!--begin::Label-->
+								<label class="col-lg-4 col-form-label required fw-semibold fs-6">Role</label>
+								<!--end::Label-->
+								<!--begin::Col-->
+								<div class="col-lg-8 fv-row">
+									<input type="text" class="form-control " name="groups" ng-model="user.groups" ng-disabled="controls.ok.btn"/>
+								</div>
+								<!--end::Col-->
+							</div>
+							<!--end::Input group-->
+						</div>
+						<!--end::Card body-->
 					</form>
+					<!--end::Form-->
 				</div>
 				<!--end::Card body-->
+				<div class="card-footer d-flex justify-content-end py-6 px-9">
+					<input type="reset" class="btn btn-light me-4" value="{{controls.cancel.label}}"  ng-click="app.list(this)">
+					<input type="button" class="btn btn-primary first" value="{{controls.ok.label}}" ng-click="app.save(this)" ng-disabled="controls.ok.btn">
+				</div>
 			</div>
 			<!--end::Card-->
 		</div>
@@ -157,32 +192,41 @@
 				<div class="card-body pt-0 pb-5">
 					<!--begin::Form-->
 					<form class="needs-validation" novalidate="" role="form" name="formHolder.user">
-					<table class="table align-middle table-row-dashed gy-5" id="kt_table_users_login_session" class="needs-validation" novalidate="" role="form" name="formHolder.user">
-						<tbody class="fs-6 fw-semibold text-gray-600">
-							<tr>
-								<td>Password</td>
-								<td><input type="password" class="form-control " name="password" ng-model="user.password" ng-disabled="controls.ok.btn" placeholder="*********"/></td>
-								<td class="text-end">
-									<button type="button" class="btn btn-icon btn-active-light-primary w-30px h-30px ms-auto" data-bs-toggle="modal" data-bs-target="#kt_modal_update_email">
-										<i class="ki-duotone ki-pencil fs-3">
-											<span class="path1"></span>
-											<span class="path2"></span>
-										</i>
-									</button>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					<!--end::Form-->
-					<div class="d-flex justify-content-end align-items-center mt-12">
-						<!--begin::Button-->
-						<input type="reset" class="btn btn-light me-4" value="{{controls.cancel.label}}"  ng-click="app.list(this)">
-						<input type="button" class="btn btn-primary first" value="{{controls.ok.label}}" ng-click="app.save(this)" ng-disabled="controls.ok.btn">
-						<!--end::Button-->
-					</div>
+						<!--begin::Card body-->
+						<div class="card-body border-top p-9">
+							<!--begin::Input group-->
+							<div class="row mb-6">
+								<!--begin::Label-->
+								<label class="col-lg-4 col-form-label required fw-semibold fs-6">User Name</label>
+								<!--end::Label-->
+								<!--begin::Col-->
+								<div class="col-lg-8 fv-row">
+									<input type="text" class="form-control " name="username" ng-model="user.username" ng-disabled="controls.ok.btn"/>
+								</div>
+								<!--end::Col-->
+							</div>
+							<!--end::Input group-->
+							<!--begin::Input group-->
+							<div class="row mb-6">
+								<!--begin::Label-->
+								<label class="col-lg-4 col-form-label required fw-semibold fs-6">Password</label>
+								<!--end::Label-->
+								<!--begin::Col-->
+								<div class="col-lg-8 fv-row">
+									<input type="password" class="form-control " name="password" ng-model="user.password" ng-disabled="controls.ok.btn"/>
+								</div>
+								<!--end::Col-->
+							</div>
+							<!--end::Input group-->
+						</div>
+						<!--end::Card body-->
 					</form>
 				</div>
 				<!--end::Card body-->
+				<div class="card-footer d-flex justify-content-end py-6 px-9">
+					<input type="reset" class="btn btn-light me-4" value="{{controls.cancel.label}}"  ng-click="app.list(this)">
+					<input type="button" class="btn btn-primary first" value="{{controls.ok.label}}" ng-click="app.save(this)" ng-disabled="controls.ok.btn">
+				</div>
 			</div>
 			<!--end::Card-->
 		</div>
