@@ -27,39 +27,26 @@ if (count($group_privileges)) {
 	
 }
 
-// foreach($privileges as $key => $privilege)	{
+foreach($privileges as $key => $privilege)	{
 	
-	// $privileges[$key]['icon'] = "fa fa-dashboard";
+	$privileges[$key]['icon'] = "ki-duotone ki-element-11";
 	
-	// if($privilege['id']=="dashboard"){
-		// $privileges[$key]['icon'] = "fa fa-dashboard";
-	// }
-	// if($privilege['id']=="dashboard"){
-		// $privileges[$key]['icon'] = "fa fa-dashboard";
-	// }
-	// else if($privilege['id']=="add_document"){
-		// $privileges[$key]['icon'] = "fa fa-file";
-	// }else if($privilege['id']=="receive_document"){
-		// $privileges[$key]['icon'] = "fa fa-file";
-	// }else if($privilege['id']=="file_document"){
-		// $privileges[$key]['icon'] = "fa fa-file";
-	// }else if($privilege['id']=="update_tracks"){
-		// $privileges[$key]['icon'] = "fa fa-map-marker";
-	// }else if($privilege['id']=="track_document"){
-		// $privileges[$key]['icon'] = "fa fa-map-marker";
-	// }else if($privilege['id']=="list_of_documents"){
-		// $privileges[$key]['icon'] = "fa fa-file";
-	// }else if($privilege['id']=="accounts"){
-		// $privileges[$key]['icon'] = "fa fa-user-plus";
-	// }else if($privilege['id']=="groups"){
-		// $privileges[$key]['icon'] = "fa fa-users";
-	// }else if($privilege['id']=="maintenance"){
-		// $privileges[$key]['icon'] = "fa fa-cogs";
-	// }else {
-		// $privileges[$key]['icon'] = "fa fa-dashboard";
-	// }
+	if($privilege['id']=="dashboard"){
+		$privileges[$key]['icon'] = "ki-duotone ki-element-11";
+	}
+	else if($privilege['id']=="add_document"){
+		$privileges[$key]['icon'] = "fa fa-file";
+	}else if($privilege['id']=="individuals"){
+		$privileges[$key]['icon'] = "ki-duotone ki-address-book";
+	}else if($privilege['id']=="users"){
+		$privileges[$key]['icon'] = "ki-duotone ki-user";
+	}else if($privilege['id']=="groups"){
+		$privileges[$key]['icon'] = "ki-duotone ki-people";
+	}else {
+		$privileges[$key]['icon'] = "ki-duotone ki-element-11";
+	}
 
-// }
+}
 
 echo json_encode($privileges);
 

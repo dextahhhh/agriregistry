@@ -142,7 +142,8 @@
 								<!--end::Label-->
 								<!--begin::Col-->
 								<div class="col-lg-8 fv-row">
-									<input type="text" class="form-control " name="groups" ng-model="user.groups" ng-disabled="controls.ok.btn"/>
+									<select class="form-control" name="groups" ng-model="user.groups" ng-disabled="controls.ok.btn" ng-options="group.group_name for group in groups track by group.id" ng-class="{'is-invalid': formHolder.user.groups.$touched && formHolder.user.groups.$invalid}" required>
+									</select>
 								</div>
 								<!--end::Col-->
 							</div>

@@ -67,24 +67,35 @@
 						</div>
 						<!--begin::User details-->
 					</td>
-					<td>{{data.groups}}</td>
+					<td>{{data.groups.group_name}}</td>
 					<td>{{data.system_log}}</td>
 					<td>
-						<button type="button" class="btn btn-sm btn-icon btn-color-light-dark btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" ng-click="app.user(this,data)">
-							<i class="ki-duotone ki-notepad-edit fs-2qx">
+						<a href="" ng-click="app.user(this,data)" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"><i class="ki-duotone ki-notepad-edit fs-2qx">
 							 <i class="path1"></i>
 							 <i class="path2"></i>
-							</i>
-						</button>
-						<button type="button" class="btn btn-sm btn-icon btn-color-light-dark btn-active-light-danger" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" ng-click="app.delete(this,data)">
-							<i class="ki-duotone ki-trash fs-2qx">
+						</i></a>
+						<a href="" ng-click="app.delete(this,data)" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"><i class="ki-duotone ki-trash fs-2qx">
 							 <i class="path1"></i>
 							 <i class="path2"></i>
 							 <i class="path3"></i>
 							 <i class="path4"></i>
 							 <i class="path5"></i>
-							</i>
-						</button>
+						</i></a>
+						<!-- <button type="button" class="btn btn-sm btn-icon btn-color-light-dark btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" ng-click="app.user(this,data)"> -->
+							<!-- <i class="ki-duotone ki-notepad-edit fs-2qx"> -->
+							 <!-- <i class="path1"></i> -->
+							 <!-- <i class="path2"></i> -->
+							<!-- </i> -->
+						<!-- </button> -->
+						<!-- <button type="button" class="btn btn-sm btn-icon btn-color-light-dark btn-active-light-danger" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" ng-click="app.delete(this,data)"> -->
+							<!-- <i class="ki-duotone ki-trash fs-2qx"> -->
+							 <!-- <i class="path1"></i> -->
+							 <!-- <i class="path2"></i> -->
+							 <!-- <i class="path3"></i> -->
+							 <!-- <i class="path4"></i> -->
+							 <!-- <i class="path5"></i> -->
+							<!-- </i> -->
+						<!-- </button> -->
 					</td>
 				</tr>
 			</tbody>
