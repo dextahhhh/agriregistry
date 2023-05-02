@@ -41,7 +41,7 @@
 					<!--begin:Menu item-->
 					<div class="menu-item">
 						<!--begin:Menu link-->
-						<a class="menu-link" href="individual.php">
+						<a class="menu-link <?=($page=="individual")?'active':''?>" href="individual.php">
 							<span class="menu-bullet">
 								<span class="bullet bullet-dot"></span>
 							</span>
