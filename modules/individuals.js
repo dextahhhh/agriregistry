@@ -21,10 +21,10 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 				icon: {label: 'fa-eye'}
 			};
 
-			scope.user = {};
-			scope.user.id = 0;
+			scope.individual = {};
+			scope.individual.id = 0;
 			
-			scope.users = []; // list
+			scope.individuals = []; // list
 
 		};
 		
@@ -58,11 +58,11 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 
 			$http({
 			  method: 'POST',
-			  url: 'handlers/MgaIndividual/list.php',
-			  data: scope.users
+			  url: 'handlers/MgaIndividuals/list.php',
+			  data: scope.individuals
 			}).then(function mySucces(response) {
 				
-				scope.users = angular.copy(response.data);
+				scope.individuals = angular.copy(response.data);
 				
 				bui.hide();
 				
@@ -72,7 +72,7 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 				
 			});
 			
-			$('#content').load('lists/individual.html', function() {
+			$('#content').load('lists/individuals.html', function() {
 				$timeout(function() { $compile($('#content')[0])(scope); },100);
 			});	
 			
@@ -97,7 +97,7 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 				if (scope.$id > 2) scope = scope.$parent;				
 				$http({
 				  method: 'POST',
-				  url: 'handlers/MgaUsers/view.php',
+				  url: 'handlers/MgaIndividuals/view.php',
 				  data: {id: row.id}
 				}).then(function mySucces(response) {
 					
@@ -113,29 +113,26 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 				
 			};
 			
-			groups(scope);
-			offices(scope);
-			
 		};
 		
 		self.save = function(scope) {
 			
-			if (validate.form(scope,'user')){ 
+			if (validate.form(scope,'individual')){ 
 				Swal.fire("Oops...", "Some fields are required", "error");
 				return;
 			}
 			
 			$http({
 			  method: 'POST',
-			  url: 'handlers/MgaUsers/save.php',
-			  data: scope.user
+			  url: 'handlers/MgaIndividuals/save.php',
+			  data: scope.individual
 			}).then(function mySuccess(response) {
 				
-				if(scope.user.id==0){
-					scope.user.id = response.data;
+				if(scope.individual.id==0){
+					scope.individual.id = response.data;
 					Swal.fire({ title: "Success!",
 					 icon: 'success',
-					 text: "User Info Successfully Added!",
+					 text: "Individual Info Successfully Added!",
 					 type: "success"}).then(okay => {
 					   if (okay) {
 						self.list(scope);
@@ -144,7 +141,7 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 				} else{
 					Swal.fire({ title: "Success!",
 					 icon: 'success',
-					 text: "User Info Successfully Updated!",
+					 text: "Individual Info Successfully Updated!",
 					 type: "success"}).then(okay => {
 					   if (okay) {
 						self.list(scope);
@@ -152,7 +149,7 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 					});
 				};
 				
-				mode(scope,scope.user);
+				mode(scope,scope.individual);
 				
 			}, function myError(response) {
 				
@@ -164,7 +161,7 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 		
 		self.edit = function(scope) {
 			
-			if (!access.has(scope,scope.accountProfile.groups,scope.module.id,scope.module.privileges.edit)) return;
+			// if (!access.has(scope,scope.accountProfile.groups,scope.module.id,scope.module.privileges.edit)) return;
 	
 			scope.controls.ok.btn = !scope.controls.ok.btn;
 			
@@ -172,7 +169,7 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 		
 		self.delete = function(scope,row) {
 			
-			if (!access.has(scope,scope.accountProfile.groups,scope.module.id,scope.module.privileges.delete)) return;
+			// if (!access.has(scope,scope.accountProfile.groups,scope.module.id,scope.module.privileges.delete)) return;
 			
 			var onOk = function() {
 				
@@ -180,13 +177,13 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 				
 				$http({
 				  method: 'POST',
-				  url: 'handlers/MgaUsers/delete.php',
+				  url: 'handlers/MgaIndividuals/delete.php',
 				  data: {id: [row.id]}
 				}).then(function mySucces(response) {
 
 					self.list(scope);
 				
-					Swal.fire("Deleted", "User Info Successfully Deleted", "success");
+					Swal.fire("Deleted", "Individual Info Successfully Deleted", "success");
 					
 				}, function myError(response) {
 					 
@@ -199,36 +196,6 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 		bootstrapModal.confirm(scope,'Confirmation','Are you sure you want to delete this record?',onOk,function() {});
 			
 		};
-		
-		function groups(scope){
-			
-			$http({
-			  method: 'POST',
-			  url: 'api/suggestions/groups.php'
-			}).then(function mySucces(response) {
-				
-				scope.groups = response.data;
-				
-			}, function myError(response) {
-				 
-			});
-			
-		}
-		
-		function offices(scope){
-			
-			$http({
-			  method: 'POST',
-			  url: 'api/suggestions/offices.php'
-			}).then(function mySucces(response) {
-				
-				scope.offices = response.data;
-				
-			}, function myError(response) {
-				 
-			});
-			
-		}
 		
 	};
 	

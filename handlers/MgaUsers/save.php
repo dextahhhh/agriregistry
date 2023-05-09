@@ -20,6 +20,7 @@ if ($_POST['id']) {
 		$id = $_POST['id'];
 		$user = $con->updateObj($_POST,'id');
 		
+		
 	} else {
 
 		$_POST['password'] = hash('sha512',$_POST['password']);
@@ -34,7 +35,7 @@ if ($_POST['id']) {
 	$user = $con->insertObj($_POST);
 	// $id = $con->insertId;
 	echo $con->insertId;
-	
+
 }
 
 ?>

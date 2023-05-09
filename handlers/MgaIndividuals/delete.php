@@ -10,7 +10,7 @@ require_once '../../db.php';
 
 session_start();
 
-$con = new pdo_db("users");
+$con = new pdo_db("individuals");
 
 $delete = $con->deleteData(array("id"=>implode(",",$_POST['id'])));	
 
