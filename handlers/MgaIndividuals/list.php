@@ -8,7 +8,7 @@ require_once '../../db.php';
 
 $con = new pdo_db();
 
-$individuals = $con->getData("SELECT *, CONCAT(firstname,' ',middlename,' ',lastname,' ',appellation) fullname, DATE_FORMAT(system_log,'%M %d, %Y %h:%i %p') system_log FROM individuals");
+$individuals = $con->getData("SELECT *, CONCAT(firstname,' ',middlename,' ',lastname) fullname, DATE_FORMAT(system_log,'%M %d, %Y %h:%i %p') system_log FROM individuals");
 
 header("Content-Type: application/json");
 echo json_encode($individuals);
