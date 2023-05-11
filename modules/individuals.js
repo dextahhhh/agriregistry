@@ -113,6 +113,9 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 				$timeout(function() { $compile($('#content')[0])(scope); },100);
 			});	
 			
+			provinces(scope);
+			municipalities(scope);
+			
 		};
 		
 		// addEdit
@@ -141,6 +144,8 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 					angular.copy(response.data, scope.individual);
 					
 					mode(scope,row);
+					
+					scope.individual.birth_date = new Date();
 					
 				}, function myError(response) {
 					

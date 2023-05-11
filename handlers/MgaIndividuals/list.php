@@ -10,6 +10,17 @@ $con = new pdo_db();
 
 $individuals = $con->getData("SELECT *, CONCAT(firstname,' ',middlename,' ',lastname) fullname, DATE_FORMAT(system_log,'%M %d, %Y %h:%i %p') system_log FROM individuals");
 
+foreach ($individuals as $key => $individual) {
+	
+	$province = $con->getData("SELECT * FROM provinces WHERE id = ".$individual['province']);
+	$individuals[$key]['province'] = $province[0];
+
+	$municipality = $con->getData("SELECT * FROM municipalities WHERE id = ".$individual['municipality']);
+	$individuals[$key]['municipality'] = $municipality[0];
+
+
+};
+
 header("Content-Type: application/json");
 echo json_encode($individuals);
 
