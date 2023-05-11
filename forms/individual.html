@@ -1136,7 +1136,102 @@
 								</div>
 								<!--end::Wrapper-->
 							</div>
-							<!--end::d-flex flex-wrap flex-stack-->						
+							<!--end::d-flex flex-wrap flex-stack-->	
+
+
+							<!--begin::d-flex flex-wrap flex-stack-->
+							<div class="d-flex flex-wrap flex-stack">
+								<!--begin::Wrapper-->
+								<div class="d-flex flex-column flex-grow-1 pe-8">
+									<div class="row row-cols-1 row-cols-md-3">
+									<!--begin::Col-->
+									<div class="col">
+										<!--begin::Input group-->
+										<div class="fv-row mb-4">
+											<!--begin::Label-->
+											<label class="fs-6 fw-semibold mb-2">
+												<span>Household Head?</span>
+												<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+													<i class="ki-duotone ki-information fs-7">
+														<span class="path1"></span>
+														<span class="path2"></span>
+														<span class="path3"></span>
+													</i>
+												</span>
+											</label>
+											<!--end::Label-->
+											<!--begin::Checkboxes-->
+											<div class="d-flex align-items-center">
+												<!--begin::Radio-->
+												<label class="form-check form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-20px w-20px" name="is_4ps" ng-model="individual.is_4ps" type="radio" value="1" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<span class="form-check-label fw-semibold">Yes</span>
+												</label>
+												<!--end::Radio-->
+												<!--begin::Radio-->
+												<label class="form-check form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-20px w-20px" name="is_4ps" ng-model="individual.is_4ps" type="radio" value="0" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<span class="form-check-label fw-semibold">No</span>
+												</label>
+												<!--end::Radio-->
+											</div>
+											<!--end::Checkboxes-->
+										</div>
+										<!--end::Input group-->
+									</div>
+									<!--end::Col-->
+									<!--begin::Col-->
+									<!--begin::Col-->
+									<div class="col">
+										<!--begin::Input group-->
+										<div class="fv-row mb-4">
+											<!--begin::Label-->
+											<label class="fs-6 fw-semibold mb-2">
+												<span>If NO, name of household head:</span>
+												<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+													<i class="ki-duotone ki-information fs-7">
+														<span class="path1"></span>
+														<span class="path2"></span>
+														<span class="path3"></span>
+													</i>
+												</span>
+											</label>
+											<!--end::Label-->
+											<!--begin::Input-->
+											<input type="text" class="form-control" placeholder="" name="no_of_male" ng-model="individual.no_of_male" ng-disabled="controls.ok.btn" />
+											<!--end::Input-->
+										</div>
+										<!--end::Input group-->
+									</div>
+									<!--end::Col-->
+									<div class="col">
+										<!--begin::Input group-->
+										<div class="fv-row mb-4">
+											<!--begin::Label-->
+											<label class="fs-6 fw-semibold mb-2">
+												<span>Relationship</span>
+												<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+													<i class="ki-duotone ki-information fs-7">
+														<span class="path1"></span>
+														<span class="path2"></span>
+														<span class="path3"></span>
+													</i>
+												</span>
+											</label>
+											<!--end::Label-->
+											<!--begin::Input-->
+											<input type="text" class="form-control" placeholder="" name="no_of_male" ng-model="individual.no_of_male" ng-disabled="controls.ok.btn" />
+											<!--end::Input-->
+										</div>
+										<!--end::Input group-->
+									</div>
+									<!--end::Col-->
+								</div>
+									<!--end::Row-->	
+								</div>
+								<!--end::Wrapper-->
+							</div>
+							<!--end::d-flex flex-wrap flex-stack-->			
 							<div class="separator my-7"></div>
 							
 							<!--begin::d-flex flex-wrap flex-stack-->
@@ -3083,12 +3178,14 @@
 						</div>
 						<!--end::me-7 mb-4-->
 						
+						<!--begin::flex-grow-1-->
+						<div class="flex-grow-1">
 							<!--begin::d-flex flex-wrap flex-stack-->
 							<div class="d-flex flex-wrap flex-stack mb-10">
 								<!--begin::Wrapper-->
 								<div class="d-flex flex-column flex-grow-1 pe-8">
 									<div class="card-header">
-										<h3 class="text-danger">3.B COMMODITY (FOR FISHERFOLK)</h3>
+										<h3 class="text-danger">3.A FARM PARCEL (FOR FARMERS,FARM WORKERS & LIVESTOCK</h3>
 										<div class="card-toolbar">
 											<a href="#" class="btn btn-primary">
 										<i class="ki-duotone ki-plus-square fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
@@ -3109,15 +3206,259 @@
 									<div class="card-body">
 										<!--begin::Wrapper-->
 										<div class="d-flex flex-column flex-grow-1 pe-5">
-											<div class="row row-cols-1 row-cols-md-2 mb-7">
+											
+											<!--begin::d-flex align-items-center mb-2-->
+											<div class="d-flex align-items-center mb-3">
+												<h5>Farm Land Description</h5>
+											</div>
+											<!--end::d-flex align-items-center mb-2-->
+											<div class="row row-cols-1 row-cols-md-3">
 												<!--begin::Col-->
 												<div class="col">
 													<!--begin::Input group-->
 													<div class="fv-row mb-4">
 														<!--begin::Label-->
 														<label class="fs-6 fw-semibold mb-2">
-															<span>Area of Production</span>
-															<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+															<span>Farm Parcel No.</span>
+															<span class="ms-1" data-bs-toggle="tooltip" title="">
+																<i class="ki-duotone ki-information fs-7">
+																	<span class="path1"></span>
+																	<span class="path2"></span>
+																	<span class="path3"></span>
+																</i>
+															</span>
+														</label>
+														<!--end::Label-->
+														<!--begin::Input-->
+														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
+														<!--end::Input-->
+													</div>
+													<!--end::Input group-->
+												</div>
+												<!--end::Col-->
+												<!--begin::Col-->
+												<div class="col">
+													<!--begin::Input group-->
+													<div class="fv-row mb-4">
+														<!--begin::Label-->
+														<label class="fs-6 fw-semibold mb-2">
+															<span>Farm Location</span>
+															<span class="ms-1" data-bs-toggle="tooltip" title="">
+																<i class="ki-duotone ki-information fs-7">
+																	<span class="path1"></span>
+																	<span class="path2"></span>
+																	<span class="path3"></span>
+																</i>
+															</span>
+														</label>
+														<!--end::Label-->
+														<!--begin::Input-->
+														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
+														<!--end::Input-->
+													</div>
+													<!--end::Input group-->
+												</div>
+												<!--end::Col-->
+												<!--begin::Col-->
+												<div class="col">
+													<!--begin::Input group-->
+													<div class="fv-row mb-4">
+														<!--begin::Label-->
+														<label class="fs-6 fw-semibold mb-2">
+															<span>Total Farm Area (in hectares)</span>
+															<span class="ms-1" data-bs-toggle="tooltip" title="">
+																<i class="ki-duotone ki-information fs-7">
+																	<span class="path1"></span>
+																	<span class="path2"></span>
+																	<span class="path3"></span>
+																</i>
+															</span>
+														</label>
+														<!--end::Label-->
+														<!--begin::Input-->
+														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
+														<!--end::Input-->
+													</div>
+													<!--end::Input group-->
+												</div>
+												<!--end::Col-->
+											</div>
+											<!--end::Row-->
+											<div class="row row-cols-1 row-cols-md-3">
+												<!--begin::Col-->
+												<div class="col">
+													<!--begin::Input group-->
+													<div class="fv-row mb-4">
+														<!--begin::Label-->
+														<label class="fs-6 fw-semibold mb-2">
+															<span>Ownership Document No.</span>
+															<span class="ms-1" data-bs-toggle="tooltip" title="">
+																<i class="ki-duotone ki-information fs-7">
+																	<span class="path1"></span>
+																	<span class="path2"></span>
+																	<span class="path3"></span>
+																</i>
+															</span>
+														</label>
+														<!--end::Label-->
+														<!--begin::Input-->
+														<select class="form-select" aria-label="Select example">
+															<option></option>
+															<option value="">1</option>
+															<option value="">2</option>
+														</select>
+														<!--end::Input-->
+													</div>
+													<!--end::Input group-->
+												</div>
+												<!--end::Col-->
+												<!--begin::Col-->
+												<div class="col">
+													<!--begin::Input group-->
+													<div class="fv-row mb-4">
+														<!--begin::Label-->
+														<label class="fs-6 fw-semibold mb-2">
+															<span>Ownership Type</span>
+															<span class="ms-1" data-bs-toggle="tooltip" title="">
+																<i class="ki-duotone ki-information fs-7">
+																	<span class="path1"></span>
+																	<span class="path2"></span>
+																	<span class="path3"></span>
+																</i>
+															</span>
+														</label>
+														<!--end::Label-->
+														<!--begin::Input-->
+														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
+														<!--end::Input-->
+													</div>
+													<!--end::Input group-->
+												</div>
+												<!--end::Col-->
+												<!--begin::Col-->
+												<div class="d-flex my-6">
+												<!--begin::Input group-->
+												<a href="#" class="btn btn-warning">
+												<i class="ki-duotone ki-file-up fs-2qx"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+												Upload Ownership Document
+												</a>
+												<!--end::Input group-->
+												</div>
+												<!--begin::Col-->
+											</div>
+											<!--end::Row-->
+											<div class="row row-cols-1 row-cols-md-4 mb-7">
+												<!--begin::Col-->
+												<div class="col">
+													<!--begin::Input group-->
+													<div class="fv-row mb-4">
+														<!--begin::Label-->
+														<label class="fs-6 fw-semibold mb-2">
+															<span>Registered Owner</span>
+															<span class="ms-1" data-bs-toggle="tooltip" title="">
+																<i class="ki-duotone ki-information fs-7">
+																	<span class="path1"></span>
+																	<span class="path2"></span>
+																	<span class="path3"></span>
+																</i>
+															</span>
+														</label>
+														<!--end::Label-->
+														<!--begin::Input-->
+														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
+														<!--end::Input-->
+													</div>
+													<!--end::Input group-->
+												</div>
+												<!--end::Col-->
+												<!--begin::Col-->
+												<div class="col">
+													<!--begin::Input group-->
+													<div class="fv-row mb-4">
+														<!--begin::Label-->
+														<label class="fs-6 fw-semibold mb-2">
+															<span>Tenant (Name of Land Owner)</span>
+															<span class="ms-1" data-bs-toggle="tooltip" title="">
+																<i class="ki-duotone ki-information fs-7">
+																	<span class="path1"></span>
+																	<span class="path2"></span>
+																	<span class="path3"></span>
+																</i>
+															</span>
+														</label>
+														<!--end::Label-->
+														<!--begin::Input-->
+														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
+														<!--end::Input-->
+													</div>
+													<!--end::Input group-->
+												</div>
+												<!--end::Col-->
+												<!--begin::Col-->
+												<div class="col">
+													<!--begin::Input group-->
+													<div class="fv-row mb-4">
+														<!--begin::Label-->
+														<label class="fs-6 fw-semibold mb-2">
+															<span>Lessee (Name of Land Owner)</span>
+															<span class="ms-1" data-bs-toggle="tooltip" title="">
+																<i class="ki-duotone ki-information fs-7">
+																	<span class="path1"></span>
+																	<span class="path2"></span>
+																	<span class="path3"></span>
+																</i>
+															</span>
+														</label>
+														<!--end::Label-->
+														<!--begin::Input-->
+														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
+														<!--end::Input-->
+													</div>
+													<!--end::Input group-->
+												</div>
+												<!--end::Col-->
+												<div class="col">
+													<!--begin::Input group-->
+													<div class="fv-row mb-4">
+														<!--begin::Label-->
+														<label class="fs-6 fw-semibold mb-2">
+															<span>With ancestral Domain</span>
+															<span class="ms-1" data-bs-toggle="tooltip" title="">
+																<i class="ki-duotone ki-information fs-7">
+																	<span class="path1"></span>
+																	<span class="path2"></span>
+																	<span class="path3"></span>
+																</i>
+															</span>
+														</label>
+														<!--end::Label-->
+														<!--begin::Input-->
+														<select class="form-select" aria-label="Select example">
+															<option></option>
+															<option value="">Yes</option>
+															<option value="">No</option>
+														</select>
+														<!--end::Input-->
+													</div>
+													<!--end::Input group-->
+												</div>
+											</div>
+											<!--end::Row-->
+											
+											<!--begin::d-flex align-items-center mb-2-->
+											<div class="d-flex align-items-center mb-3">
+												<h5>Farm Land Description</h5>
+											</div>
+											<!--end::d-flex align-items-center mb-2-->
+											<div class="row row-cols-1 row-cols-md-4">
+												<!--begin::Col-->
+												<div class="col">
+													<!--begin::Input group-->
+													<div class="fv-row mb-4">
+														<!--begin::Label-->
+														<label class="fs-6 fw-semibold mb-2">
+															<span>Farm Parcel No.</span>
+															<span class="ms-1" data-bs-toggle="tooltip" title="">
 																<i class="ki-duotone ki-information fs-7">
 																	<span class="path1"></span>
 																	<span class="path2"></span>
@@ -3130,7 +3471,7 @@
 														<select class="form-select" aria-label="Select example">
 															<option></option>
 															<option value="">Marine</option>
-															<option value="">Fresh</option>
+															<option value="">Fresh Water</option>
 															<option value="">Brackish</option>
 															<option value="">Others</option>
 														</select>
@@ -3145,8 +3486,8 @@
 													<div class="fv-row mb-4">
 														<!--begin::Label-->
 														<label class="fs-6 fw-semibold mb-2">
-															<span>Species</span>
-															<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+															<span>Type</span>
+															<span class="ms-1" data-bs-toggle="tooltip" title="">
 																<i class="ki-duotone ki-information fs-7">
 																	<span class="path1"></span>
 																	<span class="path2"></span>
@@ -3165,22 +3506,13 @@
 													<!--end::Input group-->
 												</div>
 												<!--end::Col-->
-											</div>
-											<!--end::Row-->	
-											
-											<!--begin::d-flex align-items-center mb-2-->
-											<div class="d-flex align-items-center mb-3">
-												<h5>Production</h5>
-											</div>
-											<!--end::d-flex align-items-center mb-2-->
-											<div class="row row-cols-1 row-cols-md-4 mb-7">
 												<!--begin::Col-->
 												<div class="col">
 													<!--begin::Input group-->
 													<div class="fv-row mb-4">
 														<!--begin::Label-->
 														<label class="fs-6 fw-semibold mb-2">
-															<span>Area of Production</span>
+															<span>Size (ha)</span>
 															<span class="ms-1" data-bs-toggle="tooltip" title="">
 																<i class="ki-duotone ki-information fs-7">
 																	<span class="path1"></span>
@@ -3203,53 +3535,7 @@
 													<div class="fv-row mb-4">
 														<!--begin::Label-->
 														<label class="fs-6 fw-semibold mb-2">
-															<span>Total Area (HA)</span>
-															<span class="ms-1" data-bs-toggle="tooltip" title="">
-																<i class="ki-duotone ki-information fs-7">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																	<span class="path3"></span>
-																</i>
-															</span>
-														</label>
-														<!--end::Label-->
-														<!--begin::Input-->
-														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
-														<!--end::Input-->
-													</div>
-													<!--end::Input group-->
-												</div>
-												<!--end::Col-->
-												<!--begin::Col-->
-												<div class="col">
-													<!--begin::Input group-->
-													<div class="fv-row mb-4">
-														<!--begin::Label-->
-														<label class="fs-6 fw-semibold mb-2">
-															<span>Volume of Production (Kg.)</span>
-															<span class="ms-1" data-bs-toggle="tooltip" title="">
-																<i class="ki-duotone ki-information fs-7">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																	<span class="path3"></span>
-																</i>
-															</span>
-														</label>
-														<!--end::Label-->
-														<!--begin::Input-->
-														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
-														<!--end::Input-->
-													</div>
-													<!--end::Input group-->
-												</div>
-												<!--end::Col-->
-												<!--begin::Col-->
-												<div class="col">
-													<!--begin::Input group-->
-													<div class="fv-row mb-4">
-														<!--begin::Label-->
-														<label class="fs-6 fw-semibold mb-2">
-															<span>Income(net) every</span>
+															<span>No. of Head(livestock)</span>
 															<span class="ms-1" data-bs-toggle="tooltip" title="">
 																<i class="ki-duotone ki-information fs-7">
 																	<span class="path1"></span>
@@ -3268,20 +3554,14 @@
 												<!--end::Col-->
 											</div>
 											<!--end::Row-->
-											
-											<!--begin::d-flex align-items-center mb-2-->
-											<div class="d-flex align-items-center mb-3">
-												<h5>Processing</h5>
-											</div>
-											<!--end::d-flex align-items-center mb-2-->
-											<div class="row row-cols-1 row-cols-md-3 mb-7">
+											<div class="row row-cols-1 row-cols-md-4">
 												<!--begin::Col-->
 												<div class="col">
 													<!--begin::Input group-->
 													<div class="fv-row mb-4">
 														<!--begin::Label-->
 														<label class="fs-6 fw-semibold mb-2">
-															<span>Area of Processing</span>
+															<span>Farm Type</span>
 															<span class="ms-1" data-bs-toggle="tooltip" title="">
 																<i class="ki-duotone ki-information fs-7">
 																	<span class="path1"></span>
@@ -3289,6 +3569,54 @@
 																	<span class="path3"></span>
 																</i>
 															</span>
+														</label>
+														<!--end::Label-->
+														<!--begin::Input-->
+														<select class="form-select" aria-label="Select example">
+															<option></option>
+															<option value="">Irrigated</option>
+															<option value="">Rainfed Lowland</option>
+															<option value="">Rainfed Upland</option>
+														</select>
+														<!--end::Input-->
+													</div>
+													<!--end::Input group-->
+												</div>
+												<!--end::Col-->
+												<!--begin::Col-->
+												<div class="col">
+													<!--begin::Input group-->
+													<div class="fv-row mb-4">
+														<!--begin::Label-->
+														<label class="fs-6 fw-semibold mb-2">
+															<span>Organic Practitioner</span>
+															<span class="ms-1" data-bs-toggle="tooltip" title="">
+																<i class="ki-duotone ki-information fs-7">
+																	<span class="path1"></span>
+																	<span class="path2"></span>
+																	<span class="path3"></span>
+																</i>
+															</span>
+														</label>
+														<!--end::Label-->
+														<!--begin::Input-->
+														<select class="form-select" aria-label="Select example">
+															<option></option>
+															<option value="">Yes</option>
+															<option value="">No</option>
+														</select>
+														<!--end::Input-->
+													</div>
+													<!--end::Input group-->
+												</div>
+												<!--end::Col-->
+												<!--begin::Col-->
+												<div class="col">
+													<!--begin::Input group-->
+													<div class="fv-row mb-4">
+														<!--begin::Label-->
+														<label class="fs-6 fw-semibold mb-2">
+															<span>area devoted to organic farming(ha)</span>
 														</label>
 														<!--end::Label-->
 														<!--begin::Input-->
@@ -3299,134 +3627,20 @@
 												</div>
 												<!--end::Col-->
 												<!--begin::Col-->
-												<div class="col">
-													<!--begin::Input group-->
-													<div class="fv-row mb-4">
-														<!--begin::Label-->
-														<label class="fs-6 fw-semibold mb-2">
-															<span>Volume (Kg.)</span>
-															<span class="ms-1" data-bs-toggle="tooltip" title="">
-																<i class="ki-duotone ki-information fs-7">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																	<span class="path3"></span>
-																</i>
-															</span>
-														</label>
-														<!--end::Label-->
-														<!--begin::Input-->
-														<input type="number" class="form-control" placeholder="" name="bill_email" value="" />
-														<!--end::Input-->
-													</div>
-													<!--end::Input group-->
-												</div>
-												<!--end::Col-->
+												<div class="d-flex my-6">
+											<!--begin::Input group-->
+												<a href="#" class="btn btn-warning">
+												<i class="ki-duotone ki-file-up fs-2qx"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+												Upload Brgy Cert
+												</a>
+											<!--end::Input group-->
+										</div>
 												<!--begin::Col-->
-												<div class="col">
-													<!--begin::Input group-->
-													<div class="fv-row mb-4">
-														<!--begin::Label-->
-														<label class="fs-6 fw-semibold mb-2">
-															<span>Income (net) every</span>
-															<span class="ms-1" data-bs-toggle="tooltip" title="">
-																<i class="ki-duotone ki-information fs-7">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																	<span class="path3"></span>
-																</i>
-															</span>
-														</label>
-														<!--end::Label-->
-														<!--begin::Input-->
-														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
-														<!--end::Input-->
-													</div>
-													<!--end::Input group-->
-												</div>
-												<!--end::Col-->
-											</div>
-											<!--end::Row-->
-											
-											<!--begin::d-flex align-items-center mb-2-->
-											<div class="d-flex align-items-center mb-3">
-												<h5>Retailing/Wholesaling/Trading</h5>
-											</div>
-											<!--end::d-flex align-items-center mb-2-->
-											<div class="row row-cols-1 row-cols-md-3">
-												<!--begin::Col-->
-												<div class="col">
-													<!--begin::Input group-->
-													<div class="fv-row mb-4">
-														<!--begin::Label-->
-														<label class="fs-6 fw-semibold mb-2">
-															<span>Area/Location of Trading</span>
-															<span class="ms-1" data-bs-toggle="tooltip" title="">
-																<i class="ki-duotone ki-information fs-7">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																	<span class="path3"></span>
-																</i>
-															</span>
-														</label>
-														<!--end::Label-->
-														<!--begin::Input-->
-														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
-														<!--end::Input-->
-													</div>
-													<!--end::Input group-->
-												</div>
-												<!--end::Col-->
-												<!--begin::Col-->
-												<div class="col">
-													<!--begin::Input group-->
-													<div class="fv-row mb-4">
-														<!--begin::Label-->
-														<label class="fs-6 fw-semibold mb-2">
-															<span>Retail/Wholesale/Trading</span>
-															<span class="ms-1" data-bs-toggle="tooltip" title="">
-																<i class="ki-duotone ki-information fs-7">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																	<span class="path3"></span>
-																</i>
-															</span>
-														</label>
-														<!--end::Label-->
-														<!--begin::Input-->
-														<input type="number" class="form-control" placeholder="" name="bill_email" value="" />
-														<!--end::Input-->
-													</div>
-													<!--end::Input group-->
-												</div>
-												<!--end::Col-->
-												<!--begin::Col-->
-												<div class="col">
-													<!--begin::Input group-->
-													<div class="fv-row mb-4">
-														<!--begin::Label-->
-														<label class="fs-6 fw-semibold mb-2">
-															<span>Income (net) every</span>
-															<span class="ms-1" data-bs-toggle="tooltip" title="">
-																<i class="ki-duotone ki-information fs-7">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																	<span class="path3"></span>
-																</i>
-															</span>
-														</label>
-														<!--end::Label-->
-														<!--begin::Input-->
-														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
-														<!--end::Input-->
-													</div>
-													<!--end::Input group-->
-												</div>
-												<!--end::Col-->
 											</div>
 											<!--end::Row-->
 											
 										</div>
-												
+										<!--end::Wrapper-->		
 									</div>
 									<!--end::Card Body-->
 								</div>
@@ -3435,7 +3649,8 @@
 								<!--end::Wrapper-->
 							</div>
 							<!--end::d-flex flex-wrap flex-stack mb-10"-->
-					
+						</div>
+						<!--end::flex-grow-1-->
 					</div>
 					<!--end::d-flex flex-wrap flex-sm-nowrap-->
 				</div>
@@ -3446,6 +3661,7 @@
 		<!--end::kt_app_content_container-->
 	</div>
 	<!--kt_app_content-->
+	
 	
 	<div id="kt_app_content" class="">
 		<!--begin::kt_app_content_container-->
@@ -3463,6 +3679,8 @@
 						</div>
 						<!--end::me-7 mb-4-->
 						
+						<!--begin::flex-grow-1-->
+						<div class="flex-grow-1">
 							<!--begin::d-flex flex-wrap flex-stack-->
 							<div class="d-flex flex-wrap flex-stack mb-10">
 								<!--begin::Wrapper-->
@@ -3489,6 +3707,7 @@
 									<div class="card-body">
 										<!--begin::Wrapper-->
 										<div class="d-flex flex-column flex-grow-1 pe-5">
+											<!--end::d-flex align-items-center mb-2-->
 											<div class="row row-cols-1 row-cols-md-2 mb-7">
 												<!--begin::Col-->
 												<div class="col">
@@ -3497,7 +3716,7 @@
 														<!--begin::Label-->
 														<label class="fs-6 fw-semibold mb-2">
 															<span>Area of Production</span>
-															<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+															<span class="ms-1" data-bs-toggle="tooltip" title="">
 																<i class="ki-duotone ki-information fs-7">
 																	<span class="path1"></span>
 																	<span class="path2"></span>
@@ -3510,7 +3729,7 @@
 														<select class="form-select" aria-label="Select example">
 															<option></option>
 															<option value="">Marine</option>
-															<option value="">Fresh</option>
+															<option value="">Fresh water</option>
 															<option value="">Brackish</option>
 															<option value="">Others</option>
 														</select>
@@ -3526,7 +3745,7 @@
 														<!--begin::Label-->
 														<label class="fs-6 fw-semibold mb-2">
 															<span>Species</span>
-															<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+															<span class="ms-1" data-bs-toggle="tooltip" title="">
 																<i class="ki-duotone ki-information fs-7">
 																	<span class="path1"></span>
 																	<span class="path2"></span>
@@ -3546,7 +3765,7 @@
 												</div>
 												<!--end::Col-->
 											</div>
-											<!--end::Row-->	
+											<!--end::Row-->
 											
 											<!--begin::d-flex align-items-center mb-2-->
 											<div class="d-flex align-items-center mb-3">
@@ -3571,7 +3790,7 @@
 														</label>
 														<!--end::Label-->
 														<!--begin::Input-->
-														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
+														<input type="number" class="form-control" placeholder="" name="bill_email" value="" />
 														<!--end::Input-->
 													</div>
 													<!--end::Input group-->
@@ -3583,7 +3802,7 @@
 													<div class="fv-row mb-4">
 														<!--begin::Label-->
 														<label class="fs-6 fw-semibold mb-2">
-															<span>Total Area (HA)</span>
+															<span>Total Area(HA)</span>
 															<span class="ms-1" data-bs-toggle="tooltip" title="">
 																<i class="ki-duotone ki-information fs-7">
 																	<span class="path1"></span>
@@ -3606,7 +3825,107 @@
 													<div class="fv-row mb-4">
 														<!--begin::Label-->
 														<label class="fs-6 fw-semibold mb-2">
-															<span>Volume of Production (Kg.)</span>
+															<span>Volume of Production(Kg.)</span>
+															<span class="ms-1" data-bs-toggle="tooltip" title="">
+																<i class="ki-duotone ki-information fs-7">
+																	<span class="path1"></span>
+																	<span class="path2"></span>
+																	<span class="path3"></span>
+																</i>
+															</span>
+														</label>
+														<!--end::Label-->
+														<!--begin::Input-->
+														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
+														<!--end::Input-->
+													</div>
+													<!--end::Input group-->
+												</div>
+												<!--end::Col-->
+												<!--begin::Col-->
+												<div class="col">
+													<!--begin::Input group-->
+													<div class="fv-row mb-4">
+														<!--begin::Label-->
+														<label class="fs-6 fw-semibold mb-2">
+															<span>Income(net)every</span>
+															<span class="ms-1" data-bs-toggle="tooltip" title="">
+																<i class="ki-duotone ki-information fs-7">
+																	<span class="path1"></span>
+																	<span class="path2"></span>
+																	<span class="path3"></span>
+																</i>
+															</span>
+														</label>
+														<!--end::Label-->
+														<!--begin::Input-->
+														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
+														<!--end::Input-->
+													</div>
+													<!--end::Input group-->
+												</div>
+												<!--end::Col-->
+												<!--begin::Col-->
+												<div class="col">
+													<!--begin::Input group-->
+													<div class="fv-row mb-4">
+														<!--begin::Label-->
+														<label class="fs-6 fw-semibold mb-2">
+															<span>Position on the Association</span>
+															<span class="ms-1" data-bs-toggle="tooltip" title="">
+																<i class="ki-duotone ki-information fs-7">
+																	<span class="path1"></span>
+																	<span class="path2"></span>
+																	<span class="path3"></span>
+																</i>
+															</span>
+														</label>
+														<!--end::Label-->
+														<!--begin::Input-->
+														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
+														<!--end::Input-->
+													</div>
+													<!--end::Input group-->
+												</div>
+												<!--end::Col-->
+											</div>
+											<!--end::Row-->
+											
+											<!--begin::d-flex align-items-center mb-2-->
+											<div class="d-flex align-items-center mb-3">
+												<h5>Processing</h5>
+											</div>
+											<div class="row row-cols-1 row-cols-md-3 mb-7">
+												<!--begin::Col-->
+												<div class="col">
+													<!--begin::Input group-->
+													<div class="fv-row mb-4">
+														<!--begin::Label-->
+														<label class="fs-6 fw-semibold mb-2">
+															<span>Area of Processing</span>
+															<span class="ms-1" data-bs-toggle="tooltip" title="">
+																<i class="ki-duotone ki-information fs-7">
+																	<span class="path1"></span>
+																	<span class="path2"></span>
+																	<span class="path3"></span>
+																</i>
+															</span>
+														</label>
+														<!--end::Label-->
+														<!--begin::Input-->
+														<input type="number" class="form-control" placeholder="" name="bill_email" value="" />
+														<!--end::Input-->
+													</div>
+													<!--end::Input group-->
+												</div>
+												<!--end::Col-->
+												<!--begin::Col-->
+												<div class="col">
+													<!--begin::Input group-->
+													<div class="fv-row mb-4">
+														<!--begin::Label-->
+														<label class="fs-6 fw-semibold mb-2">
+															<span>Volume (Kg.)</span>
 															<span class="ms-1" data-bs-toggle="tooltip" title="">
 																<i class="ki-duotone ki-information fs-7">
 																	<span class="path1"></span>
@@ -3651,88 +3970,9 @@
 											
 											<!--begin::d-flex align-items-center mb-2-->
 											<div class="d-flex align-items-center mb-3">
-												<h5>Processing</h5>
-											</div>
-											<!--end::d-flex align-items-center mb-2-->
-											<div class="row row-cols-1 row-cols-md-3 mb-7">
-												<!--begin::Col-->
-												<div class="col">
-													<!--begin::Input group-->
-													<div class="fv-row mb-4">
-														<!--begin::Label-->
-														<label class="fs-6 fw-semibold mb-2">
-															<span>Area of Processing</span>
-															<span class="ms-1" data-bs-toggle="tooltip" title="">
-																<i class="ki-duotone ki-information fs-7">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																	<span class="path3"></span>
-																</i>
-															</span>
-														</label>
-														<!--end::Label-->
-														<!--begin::Input-->
-														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
-														<!--end::Input-->
-													</div>
-													<!--end::Input group-->
-												</div>
-												<!--end::Col-->
-												<!--begin::Col-->
-												<div class="col">
-													<!--begin::Input group-->
-													<div class="fv-row mb-4">
-														<!--begin::Label-->
-														<label class="fs-6 fw-semibold mb-2">
-															<span>Volume (Kg.)</span>
-															<span class="ms-1" data-bs-toggle="tooltip" title="">
-																<i class="ki-duotone ki-information fs-7">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																	<span class="path3"></span>
-																</i>
-															</span>
-														</label>
-														<!--end::Label-->
-														<!--begin::Input-->
-														<input type="number" class="form-control" placeholder="" name="bill_email" value="" />
-														<!--end::Input-->
-													</div>
-													<!--end::Input group-->
-												</div>
-												<!--end::Col-->
-												<!--begin::Col-->
-												<div class="col">
-													<!--begin::Input group-->
-													<div class="fv-row mb-4">
-														<!--begin::Label-->
-														<label class="fs-6 fw-semibold mb-2">
-															<span>Income (net) every</span>
-															<span class="ms-1" data-bs-toggle="tooltip" title="">
-																<i class="ki-duotone ki-information fs-7">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																	<span class="path3"></span>
-																</i>
-															</span>
-														</label>
-														<!--end::Label-->
-														<!--begin::Input-->
-														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
-														<!--end::Input-->
-													</div>
-													<!--end::Input group-->
-												</div>
-												<!--end::Col-->
-											</div>
-											<!--end::Row-->
-											
-											<!--begin::d-flex align-items-center mb-2-->
-											<div class="d-flex align-items-center mb-3">
 												<h5>Retailing/Wholesaling/Trading</h5>
 											</div>
-											<!--end::d-flex align-items-center mb-2-->
-											<div class="row row-cols-1 row-cols-md-3">
+											<div class="row row-cols-1 row-cols-md-3 mb-7">
 												<!--begin::Col-->
 												<div class="col">
 													<!--begin::Input group-->
@@ -3773,7 +4013,7 @@
 														</label>
 														<!--end::Label-->
 														<!--begin::Input-->
-														<input type="number" class="form-control" placeholder="" name="bill_email" value="" />
+														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
 														<!--end::Input-->
 													</div>
 													<!--end::Input group-->
@@ -3785,7 +4025,7 @@
 													<div class="fv-row mb-4">
 														<!--begin::Label-->
 														<label class="fs-6 fw-semibold mb-2">
-															<span>Income (net) every</span>
+															<span>Income(net) every</span>
 															<span class="ms-1" data-bs-toggle="tooltip" title="">
 																<i class="ki-duotone ki-information fs-7">
 																	<span class="path1"></span>
@@ -3806,7 +4046,7 @@
 											<!--end::Row-->
 											
 										</div>
-												
+										<!--end::Wrapper-->		
 									</div>
 									<!--end::Card Body-->
 								</div>
@@ -3815,7 +4055,8 @@
 								<!--end::Wrapper-->
 							</div>
 							<!--end::d-flex flex-wrap flex-stack mb-10"-->
-					
+						</div>
+						<!--end::flex-grow-1-->
 					</div>
 					<!--end::d-flex flex-wrap flex-sm-nowrap-->
 				</div>
