@@ -151,6 +151,8 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 			};
 			
 			provinces(scope);
+			municipalities(scope);
+			barangays(scope);
 			
 		};
 		
@@ -249,7 +251,37 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 				 
 			});
 			
-		}
+		};
+		
+		function municipalities(scope){
+			
+			$http({
+			  method: 'POST',
+			  url: 'api/suggestions/municipalities.php'
+			}).then(function mySucces(response) {
+				
+				scope.municipalities = response.data;
+				
+			}, function myError(response) {
+				 
+			});
+			
+		};
+		
+		function barangays(scope){
+			
+			$http({
+			  method: 'POST',
+			  url: 'api/suggestions/barangays.php'
+			}).then(function mySucces(response) {
+				
+				scope.barangays = response.data;
+				
+			}, function myError(response) {
+				 
+			});
+			
+		};
 		
 	};
 	

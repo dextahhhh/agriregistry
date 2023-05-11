@@ -86,17 +86,17 @@
 										<span class="path1"></span>
 										<span class="path2"></span>
 										<span class="path3"></span>
-									</i>Developer</a>
+									</i>{{individual.gender}}</a>
 									<a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
 									<i class="ki-duotone ki-geolocation fs-4 me-1">
 										<span class="path1"></span>
 										<span class="path2"></span>
-									</i>SF, Bay Area</a>
+									</i>{{individual.municipality.municipality_description}}, {{individual.province.province_description}}</a>
 									<a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary mb-2">
 									<i class="ki-duotone ki-sms fs-4 me-1">
 										<span class="path1"></span>
 										<span class="path2"></span>
-									</i>max@kt.com</a>
+									</i>{{individual.contact_no}}</a>
 								</div>
 								<!--end::d-flex flex-wrap fw-semibold fs-6 mb-4 pe-2-->
 							</div>
@@ -262,7 +262,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="text" class="form-control" placeholder="" name="lastname" ng-model="individual.lastname"/>
+											<input type="text" class="form-control" placeholder="" name="lastname" ng-model="individual.lastname" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -285,7 +285,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="text" class="form-control" placeholder="" name="firstname" ng-model="individual.firstname" />
+											<input type="text" class="form-control" placeholder="" name="firstname" ng-model="individual.firstname" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -308,7 +308,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="text" class="form-control" placeholder="" name="middlename" ng-model="individual.middlename" />
+											<input type="text" class="form-control" placeholder="" name="middlename" ng-model="individual.middlename" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -331,7 +331,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<select class="form-select" aria-label="Select example" name="appellation" ng-model="individual.appellation">
+											<select class="form-select" aria-label="Select example" name="appellation" ng-model="individual.appellation" ng-disabled="controls.ok.btn" />
 												<option></option>
 												<option value="None">None</option>
 												<option value="Sr.">Sr.</option>
@@ -360,7 +360,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<select class="form-select" aria-label="Select example" name="salutation" ng-model="individual.salutation">
+											<select class="form-select" aria-label="Select example" name="salutation" ng-model="individual.salutation" ng-disabled="controls.ok.btn" />
 												<option></option>
 												<option value="None">Mr.</option>
 												<option value="Ms.">Ms.</option>
@@ -485,7 +485,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="text" class="form-control" placeholder="" name="street" ng-model="individual.street" />
+											<input type="text" class="form-control" placeholder="" name="street" ng-model="individual.street" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -508,7 +508,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="text" class="form-control" placeholder="" name="postal_code" ng-model="individual.postal_code" />
+											<input type="text" class="form-control" placeholder="" name="postal_code" ng-model="individual.postal_code" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -532,7 +532,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="number" class="form-control" placeholder="Indicate the year" name="resident_since" ng-model="individual.resident_since" />
+											<input type="number" class="form-control" placeholder="Indicate the year" name="resident_since" ng-model="individual.resident_since" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -568,7 +568,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="number" class="form-control" placeholder="" name="contact_no" ng-model="individual.contact_no" />
+											<input type="number" class="form-control" placeholder="" name="contact_no" ng-model="individual.contact_no" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -591,7 +591,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="date" class="form-control" placeholder="" name="birth_date" ng-model="individual.birth_date" />
+											<input type="date" class="form-control" placeholder="" name="birth_date" ng-model="individual.birth_date" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -688,7 +688,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<select class="form-select" aria-label="Select example" name="gender" ng-model="individual.gender">
+											<select class="form-select" aria-label="Select example" name="gender" ng-model="individual.gender" ng-disabled="controls.ok.btn" />
 												<option></option>
 												<option value="Male">Male</option>
 												<option value="Female">Female</option>
@@ -715,7 +715,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<select class="form-select" aria-label="Select example" name="civil_status" ng-model="individual.civil_status">
+											<select class="form-select" aria-label="Select example" name="civil_status" ng-model="individual.civil_status" ng-disabled="controls.ok.btn" />
 												<option value="Single">Single</option>
 												<option value="Married">Married</option>
 											</select>
@@ -741,7 +741,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="text" class="form-control" placeholder="" name="nationality" ng-model="individual.nationality" />
+											<input type="text" class="form-control" placeholder="" name="nationality" ng-model="individual.nationality" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -764,7 +764,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="text" class="form-control" placeholder="" name="religion" ng-model="individual.religion" />
+											<input type="text" class="form-control" placeholder="" name="religion" ng-model="individual.religion" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -800,7 +800,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="text" class="form-control" placeholder="" name="mother_maiden_name" ng-model="individual.mother_maiden_name" />
+											<input type="text" class="form-control" placeholder="" name="mother_maiden_name" ng-model="individual.mother_maiden_name" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -823,7 +823,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="text" class="form-control" placeholder="" name="spouse_name" ng-model="individual.spouse_name" />
+											<input type="text" class="form-control" placeholder="" name="spouse_name" ng-model="individual.spouse_name" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -847,7 +847,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="text" class="form-control" placeholder="" name="spouse_work" ng-model="individual.spouse_work" />
+											<input type="text" class="form-control" placeholder="" name="spouse_work" ng-model="individual.spouse_work" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -886,13 +886,13 @@
 											<div class="d-flex align-items-center">
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-20px w-20px" name="is_pwd" ng-model="individual.is_pwd" type="radio" value="1" id="flexRadio30"/>
+													<input class="form-check-input h-20px w-20px" name="is_pwd" ng-model="individual.is_pwd" type="radio" value="1" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">Yes</span>
 												</label>
 												<!--end::Radio-->
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-20px w-20px" name="is_pwd" ng-model="individual.is_pwd" type="radio" value="0" id="flexRadio30" />
+													<input class="form-check-input h-20px w-20px" name="is_pwd" ng-model="individual.is_pwd" type="radio" value="0" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">No</span>
 												</label>
 												<!--end::Radio-->
@@ -922,18 +922,18 @@
 											<div class="d-flex align-items-center">
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-20px w-20px" name="have_rsbsa" ng-model="individual.have_rsbsa" type="radio" value="1" id="flexRadio30"/>
+													<input class="form-check-input h-20px w-20px" name="have_rsbsa" ng-model="individual.have_rsbsa" type="radio" value="1" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">Yes</span>
 												</label>
 												<!--end::Radio-->
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-20px w-20px" name="have_rsbsa" ng-model="individual.have_rsbsa" type="radio" value="0" id="flexRadio30" />
+													<input class="form-check-input h-20px w-20px" name="have_rsbsa" ng-model="individual.have_rsbsa" type="radio" value="0" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">No</span>
 												</label>
 												<!--end::Radio-->
 												<!--begin::Input-->
-												<input type="text" class="form-control" placeholder="ID No." name="bill_email" value="" />
+												<input type="text" class="form-control" placeholder="ID No." name="rsbsa_id_no" ng-model="individual.rsbsa_id_no" ng-disabled="controls.ok.btn" />
 												<!--end::Input-->
 											</div>
 											<!--end::Checkboxes-->
@@ -961,22 +961,22 @@
 											<div class="d-flex align-items-center">
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-20px w-20px" name="have_government_id" ng-model="individual.have_government_id" type="radio" value="1" id="flexRadio30"/>
+													<input class="form-check-input h-20px w-20px" name="have_government_id" ng-model="individual.have_government_id" type="radio" value="1" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">Yes</span>
 												</label>
 												<!--end::Radio-->
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-20px w-20px" name="have_government_id" ng-model="individual.have_government_id" type="radio" value="0" id="flexRadio30" />
+													<input class="form-check-input h-20px w-20px" name="have_government_id" ng-model="individual.have_government_id" type="radio" value="0" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">No</span>
 												</label>
 												<!--end::Radio-->
 												
 												<!--begin::Input-->
-												<input type="text" class="form-control" placeholder="ID No." name="government_id_no" ng-model="individual.government_id_no" />
+												<input type="text" class="form-control" placeholder="ID No." name="government_id_no" ng-model="individual.government_id_no" ng-disabled="controls.ok.btn" />
 												<!--end::Input-->
 												<!--begin::Input-->
-												<input type="text" class="form-control" placeholder="ID Type" name="government_id_type" ng-model="individual.government_id_type" />
+												<input type="text" class="form-control" placeholder="ID Type" name="government_id_type" ng-model="individual.government_id_type" ng-disabled="controls.ok.btn" />
 												<!--end::Input-->
 											</div>
 											<!--end::Checkboxes-->
@@ -1017,13 +1017,13 @@
 											<div class="d-flex align-items-center">
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-20px w-20px" name="is_4ps" ng-model="individual.is_4ps" type="radio" value="1" id="flexRadio30"/>
+													<input class="form-check-input h-20px w-20px" name="is_4ps" ng-model="individual.is_4ps" type="radio" value="1" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">Yes</span>
 												</label>
 												<!--end::Radio-->
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-20px w-20px" name="is_4ps" ng-model="individual.is_4ps" type="radio" value="0" id="flexRadio30" />
+													<input class="form-check-input h-20px w-20px" name="is_4ps" ng-model="individual.is_4ps" type="radio" value="0" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">No</span>
 												</label>
 												<!--end::Radio-->
@@ -1053,13 +1053,13 @@
 											<div class="d-flex align-items-center">
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-20px w-20px" name="is_ip" ng-model="individual.is_ip" type="radio" value="1" id="flexRadio30"/>
+													<input class="form-check-input h-20px w-20px" name="is_ip" ng-model="individual.is_ip" type="radio" value="1" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">Yes</span>
 												</label>
 												<!--end::Radio-->
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-20px w-20px" name="is_ip" ng-model="individual.is_ip" type="radio" value="0" id="flexRadio30" />
+													<input class="form-check-input h-20px w-20px" name="is_ip" ng-model="individual.is_ip" type="radio" value="0" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">No</span>
 												</label>
 												<!--end::Radio-->
@@ -1081,7 +1081,7 @@
 											<!--end::Label-->
 											<div class="d-flex align-items-center">
 											<!--begin::Input-->
-											<select class="form-select" aria-label="Select example" name="educational_background" ng-model="individual.educational_background">
+											<select class="form-select" aria-label="Select example" name="educational_background" ng-model="individual.educational_background" ng-disabled="controls.ok.btn" />
 												<option></option>
 												<option value="">Elementary</option>
 												<option value="">High School</option>
@@ -1091,7 +1091,7 @@
 											</select>
 											<!--end::Input-->
 											<!--begin::Input-->
-												<input type="text" class="form-control" placeholder="please specify" name="education_others" ng-model="individual.education_others" />
+												<input type="text" class="form-control" placeholder="please specify" name="education_others" ng-model="individual.education_others" ng-disabled="controls.ok.btn" />
 												<!--end::Input-->
 											</div>
 										</div>
@@ -1128,7 +1128,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="text" class="form-control" placeholder="" name="no_of_children" ng-model="individual.no_of_children" />
+											<input type="text" class="form-control" placeholder="" name="no_of_children" ng-model="individual.no_of_children" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -1165,7 +1165,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="number" class="form-control" placeholder="" name="no_of_male" ng-model="individual.no_of_male" />
+											<input type="number" class="form-control" placeholder="" name="no_of_male" ng-model="individual.no_of_male" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -1188,7 +1188,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="number" class="form-control" placeholder="" name="no_of_female" ng-model="individual.no_of_female" />
+											<input type="number" class="form-control" placeholder="" name="no_of_female" ng-model="individual.no_of_female" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -1224,7 +1224,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="number" class="form-control" placeholder="" name="no_of_in_school" ng-model="individual.no_of_in_school" />
+											<input type="number" class="form-control" placeholder="" name="no_of_in_school" ng-model="individual.no_of_in_school" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -1247,7 +1247,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="number" class="form-control" placeholder="" name="no_of_out_school" ng-model="individual.no_of_out_school" />
+											<input type="number" class="form-control" placeholder="" name="no_of_out_school" ng-model="individual.no_of_out_school" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -1270,7 +1270,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="number" class="form-control" placeholder="" name="no_of_employed" ng-model="individual.no_of_employed" />
+											<input type="number" class="form-control" placeholder="" name="no_of_employed" ng-model="individual.no_of_employed" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -1293,7 +1293,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="number" class="form-control" placeholder="" name="no_of_unemployed" ng-model="individual.no_of_unemployed" />
+											<input type="number" class="form-control" placeholder="" name="no_of_unemployed" ng-model="individual.no_of_unemployed" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -1333,7 +1333,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="text" class="form-control" placeholder="" name="emergency_firstname" ng-model="individual.emergency_firstname" />
+											<input type="text" class="form-control" placeholder="" name="emergency_firstname" ng-model="individual.emergency_firstname" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -1356,7 +1356,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="text" class="form-control" placeholder="" name="emergency_lastname" ng-model="individual.emergency_lastname" />
+											<input type="text" class="form-control" placeholder="" name="emergency_lastname" ng-model="individual.emergency_lastname" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -1379,7 +1379,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="text" class="form-control" placeholder="" name="emergency_relationship" ng-model="individual.emergency_relationship" />
+											<input type="text" class="form-control" placeholder="" name="emergency_relationship" ng-model="individual.emergency_relationship" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -1402,7 +1402,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="number" class="form-control" placeholder="" name="emergency_contact_no" ng-model="individual.emergency_contact_no" />
+											<input type="number" class="form-control" placeholder="" name="emergency_contact_no" ng-model="individual.emergency_contact_no" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -1509,7 +1509,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="text" class="form-control" placeholder="" name="emergency_street" ng-model="individual.emergency_street" />
+											<input type="text" class="form-control" placeholder="" name="emergency_street" ng-model="individual.emergency_street" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -1532,7 +1532,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="text" class="form-control" placeholder="" name="emergency_postal_code" ng-model="individual.emergency_postal_code" />
+											<input type="text" class="form-control" placeholder="" name="emergency_postal_code" ng-model="individual.emergency_postal_code" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -1561,7 +1561,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="text" class="form-control" placeholder="" name="farm_laboring_net" ng-model="individual.farm_laboring_net" />
+											<input type="text" class="form-control" placeholder="" name="farm_laboring_net" ng-model="individual.farm_laboring_net" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -1578,7 +1578,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="text" class="form-control" placeholder="" name="other_income_source" ng-model="individual.other_income_source" />
+											<input type="text" class="form-control" placeholder="" name="other_income_source" ng-model="individual.other_income_source" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -1601,7 +1601,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="text" class="form-control" placeholder="" name="monthly_income_value" ng-model="individual.monthly_income_value" />
+											<input type="text" class="form-control" placeholder="" name="monthly_income_value" ng-model="individual.monthly_income_value" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
