@@ -46,6 +46,43 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 			
 		};
 		
+		self.checkProvince = function(scope,provCode) {
+			
+			scope.municipalities = [];
+			
+			$http({
+			  method: 'POST',
+			  url: 'api/suggestions/check-province.php',
+			  data: provCode
+			}).then(function mySucces(response) {
+
+				scope.municipalities = angular.copy(response.data);
+
+			}, function myError(response) {
+				
+			});
+			
+		};
+
+		self.checkCity = function(scope,provCode) {
+			
+			scope.barangays = [];
+			
+			$http({
+			  method: 'POST',
+			  url: 'api/suggestions/check-brgy.php',
+			  data: provCode
+			}).then(function mySucces(response) {
+
+				scope.barangays = angular.copy(response.data);
+
+			}, function myError(response) {
+				
+			});
+			
+			console.log(scope);
+		};
+		
 		self.list = function(scope) {
 			
 			bui.show();
@@ -112,6 +149,8 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 				});
 				
 			};
+			
+			provinces(scope);
 			
 		};
 		
@@ -196,6 +235,21 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 		bootstrapModal.confirm(scope,'Confirmation','Are you sure you want to delete this record?',onOk,function() {});
 			
 		};
+		
+		function provinces(scope){
+			
+			$http({
+			  method: 'POST',
+			  url: 'api/suggestions/provinces.php'
+			}).then(function mySucces(response) {
+				
+				scope.provinces = response.data;
+				
+			}, function myError(response) {
+				 
+			});
+			
+		}
 		
 	};
 	
