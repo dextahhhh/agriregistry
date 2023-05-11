@@ -10,7 +10,7 @@
 					<span class="path1"></span>
 					<span class="path2"></span>
 				</i>
-				<input type="text" ng-model="search" class="form-control form-control-solid w-250px ps-13" placeholder="Search user" />
+				<input type="text" ng-model="search" class="form-control form-control-solid w-250px ps-13" placeholder="Search individual" />
 			</div>
 			<!--end::Search-->
 		</div>
@@ -27,8 +27,8 @@
 				</i>Export CSV</button>
 				<!--end::Export-->
 				<!--begin::Add user-->
-				<button type="button" class="btn btn-primary" ng-click="app.user(this);">
-				<i class="ki-duotone ki-plus fs-2"></i>Add User</button>
+				<button type="button" class="btn btn-primary" ng-click="app.individual(this);">
+				<i class="ki-duotone ki-plus fs-2"></i>Add Individual</button>
 				<!--end::Add user-->
 			</div>
 			<!--end::Toolbar-->
@@ -42,14 +42,16 @@
 		<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
 			<thead>
 				<tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
-					<th class="min-w-125px">User</th>
-					<th class="min-w-125px">Role</th>
-					<th class="min-w-125px">Joined Date</th>
+					<th class="min-w-125px">Name</th>
+					<th class="min-w-125px">Registation No.</th>
+					<th class="min-w-125px">Gender</th>
+					<th class="min-w-125px">Municipality</th>
+					<th class="min-w-125px">Date Registered</th>
 					<th class="min-w-125px">Actions</th>
 				</tr>
 			</thead>
 			<tbody class="text-gray-600 fw-semibold">
-				<tr ng-repeat="data in filterData = (users | filter:search)">
+				<tr ng-repeat="data in filterData = (individuals | filter:search)">
 					<td class="d-flex align-items-center">
 						<!--begin:: Avatar -->
 						<div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
@@ -63,14 +65,16 @@
 						<!--begin::User details-->
 						<div class="d-flex flex-column">
 							<a class="text-gray-800 text-hover-primary mb-1">{{data.fullname}}</a>
-							<span>{{data.username}}</span>
+							<!-- <span>{{data.username}}</span> -->
 						</div>
 						<!--begin::User details-->
 					</td>
-					<td>{{data.groups.group_name}}</td>
+					<td>{{data.registration_no}}</td>
+					<td>{{data.gender}}</td>
+					<td>{{data.municipality}}</td>
 					<td>{{data.system_log}}</td>
 					<td>
-						<a href="" ng-click="app.user(this,data)" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"><i class="ki-duotone ki-notepad-edit fs-2qx">
+						<a href="" ng-click="app.individual(this,data)" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"><i class="ki-duotone ki-notepad-edit fs-2qx">
 							 <i class="path1"></i>
 							 <i class="path2"></i>
 						</i></a>
