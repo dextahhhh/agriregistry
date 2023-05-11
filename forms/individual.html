@@ -87,17 +87,17 @@
 											<span class="path1"></span>
 											<span class="path2"></span>
 											<span class="path3"></span>
-										</i>Developer</a>
+										</i>{{individual.gender}}</a>
 										<a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
 										<i class="ki-duotone ki-geolocation fs-4 me-1">
 											<span class="path1"></span>
 											<span class="path2"></span>
-										</i>SF, Bay Area</a>
+										</i>{{individual.municipality.municipality_description}}, {{individual.province.province_description}}</a>
 										<a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary mb-2">
-										<i class="ki-duotone ki-sms fs-4 me-1">
+										<i class="ki-duotone ki-phone fs-4 me-1">
 											<span class="path1"></span>
 											<span class="path2"></span>
-										</i>max@kt.com</a>
+										</i>{{individual.contact_no}}</a>
 									</div>
 									<!--end::d-flex flex-wrap fw-semibold fs-6 mb-4 pe-2-->
 								</div>
@@ -118,7 +118,7 @@
 							<div class="d-flex flex-wrap flex-stack">
 								<!--begin::Wrapper-->
 								<div class="d-flex flex-column flex-grow-1 pe-8">
-									<div class="row row-cols-1 row-cols-md-3">
+									<div class="row row-cols-1 row-cols-md-4">
 										<!--begin::Col-->
 										<div class="col">
 											<!--begin::Input group-->
@@ -137,7 +137,6 @@
 												<!--end::Label-->
 												<!--begin::Input-->
 												<div class="text-gray-400">{{individual.registration_no}}</div>
-												
 												<!--end::Input-->
 											</div>
 											<!--end::Input group-->
@@ -160,7 +159,7 @@
 												</label>
 												<!--end::Label-->
 												<!--begin::Input-->
-												<input type="date" class="form-control" placeholder="" name="bill_email" value="" />
+												<div class="text-gray-400">{{individual.system_log}}</div>
 												<!--end::Input-->
 											</div>
 											<!--end::Input group-->
@@ -183,7 +182,30 @@
 												</label>
 												<!--end::Label-->
 												<!--begin::Input-->
-												<input type="date" class="form-control" placeholder="" name="bill_email" value="" />
+												<div class="text-gray-400">{{individual.update_log}}</div>
+												<!--end::Input-->
+											</div>
+											<!--end::Input group-->
+										</div>
+										<!--end::Col-->
+										<!--begin::Col-->
+										<div class="col">
+											<!--begin::Input group-->
+											<div class="fv-row mb-4">
+												<!--begin::Label-->
+												<label class="fs-6 fw-semibold mb-2">
+													<span>Last Updated By</span>
+													<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+														<i class="ki-duotone ki-information fs-7">
+															<span class="path1"></span>
+															<span class="path2"></span>
+															<span class="path3"></span>
+														</i>
+													</span>
+												</label>
+												<!--end::Label-->
+												<!--begin::Input-->
+												<div class="text-gray-400">{{individual.last_updated_by}}</div>
 												<!--end::Input-->
 											</div>
 											<!--end::Input group-->
@@ -565,7 +587,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="number" class="form-control" placeholder="Indicate the year" name="resident_since" ng-model="individual.resident_since" ng-disabled="controls.ok.btn" />
+											<input type="text" class="form-control" placeholder="Indicate the year" name="resident_since" ng-model="individual.resident_since" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -601,7 +623,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="number" class="form-control" placeholder="" name="contact_no" ng-model="individual.contact_no" ng-disabled="controls.ok.btn" />
+											<input type="text" class="form-control" placeholder="" name="contact_no" ng-model="individual.contact_no" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -966,7 +988,7 @@
 												</label>
 												<!--end::Radio-->
 												<!--begin::Input-->
-												<input type="text" class="form-control" placeholder="ID No." name="rsbsa_id_no" ng-model="individual.rsbsa_id_no" ng-disabled="controls.ok.btn" />
+												<input type="text" class="form-control" placeholder="ID No." name="rsbsa_id_no" ng-model="individual.rsbsa_id_no" ng-disabled="controls.ok.btn" ng-show="individual.have_rsbsa=='1'"/>
 												<!--end::Input-->
 											</div>
 											<!--end::Checkboxes-->
@@ -1116,11 +1138,11 @@
 											<!--begin::Input-->
 											<select class="form-select" aria-label="Select example" name="educational_background" ng-model="individual.educational_background" ng-disabled="controls.ok.btn" />
 												<option></option>
-												<option value="">Elementary</option>
-												<option value="">High School</option>
-												<option value="">Vocational</option>
-												<option value="">Post- Graduate</option>
-												<option value="">Others</option>
+												<option value="Elementary">Elementary</option>
+												<option value="High School">High School</option>
+												<option value="Vocational">Vocational</option>
+												<option value="Post-Graduate">Post-Graduate</option>
+												<option value="Others">Others</option>
 											</select>
 											<!--end::Input-->
 											<!--begin::Input-->
@@ -1293,7 +1315,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="number" class="form-control" placeholder="" name="no_of_male" ng-model="individual.no_of_male" ng-disabled="controls.ok.btn" />
+											<input type="text" class="form-control" placeholder="" name="no_of_male" ng-model="individual.no_of_male" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -1316,7 +1338,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="number" class="form-control" placeholder="" name="no_of_female" ng-model="individual.no_of_female" ng-disabled="controls.ok.btn" />
+											<input type="text" class="form-control" placeholder="" name="no_of_female" ng-model="individual.no_of_female" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -1352,7 +1374,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="number" class="form-control" placeholder="" name="no_of_in_school" ng-model="individual.no_of_in_school" ng-disabled="controls.ok.btn" />
+											<input type="text" class="form-control" placeholder="" name="no_of_in_school" ng-model="individual.no_of_in_school" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -1375,7 +1397,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="number" class="form-control" placeholder="" name="no_of_out_school" ng-model="individual.no_of_out_school" ng-disabled="controls.ok.btn" />
+											<input type="text" class="form-control" placeholder="" name="no_of_out_school" ng-model="individual.no_of_out_school" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -1398,7 +1420,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="number" class="form-control" placeholder="" name="no_of_employed" ng-model="individual.no_of_employed" ng-disabled="controls.ok.btn" />
+											<input type="text" class="form-control" placeholder="" name="no_of_employed" ng-model="individual.no_of_employed" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -1421,7 +1443,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="number" class="form-control" placeholder="" name="no_of_unemployed" ng-model="individual.no_of_unemployed" ng-disabled="controls.ok.btn" />
+											<input type="text" class="form-control" placeholder="" name="no_of_unemployed" ng-model="individual.no_of_unemployed" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -1530,7 +1552,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="number" class="form-control" placeholder="" name="emergency_contact_no" ng-model="individual.emergency_contact_no" ng-disabled="controls.ok.btn" />
+											<input type="text" class="form-control" placeholder="" name="emergency_contact_no" ng-model="individual.emergency_contact_no" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -2111,7 +2133,7 @@
 												</label>
 												<!--end::Label-->
 												<!--begin::Input-->
-												<input type="number" class="form-control" placeholder="" name="bill_email" value="" />
+												<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
 												<!--end::Input-->
 											</div>
 											<!--end::Input group-->
@@ -2377,293 +2399,6 @@
 		<!--end::kt_app_content_container-->
 	</div>
 	<!--end::Content-->
-	
-	<div id="kt_app_content" class="">
-		<!--begin::kt_app_content_container-->
-		<div id="kt_app_content_container" class="card-body pt-0 pb-0">
-				<!-- <div id="kt_app_content_container" class="card mb-5 mb-xl-10"> -->
-			<!--begin::card mb-5 mb-xxl-8-->
-			<div class="card mb-5 mb-xxl-8">
-				<!--begin::card-body pt-9 pb-0-->
-				<div class="card-body pt-9 pb-0">
-					<!--begin::d-flex flex-wrap flex-sm-nowrap-->
-					<div class="d-flex flex-wrap flex-sm-nowrap">
-						<!--begin: me-7 mb-4-->
-						<div class="me-7 mb-4">
-							
-						</div>
-						<!--end::me-7 mb-4-->
-						
-						<!--begin::flex-grow-1-->
-						<div class="flex-grow-1">
-							<!--begin::d-flex flex-wrap flex-stack-->
-							<div class="d-flex flex-wrap flex-stack mb-10">
-								<!--begin::Wrapper-->
-								<div class="d-flex flex-column flex-grow-1 pe-8">
-									<div class="card-header">
-										<h3 class="text-danger">2.B PROFILE FOR LIVESTOCK</h3>
-										<div class="card-toolbar">
-											<a href="#" class="btn btn-primary">
-										<i class="ki-duotone ki-plus-square fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
-										Add
-										</a>
-										</div>
-									</div>
-								<div class="card shadow-sm">
-									<div class="card-header">
-										<h3 class="card-title"></h3>
-										<div class="card-toolbar">
-											<a href="#" class="btn btn-icon btn-danger">
-											<i class="ki-duotone ki-trash-square fs-2x"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
-											</a>
-										</div>
-									</div>
-									
-									<div class="card-body">
-										<!--begin::Wrapper-->
-										<div class="d-flex flex-column flex-grow-1 pe-5">
-											<div class="row row-cols-1 row-cols-md-2 mb-7">
-												<!--begin::Col-->
-												<div class="col">
-													<!--begin::Input group-->
-													<div class="fv-row mb-4">
-														<!--begin::Label-->
-														<label class="fs-6 fw-semibold mb-2">
-															<span>Animal Raised</span>
-															<span class="ms-1" data-bs-toggle="tooltip" title="">
-																<i class="ki-duotone ki-information fs-7">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																	<span class="path3"></span>
-																</i>
-															</span>
-														</label>
-														<!--end::Label-->
-														<!--begin::Input-->
-														<select class="form-select" aria-label="Select example">
-															<option></option>
-															<option value="">Swine</option>
-															<option value="">Cattle</option>
-															<option value="">Carabao</option>
-															<option value="">Goat</option>
-															<option value="">Sheep</option>
-															<option value="">Poultry</option>
-															<option value="">Others</option>
-														</select>
-														<!--end::Input-->
-													</div>
-													<!--end::Input group-->
-												</div>
-												<!--end::Col-->
-												<!--begin::Col-->
-												<div class="col">
-													<!--begin::Input group-->
-													<div class="fv-row mb-4">
-														<!--begin::Label-->
-														<label class="fs-6 fw-semibold mb-2">
-															<span>If others, please specify</span>
-															<span class="ms-1" data-bs-toggle="tooltip" title="">
-																<i class="ki-duotone ki-information fs-7">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																	<span class="path3"></span>
-																</i>
-															</span>
-														</label>
-														<!--end::Label-->
-														<!--begin::Input-->
-														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
-														<!--end::Input-->
-													</div>
-													<!--end::Input group-->
-												</div>
-												<!--end::Col-->
-											</div>
-											<!--end::Row-->
-											<!--begin::d-flex flex-wrap flex-stack-->
-											<div class="d-flex flex-wrap flex-stack">
-												<!--begin::Wrapper-->
-												<div class="d-flex flex-column flex-grow-1 pe-8">
-													<div class="row row-cols-1 row-cols-md-2">
-														<!--begin::Col-->
-														<div class="col">
-																<div class="card-title"><h5 class="mb-1">Type</h5></div>
-																<!--begin::d-flex align-items-center-->
-																<div class="d-flex align-items-center mb-5">
-																	<!--begin::Radio-->
-																	<label class="form-check form-check-custom form-check-solid me-10">
-																		<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
-																		<span class="form-check-label fw-semibold">Native</span>
-																	</label>
-																	<!--end::Radio-->
-																</div>
-																<!--end::d-flex align-items-center-->
-																
-																<!--begin::d-flex align-items-center-->
-																<div class="d-flex align-items-center mb-5">
-																	<!--begin::Radio-->
-																	<label class="form-check form-check-custom form-check-solid me-10">
-																		<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
-																		<span class="form-check-label fw-semibold">Upgrade</span>
-																	</label>
-																	<!--end::Radio-->
-																</div>
-																<!--end::d-flex align-items-center-->
-																<!--begin::d-flex align-items-center-->
-																<div class="d-flex align-items-center mb-5">
-																	<!--begin::Radio-->
-																	<label class="form-check form-check-custom form-check-solid me-10">
-																		<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
-																		<span class="form-check-label fw-semibold">Purebred</span>
-																	</label>
-																	<!--end::Radio-->
-																</div>
-																<!--end::d-flex align-items-center-->
-																
-																
-																
-														</div>
-														<!--end::Col-->
-														
-														<!--begin::Col-->
-														<div class="col">
-																<div class="card-title"><h5 class="mb-1">Purpose</h5></div>
-																<!--begin::d-flex align-items-center-->
-																<div class="d-flex align-items-center mb-5">
-																	<!--begin::Radio-->
-																	<label class="form-check form-check-custom form-check-solid me-10">
-																		<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
-																		<span class="form-check-label fw-semibold">Breeding</span>
-																	</label>
-																	<!--end::Radio-->
-																</div>
-																<!--end::d-flex align-items-center-->
-																
-																<!--begin::d-flex align-items-center-->
-																<div class="d-flex align-items-center mb-5">
-																	<!--begin::Radio-->
-																	<label class="form-check form-check-custom form-check-solid me-10">
-																		<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
-																		<span class="form-check-label fw-semibold">Fattening</span>
-																	</label>
-																	<!--end::Radio-->
-																</div>
-																<!--end::d-flex align-items-center-->
-																
-																<!--begin::d-flex align-items-center-->
-																<div class="d-flex align-items-center mb-5">
-																	<!--begin::Radio-->
-																	<label class="form-check form-check-custom form-check-solid me-10">
-																		<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
-																		<span class="form-check-label fw-semibold">Milking</span>
-																	</label>
-																	<!--end::Radio-->
-																</div>
-																<!--end::d-flex align-items-center-->
-																
-																<!--begin::d-flex align-items-center-->
-																<div class="d-flex align-items-center mb-5">
-																	<!--begin::Radio-->
-																	<label class="form-check form-check-custom form-check-solid me-10">
-																		<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
-																		<span class="form-check-label fw-semibold">Draft</span>
-																	</label>
-																	<!--end::Radio-->
-																</div>
-																<!--end::d-flex align-items-center-->
-																
-																<!--begin::d-flex align-items-center-->
-																<div class="d-flex align-items-center mb-5">
-																	<!--begin::Radio-->
-																	<label class="form-check form-check-custom form-check-solid me-10">
-																		<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
-																		<span class="form-check-label fw-semibold">Wool</span>
-																	</label>
-																	<!--end::Radio-->
-																</div>
-																<!--end::d-flex align-items-center-->
-																<!--begin::d-flex align-items-center-->
-																<div class="d-flex align-items-center mb-5">
-																	<!--begin::Radio-->
-																	<label class="form-check form-check-custom form-check-solid me-10">
-																		<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
-																		<span class="form-check-label fw-semibold">Chicken(for Meat)</span>
-																	</label>
-																	<!--end::Radio-->
-																</div>
-																<!--end::d-flex align-items-center-->
-																<!--begin::d-flex align-items-center-->
-																<div class="d-flex align-items-center mb-5">
-																	<!--begin::Radio-->
-																	<label class="form-check form-check-custom form-check-solid me-10">
-																		<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
-																		<span class="form-check-label fw-semibold">Chicken(for Egg)</span>
-																	</label>
-																	<!--end::Radio-->
-																</div>
-																<!--end::d-flex align-items-center-->
-																<!--begin::d-flex align-items-center-->
-																<div class="d-flex align-items-center mb-5">
-																	<!--begin::Radio-->
-																	<label class="form-check form-check-custom form-check-solid me-10">
-																		<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
-																		<span class="form-check-label fw-semibold">Duck(for Meat)</span>
-																	</label>
-																	<!--end::Radio-->
-																</div>
-																<!--end::d-flex align-items-center-->
-																<!--begin::d-flex align-items-center-->
-																<div class="d-flex align-items-center mb-5">
-																	<!--begin::Radio-->
-																	<label class="form-check form-check-custom form-check-solid me-10">
-																		<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
-																		<span class="form-check-label fw-semibold">Duck(for Egg)</span>
-																	</label>
-																	<!--end::Radio-->
-																</div>
-																<!--end::d-flex align-items-center-->
-																
-																
-														</div>
-														<!--end::Col-->
-													</div>
-													<!--end::Row-->	
-												</div>
-												<!--end::Wrapper-->
-											</div>
-											<!--end::d-flex flex-wrap flex-stack-->
-											
-											
-											
-											
-											
-											
-										</div>
-										<!--end::Wrapper-->		
-									</div>
-									<!--end::Card Body-->
-								</div>
-								<!--end card shadow-sm-->
-								</div>
-								<!--end::Wrapper-->
-							</div>
-							<!--end::d-flex flex-wrap flex-stack mb-10"-->
-						</div>
-						<!--end::flex-grow-1-->
-					</div>
-					<!--end::d-flex flex-wrap flex-sm-nowrap-->
-				</div>
-				<!--end::card-body pt-9 pb-0-->
-			</div>
-			<!--end::card mb-5 mb-xxl-8-->
-		</div>
-		<!--end::kt_app_content_container-->
-	</div>
-	<!--kt_app_content-->
-	
-	
-	
-	
 		
 	
 	<div id="kt_app_content" class="">
@@ -3078,7 +2813,7 @@
 												</label>
 												<!--end::Label-->
 												<!--begin::Input-->
-												<input type="number" class="form-control" placeholder="" name="bill_email" value="" />
+												<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
 												<!--end::Input-->
 											</div>
 											<!--end::Input group-->
@@ -3101,7 +2836,7 @@
 												</label>
 												<!--end::Label-->
 												<!--begin::Input-->
-												<input type="number" class="form-control" placeholder="" name="bill_email" value="" />
+												<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
 												<!--end::Input-->
 											</div>
 											<!--end::Input group-->
@@ -3124,7 +2859,7 @@
 												</label>
 												<!--end::Label-->
 												<!--begin::Input-->
-												<input type="number" class="form-control" placeholder="" name="bill_email" value="" />
+												<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
 												<!--end::Input-->
 											</div>
 											<!--end::Input group-->
@@ -3234,7 +2969,7 @@
 															</label>
 															<!--end::Label-->
 															<!--begin::Input-->
-															<input type="number" class="form-control" placeholder="" name="bill_email" value="" />
+															<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
 															<!--end::Input-->
 														</div>
 														<!--end::Input group-->
@@ -3260,7 +2995,7 @@
 															</label>
 															<!--end::Label-->
 															<!--begin::Input-->
-															<input type="number" class="form-control" placeholder="" name="bill_email" value="" />
+															<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
 															<!--end::Input-->
 														</div>
 														<!--end::Input group-->
@@ -3283,7 +3018,7 @@
 															</label>
 															<!--end::Label-->
 															<!--begin::Input-->
-															<input type="number" class="form-control" placeholder="" name="bill_email" value="" />
+															<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
 															<!--end::Input-->
 														</div>
 														<!--end::Input group-->
@@ -3306,7 +3041,7 @@
 															</label>
 															<!--end::Label-->
 															<!--begin::Input-->
-															<input type="number" class="form-control" placeholder="" name="bill_email" value="" />
+															<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
 															<!--end::Input-->
 														</div>
 														<!--end::Input group-->
@@ -3372,7 +3107,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="number" class="form-control" placeholder="" name="bill_email" value="" />
+											<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -4077,7 +3812,7 @@
 														</label>
 														<!--end::Label-->
 														<!--begin::Input-->
-														<input type="number" class="form-control" placeholder="" name="bill_email" value="" />
+														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
 														<!--end::Input-->
 													</div>
 													<!--end::Input group-->
@@ -4200,7 +3935,7 @@
 														</label>
 														<!--end::Label-->
 														<!--begin::Input-->
-														<input type="number" class="form-control" placeholder="" name="bill_email" value="" />
+														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
 														<!--end::Input-->
 													</div>
 													<!--end::Input group-->
@@ -4561,7 +4296,7 @@
 														</label>
 														<!--end::Label-->
 														<!--begin::Input-->
-														<input type="number" class="form-control" placeholder="" name="bill_email" value="" />
+														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
 														<!--end::Input-->
 													</div>
 													<!--end::Input group-->
@@ -4966,7 +4701,7 @@
 														</label>
 														<!--end::Label-->
 														<!--begin::Input-->
-														<input type="number" class="form-control" placeholder="" name="bill_email" value="" />
+														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
 														<!--end::Input-->
 													</div>
 													<!--end::Input group-->
@@ -4989,7 +4724,7 @@
 														</label>
 														<!--end::Label-->
 														<!--begin::Input-->
-														<input type="number" class="form-control" placeholder="" name="bill_email" value="" />
+														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
 														<!--end::Input-->
 													</div>
 													<!--end::Input group-->
