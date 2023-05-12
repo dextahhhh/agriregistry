@@ -114,12 +114,14 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 			});	
 			
 			provinces(scope);
-			municipalities(scope);
+			// municipalities(scope);
 			
 		};
 		
 		// addEdit
 		self.individual = function(scope,row) {
+			
+			
 			
 			// if (!access.has(scope,scope.accountProfile.groups,scope.module.id,scope.module.privileges.add)) return;
 			
@@ -143,9 +145,30 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 					
 					angular.copy(response.data, scope.individual);
 					
+					if (scope.individual.municipality != null) {
+					  scope.municipalities = response.data.municipality.municipalities;
+					};
+					
+					if (scope.individual.birth_municipality != null) {
+					  scope.municipalities = response.data.birth_municipality.municipalities;
+					};
+					
+					if (scope.individual.emergency_municipality != null) {
+					  scope.municipalities = response.data.emergency_municipality.municipalities;
+					};
+					
+					if (response.data.birth_date != null) {
+					  scope.individual.birth_date = new Date(
+						response.data.birth_date
+					  );
+					} else {
+					};
+					
+					// }
+					
 					mode(scope,row);
 					
-					scope.individual.birth_date = new Date();
+					// scope.individual.birth_date = new Date();
 					
 				}, function myError(response) {
 					
@@ -156,8 +179,10 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 			};
 			
 			provinces(scope);
-			municipalities(scope);
-			barangays(scope);
+			// municipalities(scope);
+			// barangays(scope);
+			
+			console.log(scope);
 			
 		};
 		

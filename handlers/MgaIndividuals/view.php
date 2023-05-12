@@ -17,15 +17,18 @@ $individuals[0]['is_4ps'] = ($individuals[0]['is_4ps'])?true:false;
 //Address
 if($individuals[0]['province']!=null) {
     
-	$provinces = $con->getData("SELECT * FROM provinces WHERE id = ".$individuals[0]['province']);
+	$provinces = $con->getData("SELECT * FROM provinces WHERE id = ".$individuals[0]['province']);	
 	$individuals[0]['province'] = $provinces[0];
 	
 }
 
 if($individuals[0]['municipality']!=null) {
-    
+	
 	$municipality = $con->getData("SELECT * FROM municipalities WHERE id = ".$individuals[0]['municipality']);
 	$individuals[0]['municipality'] = $municipality[0];
+	
+	$municipalities = $con->getData("SELECT * FROM municipalities WHERE provCode = ".$provinces[0]['provCode']);
+	$individuals[0]['municipality']['municipalities'] = $municipalities;
 	
 }
 
@@ -33,6 +36,9 @@ if($individuals[0]['barangay']!=null) {
     
 	$barangay = $con->getData("SELECT * FROM barangays WHERE id = ".$individuals[0]['barangay']);
 	$individuals[0]['barangay'] = $barangay[0];
+	
+	$barangays = $con->getData("SELECT * FROM barangays WHERE citymunCode = ".$municipalities[0]['citymunCode']);
+	$individuals[0]['barangay']['barangays'] = $barangays;
 	
 }
 
@@ -50,6 +56,9 @@ if($individuals[0]['birth_municipality']!=null) {
 	$birth_municipality = $con->getData("SELECT * FROM municipalities WHERE id = ".$individuals[0]['birth_municipality']);
 	$individuals[0]['birth_municipality'] = $birth_municipality[0];
 	
+	$municipalities = $con->getData("SELECT * FROM municipalities WHERE provCode = ".$provinces[0]['provCode']);
+	$individuals[0]['birth_municipality']['municipalities'] = $municipalities;
+	
 }
 
 //Emergency Contact Address
@@ -65,6 +74,9 @@ if($individuals[0]['emergency_municipality']!=null) {
     
 	$emergency_municipality = $con->getData("SELECT * FROM municipalities WHERE id = ".$individuals[0]['emergency_municipality']);
 	$individuals[0]['emergency_municipality'] = $emergency_municipality[0];
+	
+	$municipalities = $con->getData("SELECT * FROM municipalities WHERE provCode = ".$provinces[0]['provCode']);
+	$individuals[0]['emergency_municipality']['municipalities'] = $municipalities;
 	
 }
 
