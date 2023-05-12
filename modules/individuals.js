@@ -46,42 +46,42 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 			
 		};
 		
-		self.checkProvince = function(scope,provCode) {
-			
-			scope.municipalities = [];
-			
-			$http({
-			  method: 'POST',
-			  url: 'api/suggestions/check-province.php',
-			  data: provCode
-			}).then(function mySucces(response) {
+		self.checkMunicipality = function (scope,item) {
+          
+		  console.log(item);
+		  
+          var prov_code = item.provCode;
 
-				scope.municipalities = angular.copy(response.data);
+          $http({
+            method: "POST",
+            url: "handlers/MgaIndividuals/check-municipality.php",
+            data: { id: prov_code },
+          }).then(
+            function mySucces(response) {
+              scope.municipalities = response.data;
+            },
+            function myError(response) {}
+          );
+        };
 
-			}, function myError(response) {
-				
-			});
+        self.checkBarangays = function (scope, item) {
 			
-		};
+		  console.log(item);
+			
+          var mun_code = item.citymunCode;
 
-		self.checkCity = function(scope,provCode) {
-			
-			scope.barangays = [];
-			
-			$http({
-			  method: 'POST',
-			  url: 'api/suggestions/check-brgy.php',
-			  data: provCode
-			}).then(function mySucces(response) {
-
-				scope.barangays = angular.copy(response.data);
-
-			}, function myError(response) {
-				
-			});
-			
-			console.log(scope);
-		};
+          $http({
+            method: "POST",
+            url: "handlers/MgaIndividuals/check-barangays.php",
+            data: { id: mun_code },
+          }).then(
+            function mySucces(response) {
+              scope.barangays = response.data;
+            },
+            function myError(response) {}
+          );
+		  
+        };
 		
 		self.list = function(scope) {
 			
@@ -121,9 +121,9 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 		// addEdit
 		self.individual = function(scope,row) {
 			
-			
-			
 			// if (!access.has(scope,scope.accountProfile.groups,scope.module.id,scope.module.privileges.add)) return;
+			
+			console.log(scope,row);
 			
 			scope.individual = {};
 			scope.individual.id = 0;
@@ -145,18 +145,6 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 					
 					angular.copy(response.data, scope.individual);
 					
-					if (scope.individual.municipality != null) {
-					  scope.municipalities = response.data.municipality.municipalities;
-					};
-					
-					if (scope.individual.birth_municipality != null) {
-					  scope.municipalities = response.data.birth_municipality.municipalities;
-					};
-					
-					if (scope.individual.emergency_municipality != null) {
-					  scope.municipalities = response.data.emergency_municipality.municipalities;
-					};
-					
 					if (response.data.birth_date != null) {
 					  scope.individual.birth_date = new Date(
 						response.data.birth_date
@@ -164,7 +152,13 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 					} else {
 					};
 					
-					// }
+					if (scope.individual.municipality != null) {
+					  scope.municipalities =
+						response.data.municipality.municipalities;
+					}
+					if (scope.individual.barangay != null) {
+					  scope.barangays = response.data.barangay.barangays;
+					}
 					
 					mode(scope,row);
 					
@@ -179,10 +173,6 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 			};
 			
 			provinces(scope);
-			// municipalities(scope);
-			// barangays(scope);
-			
-			console.log(scope);
 			
 		};
 		
@@ -276,36 +266,6 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 			}).then(function mySucces(response) {
 				
 				scope.provinces = response.data;
-				
-			}, function myError(response) {
-				 
-			});
-			
-		};
-		
-		function municipalities(scope){
-			
-			$http({
-			  method: 'POST',
-			  url: 'api/suggestions/municipalities.php'
-			}).then(function mySucces(response) {
-				
-				scope.municipalities = response.data;
-				
-			}, function myError(response) {
-				 
-			});
-			
-		};
-		
-		function barangays(scope){
-			
-			$http({
-			  method: 'POST',
-			  url: 'api/suggestions/barangays.php'
-			}).then(function mySucces(response) {
-				
-				scope.barangays = response.data;
 				
 			}, function myError(response) {
 				 
