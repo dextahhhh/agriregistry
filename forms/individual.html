@@ -1,4 +1,3 @@
-
 <form class="needs-validation" novalidate="" role="form" name="formHolder.individual">
 	<div id="kt_app_content" class="">
 		<!--begin::kt_app_content_container-->
@@ -92,7 +91,7 @@
 										<i class="ki-duotone ki-geolocation fs-4 me-1">
 											<span class="path1"></span>
 											<span class="path2"></span>
-										</i>{{individual.municipality.municipality_description}}, {{individual.province.province_description}}</a>
+										</i>{{individual.municipality.citymunDesc}}, {{individual.province.provDesc}}</a>
 										<a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary mb-2">
 										<i class="ki-duotone ki-phone fs-4 me-1">
 											<span class="path1"></span>
@@ -102,19 +101,19 @@
 									<!--end::d-flex flex-wrap fw-semibold fs-6 mb-4 pe-2-->
 								</div>
 								<!--end::d-flex flex-column-->
-									<!--begin::d-flex my-4-->
-									<div class="d-flex my-4">
-										<button type="button" class="btn btn-light-primary" ng-click="app.edit(this)">
-										<i class="ki-duotone ki-pencil fs-3">
-										<span class="path1"></span>
-										<span class="path2"></span>
-										</i>Edit Information</button>
-									</div>
-									<!--end::d-flex my-4-->
+								<!--begin::d-flex my-4-->
+								<div class="d-flex my-4">
+									<button type="button" class="btn btn-light-primary" ng-click="app.edit(this)">
+									<i class="ki-duotone ki-pencil fs-3">
+									<span class="path1"></span>
+									<span class="path2"></span>
+									</i>Edit Information</button>
+								</div>
+								<!--end::d-flex my-4-->
 							</div>
 							<!--end::d-flex justify-content-between align-items-start flex-wrap mb-2-->
 									
-									<!--begin::Stats-->
+							<!--begin::Stats-->
 							<div class="d-flex flex-wrap flex-stack">
 								<!--begin::Wrapper-->
 								<div class="d-flex flex-column flex-grow-1 pe-8">
@@ -205,7 +204,7 @@
 												</label>
 												<!--end::Label-->
 												<!--begin::Input-->
-												<div class="text-gray-400">{{individual.last_updated_by}}</div>
+												<div class="text-gray-400">{{individual.last_updated_by.firstname}} {{individual.last_updated_by.middlename}} {{individual.last_updated_by.lastname}}</div>
 												<!--end::Input-->
 											</div>
 											<!--end::Input group-->
@@ -281,6 +280,10 @@
 						
 						<!--begin::flex-grow-1-->
 						<div class="flex-grow-1">
+							<div class="card-footer d-flex justify-content-end py-6 px-9">
+							<input type="reset" class="btn btn-light me-4" value="{{controls.cancel.label}}"  ng-click="app.list(this)">
+							<input type="button" class="btn btn-primary first" value="{{controls.ok.label}}" ng-click="app.save(this)" ng-disabled="controls.ok.btn">
+							</div>
 							<!--begin::d-flex justify-content-between align-items-start flex-wrap mb-2-->
 							<div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
 								<!--begin::d-flex flex-column-->
@@ -300,29 +303,7 @@
 								<!--begin::Wrapper-->
 								<div class="d-flex flex-column flex-grow-1 pe-8">
 									<div class="row row-cols-1 row-cols-md-5">
-									<!--begin::Col-->
-									<div class="col">
-										<!--begin::Input group-->
-										<div class="fv-row mb-4">
-											<!--begin::Label-->
-											<label class="fs-6 fw-semibold mb-2">
-												<span>Last Name</span>
-												<span class="ms-1" data-bs-toggle="tooltip" title="">
-													<i class="ki-duotone ki-information fs-7">
-														<span class="path1"></span>
-														<span class="path2"></span>
-														<span class="path3"></span>
-													</i>
-												</span>
-											</label>
-											<!--end::Label-->
-											<!--begin::Input-->
-											<input type="text" class="form-control" placeholder="" name="lastname" ng-model="individual.lastname" ng-disabled="controls.ok.btn" />
-											<!--end::Input-->
-										</div>
-										<!--end::Input group-->
-									</div>
-									<!--end::Col-->
+									
 									<!--begin::Col-->
 									<div class="col">
 										<!--begin::Input group-->
@@ -364,6 +345,29 @@
 											<!--end::Label-->
 											<!--begin::Input-->
 											<input type="text" class="form-control" placeholder="" name="middlename" ng-model="individual.middlename" ng-disabled="controls.ok.btn" />
+											<!--end::Input-->
+										</div>
+										<!--end::Input group-->
+									</div>
+									<!--end::Col-->
+									<!--begin::Col-->
+									<div class="col">
+										<!--begin::Input group-->
+										<div class="fv-row mb-4">
+											<!--begin::Label-->
+											<label class="fs-6 fw-semibold mb-2">
+												<span>Last Name</span>
+												<span class="ms-1" data-bs-toggle="tooltip" title="">
+													<i class="ki-duotone ki-information fs-7">
+														<span class="path1"></span>
+														<span class="path2"></span>
+														<span class="path3"></span>
+													</i>
+												</span>
+											</label>
+											<!--end::Label-->
+											<!--begin::Input-->
+											<input type="text" class="form-control" placeholder="" name="lastname" ng-model="individual.lastname" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -707,7 +711,16 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<select class="form-control" name="birth_province" ng-model="individual.birth_province" ng-options="province.province_description for province in provinces track by province.id" ng-disabled="controls.ok.btn" ng-change="app.checkProvince(this,individual.birth_province)"></select>
+											<select
+												class="form-select"
+												name="birth_province"
+												ng-model="individual.birth_province"
+												ng-disabled="controls.ok.btn"
+												ng-options="province.provDesc for province in provinces track by province.provCode"
+												ng-change="app.checkBirthMunicipality(this, individual.birth_province)"
+												ng-class="{'is-invalid': formHolder.individual.birth_province.$touched && formHolder.individual.birth_province.$invalid}"
+												required
+											></select>
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -730,7 +743,15 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<select class="form-control" name="birth_municipality" ng-model="individual.birth_municipality" ng-options="city.municipality_description for city in municipalities track by city.id" ng-disabled="controls.ok.btn" ng-change="app.checkCity(this,individual.birth_municipality)"></select>
+											<select
+												class="form-select"
+												name="birth_municipality"
+												ng-model="individual.birth_municipality"
+												ng-disabled="controls.ok.btn"
+												ng-options="municipality.citymunDesc for municipality in birthmunicipalities track by municipality.citymunCode"
+												ng-class="{'is-invalid': formHolder.individual.birth_municipality.$touched && formHolder.individual.birth_municipality.$invalid}"
+												required
+											></select>
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -1613,7 +1634,16 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<select class="form-control" name="emergency_province" ng-model="individual.emergency_province" ng-options="province.province_description for province in provinces track by province.id" ng-disabled="controls.ok.btn" ng-change="app.checkProvince(this,individual.emergency_province)"></select>
+											<select
+												class="form-select"
+												name="emergency_province"
+												ng-model="individual.emergency_province"
+												ng-disabled="controls.ok.btn"
+												ng-options="province.provDesc for province in provinces track by province.provCode"
+												ng-change="app.checkEmergencyMunicipality(this, individual.emergency_province)"
+												ng-class="{'is-invalid': formHolder.individual.emergency_province.$touched && formHolder.individual.emergency_province.$invalid}"
+												required
+											></select>
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -1636,7 +1666,16 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<select class="form-control" name="emergency_municipality" ng-model="individual.emergency_municipality" ng-options="city.municipality_description for city in municipalities track by city.id" ng-disabled="controls.ok.btn" ng-change="app.checkCity(this,individual.emergency_municipality)"></select>
+											<select
+												class="form-select"
+												name="emergency_municipality"
+												ng-model="individual.emergency_municipality"
+												ng-disabled="controls.ok.btn"
+												ng-options="municipality.citymunDesc for municipality in emergencymunicipalities track by municipality.citymunCode"
+												ng-change="app.checkEmergencyBarangays(this, individual.emergency_municipality)"
+												ng-class="{'is-invalid': formHolder.individual.emergency_municipality.$touched && formHolder.individual.emergency_municipality.$invalid}"
+												required
+											></select>
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -1660,7 +1699,13 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<select class="form-control" name="emergency_barangay" ng-model="individual.emergency_barangay" ng-options="brgy.barangay_description for brgy in barangays track by brgy.id" ng-disabled="controls.ok.btn" ></select>
+											<select
+												class="form-select"
+												name="emergency_barangay"
+												ng-model="individual.emergency_barangay"
+												ng-disabled="controls.ok.btn"
+												ng-options="barangay.brgyDesc for barangay in emergencybarangays track by barangay.brgyCode"
+											></select>
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -1730,7 +1775,7 @@
 										<!--begin::Input group-->
 										<div class="fv-row mb-4">
 											<!--begin::Label-->
-											<label class="fs-6 fw-semibold mb-2">
+											<label class="fs-7 fw-semibold mb-2">
 												<span>Household monthly income on fishing/farm laboring (Net)</span>
 											</label>
 											<!--end::Label-->
@@ -1746,7 +1791,7 @@
 										<!--begin::Input group-->
 										<div class="fv-row mb-4">
 											<!--begin::Label-->
-											<label class="fs-6 fw-semibold mb-2">
+											<label class="fs-7 fw-semibold mb-2">
 												<span>Other Source of income that are not agriculture related</span>
 												
 											</label>

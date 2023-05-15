@@ -62,6 +62,7 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
             },
             function myError(response) {}
           );
+		  
         };
 
         self.checkBarangays = function (scope, item) {
@@ -77,6 +78,63 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
           }).then(
             function mySucces(response) {
               scope.barangays = response.data;
+            },
+            function myError(response) {}
+          );
+		  
+        };
+		
+		self.checkBirthMunicipality = function (scope,item) {
+          
+		  console.log(item);
+		  
+          var prov_code = item.provCode;
+
+          $http({
+            method: "POST",
+            url: "handlers/MgaIndividuals/check-birthmunicipality.php",
+            data: { id: prov_code },
+          }).then(
+            function mySucces(response) {
+              scope.birthmunicipalities = response.data;
+            },
+            function myError(response) {}
+          );
+		  
+        };
+		
+		self.checkEmergencyMunicipality = function (scope,item) {
+          
+		  console.log(item);
+		  
+          var prov_code = item.provCode;
+
+          $http({
+            method: "POST",
+            url: "handlers/MgaIndividuals/check-emergencymunicipality.php",
+            data: { id: prov_code },
+          }).then(
+            function mySucces(response) {
+              scope.emergencymunicipalities = response.data;
+            },
+            function myError(response) {}
+          );
+		  
+        };
+
+        self.checkEmergencyBarangays = function (scope, item) {
+			
+		  console.log(item);
+			
+          var mun_code = item.citymunCode;
+
+          $http({
+            method: "POST",
+            url: "handlers/MgaIndividuals/check-emergencybarangays.php",
+            data: { id: mun_code },
+          }).then(
+            function mySucces(response) {
+              scope.emergencybarangays = response.data;
             },
             function myError(response) {}
           );
@@ -156,8 +214,23 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 					  scope.municipalities =
 						response.data.municipality.municipalities;
 					}
+					
 					if (scope.individual.barangay != null) {
 					  scope.barangays = response.data.barangay.barangays;
+					}
+					
+					if (scope.individual.birth_municipality != null) {
+					  scope.birthmunicipalities =
+						response.data.birth_municipality.municipalities;
+					}
+					
+					if (scope.individual.emergency_municipality != null) {
+					  scope.emergencymunicipalities =
+						response.data.emergency_municipality.municipalities;
+					}
+					
+					if (scope.individual.emergency_barangay != null) {
+					  scope.emergencybarangays = response.data.emergency_barangay.barangays;
 					}
 					
 					mode(scope,row);
