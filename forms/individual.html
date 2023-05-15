@@ -457,7 +457,16 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<select class="form-control" name="province" ng-model="individual.province" ng-options="province.province_description for province in provinces track by province.id" ng-disabled="controls.ok.btn" ng-change="app.checkProvince(this,individual.province)"></select>
+											<select
+												class="form-select"
+												name="province"
+												ng-model="individual.province"
+												ng-disabled="controls.ok.btn"
+												ng-options="province.provDesc for province in provinces track by province.provCode"
+												ng-change="app.checkMunicipality(this, individual.province)"
+												ng-class="{'is-invalid': formHolder.individual.province.$touched && formHolder.individual.province.$invalid}"
+												required
+											></select>
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -480,7 +489,16 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<select class="form-control" name="municipality" ng-model="individual.municipality" ng-options="city.municipality_description for city in municipalities track by city.id" ng-disabled="controls.ok.btn" ng-change="app.checkCity(this,individual.municipality)"></select>
+											<select
+												class="form-select"
+												name="municipality"
+												ng-model="individual.municipality"
+												ng-disabled="controls.ok.btn"
+												ng-options="municipality.citymunDesc for municipality in municipalities track by municipality.citymunCode"
+												ng-change="app.checkBarangays(this, individual.municipality)"
+												ng-class="{'is-invalid': formHolder.individual.municipality.$touched && formHolder.individual.municipality.$invalid}"
+												required
+											></select>
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -504,7 +522,13 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<select class="form-control" name="barangay" ng-model="individual.barangay" ng-options="brgy.barangay_description for brgy in barangays track by brgy.id" ng-disabled="controls.ok.btn" ></select>
+											<select
+												class="form-select"
+												name="barangay"
+												ng-model="individual.barangay"
+												ng-disabled="controls.ok.btn"
+												ng-options="barangay.brgyDesc for barangay in barangays track by barangay.brgyCode"
+											></select>
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -941,13 +965,13 @@
 											<div class="d-flex align-items-center">
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-20px w-20px" name="is_pwd" ng-model="individual.is_pwd" type="radio" value="1" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<input class="form-check-input h-20px w-20px" name="is_pwd" ng-model="individual.is_pwd" type="radio" ng-value="1" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">Yes</span>
 												</label>
 												<!--end::Radio-->
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-20px w-20px" name="is_pwd" ng-model="individual.is_pwd" type="radio" value="0" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<input class="form-check-input h-20px w-20px" name="is_pwd" ng-model="individual.is_pwd" type="radio" ng-value="0" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">No</span>
 												</label>
 												<!--end::Radio-->
@@ -977,13 +1001,13 @@
 											<div class="d-flex align-items-center">
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-20px w-20px" name="have_rsbsa" ng-model="individual.have_rsbsa" type="radio" value="1" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<input class="form-check-input h-20px w-20px" name="have_rsbsa" ng-model="individual.have_rsbsa" type="radio" ng-value="1" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">Yes</span>
 												</label>
 												<!--end::Radio-->
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-20px w-20px" name="have_rsbsa" ng-model="individual.have_rsbsa" type="radio" value="0" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<input class="form-check-input h-20px w-20px" name="have_rsbsa" ng-model="individual.have_rsbsa" type="radio" ng-value="0" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">No</span>
 												</label>
 												<!--end::Radio-->
@@ -1016,22 +1040,22 @@
 											<div class="d-flex align-items-center">
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-20px w-20px" name="have_government_id" ng-model="individual.have_government_id" type="radio" value="1" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<input class="form-check-input h-20px w-20px" name="have_government_id" ng-model="individual.have_government_id" type="radio" ng-value="1" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">Yes</span>
 												</label>
 												<!--end::Radio-->
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-20px w-20px" name="have_government_id" ng-model="individual.have_government_id" type="radio" value="0" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<input class="form-check-input h-20px w-20px" name="have_government_id" ng-model="individual.have_government_id" type="radio" ng-value="0" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">No</span>
 												</label>
 												<!--end::Radio-->
 												
 												<!--begin::Input-->
-												<input type="text" class="form-control" placeholder="ID No." name="government_id_no" ng-model="individual.government_id_no" ng-disabled="controls.ok.btn" />
+												<input type="text" class="form-control" placeholder="ID No." name="government_id_no" ng-model="individual.government_id_no" ng-disabled="controls.ok.btn" ng-show="individual.have_government_id=='1'" />
 												<!--end::Input-->
 												<!--begin::Input-->
-												<input type="text" class="form-control" placeholder="ID Type" name="government_id_type" ng-model="individual.government_id_type" ng-disabled="controls.ok.btn" />
+												<input type="text" class="form-control" placeholder="ID Type" name="government_id_type" ng-model="individual.government_id_type" ng-disabled="controls.ok.btn" ng-show="individual.have_government_id=='1'" />
 												<!--end::Input-->
 											</div>
 											<!--end::Checkboxes-->
@@ -1072,13 +1096,13 @@
 											<div class="d-flex align-items-center">
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-20px w-20px" name="is_4ps" ng-model="individual.is_4ps" type="radio" value="1" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<input class="form-check-input h-20px w-20px" name="is_4ps" ng-model="individual.is_4ps" type="radio" ng-value="1" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">Yes</span>
 												</label>
 												<!--end::Radio-->
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-20px w-20px" name="is_4ps" ng-model="individual.is_4ps" type="radio" value="0" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<input class="form-check-input h-20px w-20px" name="is_4ps" ng-model="individual.is_4ps" type="radio" ng-value="0" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">No</span>
 												</label>
 												<!--end::Radio-->
@@ -1108,13 +1132,13 @@
 											<div class="d-flex align-items-center">
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-20px w-20px" name="is_ip" ng-model="individual.is_ip" type="radio" value="1" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<input class="form-check-input h-20px w-20px" name="is_ip" ng-model="individual.is_ip" type="radio" ng-value="1" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">Yes</span>
 												</label>
 												<!--end::Radio-->
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-20px w-20px" name="is_ip" ng-model="individual.is_ip" type="radio" value="0" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<input class="form-check-input h-20px w-20px" name="is_ip" ng-model="individual.is_ip" type="radio" ng-value="0" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">No</span>
 												</label>
 												<!--end::Radio-->
@@ -1146,7 +1170,7 @@
 											</select>
 											<!--end::Input-->
 											<!--begin::Input-->
-												<input type="text" class="form-control" placeholder="please specify" name="education_others" ng-model="individual.education_others" ng-disabled="controls.ok.btn" />
+												<input type="text" class="form-control" placeholder="please specify" name="education_others" ng-model="individual.education_others" ng-disabled="controls.ok.btn" ng-show="individual.educational_background=='Others'"/>
 												<!--end::Input-->
 											</div>
 										</div>
@@ -1186,13 +1210,13 @@
 											<div class="d-flex align-items-center">
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-20px w-20px" name="is_4ps" ng-model="individual.is_4ps" type="radio" value="1" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<input class="form-check-input h-20px w-20px" name="is_household_head" ng-model="individual.is_household_head" type="radio" ng-value="1" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">Yes</span>
 												</label>
 												<!--end::Radio-->
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-20px w-20px" name="is_4ps" ng-model="individual.is_4ps" type="radio" value="0" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<input class="form-check-input h-20px w-20px" name="is_household_head" ng-model="individual.is_household_head" type="radio" ng-value="0" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">No</span>
 												</label>
 												<!--end::Radio-->
@@ -1204,12 +1228,12 @@
 									<!--end::Col-->
 									<!--begin::Col-->
 									<!--begin::Col-->
-									<div class="col">
+									<div class="col" ng-show="individual.is_household_head=='0'">
 										<!--begin::Input group-->
-										<div class="fv-row mb-4">
+										<div class="fv-row mb-4" >
 											<!--begin::Label-->
 											<label class="fs-6 fw-semibold mb-2">
-												<span>If NO, name of household head:</span>
+												<span>If NO, Name of household head:</span>
 												<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
 													<i class="ki-duotone ki-information fs-7">
 														<span class="path1"></span>
@@ -1220,13 +1244,13 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="text" class="form-control" placeholder="" name="no_of_male" ng-model="individual.no_of_male" ng-disabled="controls.ok.btn" />
+											<input type="text" class="form-control" placeholder="" name="household_head_name" ng-model="individual.household_head_name" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
 									</div>
 									<!--end::Col-->
-									<div class="col">
+									<div class="col" ng-show="individual.is_household_head=='0'">
 										<!--begin::Input group-->
 										<div class="fv-row mb-4">
 											<!--begin::Label-->
@@ -1242,7 +1266,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="text" class="form-control" placeholder="" name="no_of_male" ng-model="individual.no_of_male" ng-disabled="controls.ok.btn" />
+											<input type="text" class="form-control" placeholder="" name="household_head_relationship" ng-model="individual.household_head_relationship" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->

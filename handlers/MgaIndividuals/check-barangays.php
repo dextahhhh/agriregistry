@@ -12,7 +12,7 @@ $mun_code = $_POST['id'];
 
 if($_SESSION['id']) {
 
-    $barangays = $con->getData("SELECT * FROM barangays WHERE citymunCode = $mun_code ORDER BY brgyDesc");
+    $barangays = $con->getData("SELECT * FROM refbrgy WHERE citymunCode = $mun_code ORDER BY brgyDesc");
 
     header("Content-Type: application/json");
     echo json_encode($barangays);

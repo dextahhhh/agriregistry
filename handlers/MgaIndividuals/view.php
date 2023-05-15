@@ -12,78 +12,31 @@ $con = new pdo_db();
 
 $individuals = $con->getData("SELECT * FROM individuals WHERE id = $_POST[id]");
 
-$individuals[0]['is_4ps'] = ($individuals[0]['is_4ps'])?true:false;
-
 //Address
 if($individuals[0]['province']!=null) {
     
-	$provinces = $con->getData("SELECT * FROM provinces WHERE id = ".$individuals[0]['province']);	
+	$provinces = $con->getData("SELECT * FROM refprovince WHERE id = ".$individuals[0]['province']);	
 	$individuals[0]['province'] = $provinces[0];
 	
 }
 
 if($individuals[0]['municipality']!=null) {
 	
-	$municipality = $con->getData("SELECT * FROM municipalities WHERE id = ".$individuals[0]['municipality']);
+	$municipality = $con->getData("SELECT * FROM refcitymun WHERE psgcCode = ".$individuals[0]['municipality']);
 	$individuals[0]['municipality'] = $municipality[0];
 	
-	$municipalities = $con->getData("SELECT * FROM municipalities WHERE provCode = ".$provinces[0]['provCode']);
+	$municipalities = $con->getData("SELECT * FROM refcitymun WHERE provCode = ".$provinces[0]['provCode']);
 	$individuals[0]['municipality']['municipalities'] = $municipalities;
 	
 }
 
 if($individuals[0]['barangay']!=null) {
     
-	$barangay = $con->getData("SELECT * FROM barangays WHERE id = ".$individuals[0]['barangay']);
+	$barangay = $con->getData("SELECT * FROM refbrgy WHERE brgyCode = ".$individuals[0]['barangay']);
 	$individuals[0]['barangay'] = $barangay[0];
 	
-	$barangays = $con->getData("SELECT * FROM barangays WHERE citymunCode = ".$municipalities[0]['citymunCode']);
+	$barangays = $con->getData("SELECT * FROM refbrgy WHERE citymunCode = ".$municipality[0]['citymunCode']);
 	$individuals[0]['barangay']['barangays'] = $barangays;
-	
-}
-
-//Birth Place
-
-if($individuals[0]['birth_province']!=null) {
-    
-	$birth_province = $con->getData("SELECT * FROM provinces WHERE id = ".$individuals[0]['birth_province']);
-	$individuals[0]['birth_province'] = $birth_province[0];
-	
-}
-
-if($individuals[0]['birth_municipality']!=null) {
-    
-	$birth_municipality = $con->getData("SELECT * FROM municipalities WHERE id = ".$individuals[0]['birth_municipality']);
-	$individuals[0]['birth_municipality'] = $birth_municipality[0];
-	
-	$municipalities = $con->getData("SELECT * FROM municipalities WHERE provCode = ".$provinces[0]['provCode']);
-	$individuals[0]['birth_municipality']['municipalities'] = $municipalities;
-	
-}
-
-//Emergency Contact Address
-
-if($individuals[0]['emergency_province']!=null) {
-    
-	$emergency_province = $con->getData("SELECT * FROM provinces WHERE id = ".$individuals[0]['emergency_province']);
-	$individuals[0]['emergency_province'] = $emergency_province[0];
-	
-}
-
-if($individuals[0]['emergency_municipality']!=null) {
-    
-	$emergency_municipality = $con->getData("SELECT * FROM municipalities WHERE id = ".$individuals[0]['emergency_municipality']);
-	$individuals[0]['emergency_municipality'] = $emergency_municipality[0];
-	
-	$municipalities = $con->getData("SELECT * FROM municipalities WHERE provCode = ".$provinces[0]['provCode']);
-	$individuals[0]['emergency_municipality']['municipalities'] = $municipalities;
-	
-}
-
-if($individuals[0]['emergency_barangay']!=null) {
-    
-	$emergency_barangay = $con->getData("SELECT * FROM barangays WHERE id = ".$individuals[0]['emergency_barangay']);
-	$individuals[0]['emergency_barangay'] = $emergency_barangay[0];
 	
 }
 
