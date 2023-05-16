@@ -43,7 +43,7 @@ $computed = substr($next_qr_code, 4);
 
 $qr_code_result = 'INDV'.'-'.$municipality.'-'.$date_year.'-'.$computed;
 
-var_dump($qr_code_result); exit();
+// var_dump($qr_code_result); exit();
 
 if ($_POST['id']) {
 	
@@ -55,6 +55,7 @@ if ($_POST['id']) {
 
 } else {
 	
+	$_POST['registration_no'] = $qr_code_result;
 	$office = $con->insertObj($_POST);
 	// $id = $con->insertId;
 	echo $con->insertId;

@@ -103,7 +103,7 @@
 								<!--end::d-flex flex-column-->
 								<!--begin::d-flex my-4-->
 								<div class="d-flex my-4">
-									<button type="button" class="btn btn-light-primary" ng-click="app.edit(this)">
+									<button type="button" class="btn btn-primary first" ng-click="app.edit(this)">
 									<i class="ki-duotone ki-pencil fs-3">
 									<span class="path1"></span>
 									<span class="path2"></span>
@@ -280,7 +280,7 @@
 						
 						<!--begin::flex-grow-1-->
 						<div class="flex-grow-1">
-							<div class="card-footer d-flex justify-content-end py-6 px-9">
+							<div class="card-header d-flex justify-content-end py-6 px-9 mb-5">
 							<input type="reset" class="btn btn-light me-4" value="{{controls.cancel.label}}"  ng-click="app.list(this)">
 							<input type="button" class="btn btn-primary first" value="{{controls.ok.label}}" ng-click="app.save(this)" ng-disabled="controls.ok.btn">
 							</div>
