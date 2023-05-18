@@ -11,6 +11,21 @@ session_start();
 $con = new pdo_db();
 
 $individuals = $con->getData("SELECT *, DATE_FORMAT(system_log, '%M %d, %Y %h:%i %p') system_log, DATE_FORMAT(update_log, '%M %d, %Y %h:%i %p') update_log FROM individuals WHERE id = $_POST[id]");
+//slider
+$individuals[0]['for_farmers'] = ($individuals[0]['for_farmers'])?true:false;
+$individuals[0]['for_livestock'] = ($individuals[0]['for_livestock'])?true:false;
+$individuals[0]['for_fisherfolk'] = ($individuals[0]['for_fisherfolk'])?true:false;
+//checkbox
+$individuals[0]['for_farmers_rice'] = ($individuals[0]['for_farmers_rice'])?true:false;
+$individuals[0]['for_farmers_corn'] = ($individuals[0]['for_farmers_corn'])?true:false;
+$individuals[0]['for_farmers_other_crops'] = ($individuals[0]['for_farmers_other_crops'])?true:false;
+$individuals[0]['for_farmers_livestock'] = ($individuals[0]['for_farmers_livestock'])?true:false;
+$individuals[0]['for_farmers_poultry'] = ($individuals[0]['for_farmers_poultry'])?true:false;
+$individuals[0]['for_farmers_land_preparation'] = ($individuals[0]['for_farmers_land_preparation'])?true:false;
+$individuals[0]['for_farmers_planting'] = ($individuals[0]['for_farmers_planting'])?true:false;
+$individuals[0]['for_farmers_cultivation'] = ($individuals[0]['for_farmers_cultivation'])?true:false;
+$individuals[0]['for_farmers_harvesting'] = ($individuals[0]['for_farmers_harvesting'])?true:false;
+$individuals[0]['for_farmers_others'] = ($individuals[0]['for_farmers_others'])?true:false;
 
 if($individuals[0]['last_updated_by']!=null) {
     
