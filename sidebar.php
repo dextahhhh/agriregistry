@@ -22,7 +22,7 @@
 			<!--end:Menu item-->
 			
 			<!--begin:Menu item-->
-			<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+			<div data-kt-menu-trigger="click" class="menu-item <?=($page=="individual")?'show':''?> || <?=($page=="agribusiness")?'show':''?> || <?=($page=="cooperative")?'show':''?> menu-accordion">
 				<!--begin:Menu link-->
 				<span class="menu-link">
 					<span class="menu-icon">
