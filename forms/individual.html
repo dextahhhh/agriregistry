@@ -60,7 +60,6 @@
 						</div>
 						<!--end::me-7 mb-4-->
 						
-						
 						<!--begin::flex-grow-1-->
 						<div class="flex-grow-1">
 							<!--begin::d-flex justify-content-between align-items-start flex-wrap mb-2-->
@@ -258,7 +257,7 @@
 		</div>
 		<!--end::kt_app_content_container-->
 	</div>
-	<!--end::Content-->
+<!--end::Content-->
 
 <div class="tab-content" id="myTabContent">
 	<div class="tab-pane fade show active" id="1" role="tabpanel">
@@ -1500,10 +1499,7 @@
 								<!--end::Wrapper-->
 							</div>
 							<!--end::d-flex flex-wrap flex-stack-->
-							
-							
 							<div class="separator my-7"></div>
-							
 							
 							<!--begin::d-flex flex-wrap flex-stack-->
 							<div class="d-flex flex-wrap flex-stack mb-5">
@@ -1853,7 +1849,7 @@
 	</div>
 	<!-------------------------------end::tab-pane 1------------------------------->
 
-
+	<!-------------------------------start::tab-pane 2------------------------------->
 	<div class="tab-pane fade" id="2" role="tabpane1">	
 	<div id="kt_app_content" class="">
 		<!--begin::kt_app_content_container-->
@@ -1910,7 +1906,7 @@
 												<!--begin::Checkboxes-->
 												<div class="d-flex align-items-center">
 													<div class="form-check form-switch form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-30px w-50px" type="checkbox" value="" id="flexSwitch20x30"/>
+													<input class="form-check-input h-30px w-50px" type="checkbox" ng-value="1" name="for_farmers" ng-model="individual.for_farmers" id="flexSwitch20x30"/>
 													</div>
 												</div>
 												<!--end::Checkboxes-->
@@ -1937,7 +1933,7 @@
 												<!--begin::Checkboxes-->
 												<div class="d-flex align-items-center">
 													<div class="form-check form-switch form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-30px w-50px" type="checkbox" value="" id="flexSwitch20x30"/>
+													<input class="form-check-input h-30px w-50px" type="checkbox" ng-value="1" name="for_livestock" ng-model="individual.for_livestock" id="flexSwitch20x30"/>
 													</div>
 												</div>
 												<!--end::Checkboxes-->
@@ -1964,7 +1960,7 @@
 												<!--begin::Checkboxes-->
 												<div class="d-flex align-items-center">
 													<div class="form-check form-switch form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-30px w-50px" type="checkbox" value="" id="flexSwitch20x30"/>
+													<input class="form-check-input h-30px w-50px" type="checkbox" ng-value="1" name="for_fisherfolk" ng-model="individual.for_fisherfolk" id="flexSwitch20x30"/>
 													</div>
 												</div>
 												<!--end::Checkboxes-->
@@ -1972,17 +1968,14 @@
 											<!--end::Input group-->
 										</div>
 										<!--end::Col-->
-										
 									</div>
 									<!--end::Row-->	
 								</div>
 								<!--end::Wrapper-->
 							</div>
 							<!--end::d-flex flex-wrap flex-stack-->
-							
 						</div>
 						<!--end::flex-grow-1-->
-
 					</div>
 					<!--end::d-flex flex-wrap flex-sm-nowrap-->
 				</div>
@@ -1994,9 +1987,7 @@
 	</div>
 	<!--end::Content-->
 	
-	
-	
-	<div id="kt_app_content" class="">
+	<div id="kt_app_content" class="" ng-show="individual.for_farmers=='1'">
 		<!--begin::kt_app_content_container-->
 		<div id="kt_app_content_container" class="card-body pt-0 pb-0">
 			<!--begin::card mb-5 mb-xxl-8-->
@@ -2025,7 +2016,6 @@
 								<!--end::d-flex flex-column-->
 							</div>
 							<!--end::d-flex justify-content-between align-items-start flex-wrap mb-2-->
-
 						
 							<!--begin::d-flex flex-wrap flex-stack-->
 							<div class="d-flex flex-wrap flex-stack">
@@ -2034,139 +2024,137 @@
 									<div class="row row-cols-1 row-cols-md-2">
 										<!--begin::Col-->
 										<div class="col">
-												<div class="card-title"><h5 class="mb-1">For Farmers</h5></div>
-												<!--begin::d-flex align-items-center-->
-												<div class="d-flex align-items-center mb-5">
-													<!--begin::Radio-->
-													<label class="form-check form-check-custom form-check-solid me-10">
-														<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
-														<span class="form-check-label fw-semibold">Rice</span>
-													</label>
-													<!--end::Radio-->
+											<div class="card-title"><h5 class="mb-1">For Farmers</h5></div>
+											<!--begin::d-flex align-items-center-->
+											<div class="d-flex align-items-center mb-5">
+												<!--begin::Radio-->
+												<label class="form-check form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_rice" ng-model="individual.for_farmers_rice" id="flexRadio30"/>
+													<span class="form-check-label fw-semibold">Rice</span>
+												</label>
+												<!--end::Radio-->
+											</div>
+											<!--end::d-flex align-items-center-->
+											
+											<!--begin::d-flex align-items-center-->
+											<div class="d-flex align-items-center mb-5">
+												<!--begin::Radio-->
+												<label class="form-check form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_corn" ng-model="individual.for_farmers_corn" id="flexRadio30"/>
+													<span class="form-check-label fw-semibold">Corn</span>
+												</label>
+												<!--end::Radio-->
+											</div>
+											<!--end::d-flex align-items-center-->
+											
+											<!--begin::d-flex align-items-center-->
+											<div class="d-flex mb-5">
+												<!--begin::Radio-->
+												<label class="form-check form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_other_crops" ng-model="individual.for_farmers_other_crops" id="flexRadio30"/>
+													<span class="form-check-label fw-semibold">Other crops, please specify</span>
+												</label>
+												<!--end::Radio-->
+												<!--begin::Input group-->
+												<div class="input-group input-group-sm mb-1">
+													<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="for_farmers_other_crops_specify" ng-model="individual.for_farmers_other_crops_specify"/>
 												</div>
-												<!--end::d-flex align-items-center-->
-												
-												<!--begin::d-flex align-items-center-->
-												<div class="d-flex align-items-center mb-5">
-													<!--begin::Radio-->
-													<label class="form-check form-check-custom form-check-solid me-10">
-														<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
-														<span class="form-check-label fw-semibold">Corn</span>
-													</label>
-													<!--end::Radio-->
+												<!--end::Input group-->
+											</div>
+											<!--end::d-flex align-items-center-->
+											<!--begin::d-flex align-items-center-->
+											<div class="d-flex mb-5">
+												<!--begin::Radio-->
+												<label class="form-check form-check-custom form-check-solid me-13">
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_livestock" ng-model="individual.for_farmers_livestock" id="flexRadio30"/>
+													<span class="form-check-label fw-semibold">Livestock, please specify</span>
+												</label>
+												<!--end::Radio-->
+												<!--begin::Input group-->
+												<div class="input-group input-group-sm mb-1">
+													<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="for_farmers_livestock_specify" ng-model="individual.for_farmers_livestock_specify"/>
 												</div>
-												<!--end::d-flex align-items-center-->
-												
-												<!--begin::d-flex align-items-center-->
-												<div class="d-flex mb-5">
-													<!--begin::Radio-->
-													<label class="form-check form-check-custom form-check-solid me-10">
-														<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
-														<span class="form-check-label fw-semibold">Other crops, please specify</span>
-													</label>
-													<!--end::Radio-->
-													<!--begin::Input group-->
-													<div class="input-group input-group-sm mb-1">
-														<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"/>
-													</div>
-													<!--end::Input group-->
+												<!--end::Input group-->
+											</div>
+											<!--end::d-flex align-items-center-->
+											<!--begin::d-flex align-items-center-->
+											<div class="d-flex mb-5">
+												<!--begin::Radio-->
+												<label class="form-check form-check-custom form-check-solid me-15">
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_poultry" ng-model="individual.for_farmers_poultry" id="flexRadio30"/>
+													<span class="form-check-label fw-semibold">Poultry, please specify</span>
+												</label>
+												<!--end::Radio-->
+												<!--begin::Input group-->
+												<div class="input-group input-group-sm mb-1">
+													<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="for_farmers_poultry_specify" ng-model="individual.for_farmers_poultry_specify"/>
 												</div>
-												<!--end::d-flex align-items-center-->
-												<!--begin::d-flex align-items-center-->
-												<div class="d-flex mb-5">
-													<!--begin::Radio-->
-													<label class="form-check form-check-custom form-check-solid me-13">
-														<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
-														<span class="form-check-label fw-semibold">Livestock, please specify</span>
-													</label>
-													<!--end::Radio-->
-													<!--begin::Input group-->
-													<div class="input-group input-group-sm mb-1">
-														<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"/>
-													</div>
-													<!--end::Input group-->
-												</div>
-												<!--end::d-flex align-items-center-->
-												<!--begin::d-flex align-items-center-->
-												<div class="d-flex mb-5">
-													<!--begin::Radio-->
-													<label class="form-check form-check-custom form-check-solid me-15">
-														<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
-														<span class="form-check-label fw-semibold">Poultry, please specify</span>
-													</label>
-													<!--end::Radio-->
-													<!--begin::Input group-->
-													<div class="input-group input-group-sm mb-1">
-														<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"/>
-													</div>
-													<!--end::Input group-->
-												</div>
-												<!--end::d-flex align-items-center-->
-												
-												
+												<!--end::Input group-->
+											</div>
+											<!--end::d-flex align-items-center-->
 										</div>
 										<!--end::Col-->
 										
 										<!--begin::Col-->
 										<div class="col">
-												<div class="card-title"><h5 class="mb-1">For Farmworkers</h5></div>
-												<!--begin::d-flex align-items-center-->
-												<div class="d-flex align-items-center mb-5">
-													<!--begin::Radio-->
-													<label class="form-check form-check-custom form-check-solid me-10">
-														<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
-														<span class="form-check-label fw-semibold">Land Preparation</span>
-													</label>
-													<!--end::Radio-->
+											<div class="card-title"><h5 class="mb-1">For Farmworkers</h5></div>
+											<!--begin::d-flex align-items-center-->
+											<div class="d-flex align-items-center mb-5">
+												<!--begin::Radio-->
+												<label class="form-check form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_land_preparation" ng-model="individual.for_farmers_land_preparation" id="flexRadio30"/>
+													<span class="form-check-label fw-semibold">Land Preparation</span>
+												</label>
+												<!--end::Radio-->
+											</div>
+											<!--end::d-flex align-items-center-->
+											
+											<!--begin::d-flex align-items-center-->
+											<div class="d-flex align-items-center mb-5">
+												<!--begin::Radio-->
+												<label class="form-check form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_planting" ng-model="individual.for_farmers_planting" id="flexRadio30"/>
+													<span class="form-check-label fw-semibold">Planting/Transplanting</span>
+												</label>
+												<!--end::Radio-->
+											</div>
+											<!--end::d-flex align-items-center-->
+											
+											<!--begin::d-flex align-items-center-->
+											<div class="d-flex mb-5">
+												<!--begin::Radio-->
+												<label class="form-check form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_cultivation" ng-model="individual.for_farmers_cultivation" id="flexRadio30"/>
+													<span class="form-check-label fw-semibold">Cultivation</span>
+												</label>
+												<!--end::Radio-->
+											</div>
+											<!--end::d-flex align-items-center-->
+											<!--begin::d-flex align-items-center-->
+											<div class="d-flex mb-5">
+												<!--begin::Radio-->
+												<label class="form-check form-check-custom form-check-solid me-13">
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_harvesting" ng-model="individual.for_farmers_harvesting" id="flexRadio30"/>
+													<span class="form-check-label fw-semibold">Harvesting</span>
+												</label>
+												<!--end::Radio-->
+											</div>
+											<!--end::d-flex align-items-center-->
+											<!--begin::d-flex align-items-center-->
+											<div class="d-flex mb-5">
+												<!--begin::Radio-->
+												<label class="form-check form-check-custom form-check-solid me-15">
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_others" ng-model="individual.for_farmers_others" id="flexRadio30"/>
+													<span class="form-check-label fw-semibold">Others, please specify</span>
+												</label>
+												<!--end::Radio-->
+												<!--begin::Input group-->
+												<div class="input-group input-group-sm mb-1">
+													<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="for_farmers_others_specify" ng-model="individual.for_farmers_others_specify"/>
 												</div>
-												<!--end::d-flex align-items-center-->
-												
-												<!--begin::d-flex align-items-center-->
-												<div class="d-flex align-items-center mb-5">
-													<!--begin::Radio-->
-													<label class="form-check form-check-custom form-check-solid me-10">
-														<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
-														<span class="form-check-label fw-semibold">Planting/Transplanting</span>
-													</label>
-													<!--end::Radio-->
-												</div>
-												<!--end::d-flex align-items-center-->
-												
-												<!--begin::d-flex align-items-center-->
-												<div class="d-flex mb-5">
-													<!--begin::Radio-->
-													<label class="form-check form-check-custom form-check-solid me-10">
-														<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
-														<span class="form-check-label fw-semibold">Cultivation</span>
-													</label>
-													<!--end::Radio-->
-												</div>
-												<!--end::d-flex align-items-center-->
-												<!--begin::d-flex align-items-center-->
-												<div class="d-flex mb-5">
-													<!--begin::Radio-->
-													<label class="form-check form-check-custom form-check-solid me-13">
-														<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
-														<span class="form-check-label fw-semibold">Harvesting</span>
-													</label>
-													<!--end::Radio-->
-												</div>
-												<!--end::d-flex align-items-center-->
-												<!--begin::d-flex align-items-center-->
-												<div class="d-flex mb-5">
-													<!--begin::Radio-->
-													<label class="form-check form-check-custom form-check-solid me-15">
-														<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
-														<span class="form-check-label fw-semibold">Others, please specify</span>
-													</label>
-													<!--end::Radio-->
-													<!--begin::Input group-->
-													<div class="input-group input-group-sm mb-1">
-														<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"/>
-													</div>
-													<!--end::Input group-->
-												</div>
-												<!--end::d-flex align-items-center-->
+												<!--end::Input group-->
+											</div>
+											<!--end::d-flex align-items-center-->
 										</div>
 										<!--end::Col-->
 									</div>
@@ -2202,7 +2190,7 @@
 												</label>
 												<!--end::Label-->
 												<!--begin::Input-->
-												<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
+												<input type="text" class="form-control" placeholder="" name="no_of_farm_parcels" ng-model="individual.no_of_farm_parcels" value="" />
 												<!--end::Input-->
 											</div>
 											<!--end::Input group-->
@@ -2291,7 +2279,7 @@
 	<!--end::Content-->
 
 
-	<div id="kt_app_content" class="">
+	<div id="kt_app_content" class="" ng-show="individual.for_livestock=='1'">
 		<!--begin::kt_app_content_container-->
 		<div id="kt_app_content_container" class="card-body pt-0 pb-0">
 				<!-- <div id="kt_app_content_container" class="card mb-5 mb-xl-10"> -->
@@ -2591,7 +2579,7 @@
 	
 	
 	
-	<div id="kt_app_content" class="">
+	<div id="kt_app_content" class="" ng-show="individual.for_fisherfolk=='1'">
 		<!--begin::kt_app_content_container-->
 		<div id="kt_app_content_container" class="card-body pt-0 pb-0">
 				<!-- <div id="kt_app_content_container" class="card mb-5 mb-xl-10"> -->
@@ -3347,16 +3335,16 @@
 												
 								</div>
 								<!--end::Row-->
-							
 						</div>
 						<!--end::flex-grow-1-->
-						
-						
-						
 					</div>
 					<!--end::d-flex flex-wrap flex-sm-nowrap-->
 				</div>
 				<!--end::card-body pt-9 pb-0-->
+				<div class="card-footer d-flex justify-content-end py-6 px-9">
+					<input type="reset" class="btn btn-light me-4" value="{{controls.cancel.label}}"  ng-click="app.list(this)">
+					<input type="button" class="btn btn-primary first" value="{{controls.ok.label}}" ng-click="app.save(this)" ng-disabled="controls.ok.btn">
+				</div>
 			</div>	
 			<!--end::card mb-5 mb-xxl-8-->
 		</div>
@@ -4947,6 +4935,5 @@
 	<!--kt_app_content-->
 	</div>
 	<!--end::tab-pane fade show active-->
-	
 	</form>
 </div>	

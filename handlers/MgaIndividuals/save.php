@@ -51,12 +51,12 @@ if ($_POST['id']) {
 	$id = $_POST['id'];
 	$_POST['update_log'] = date("Y-m-d H:i:s");
 	$_POST['last_updated_by'] = $_SESSION['id'];
-	$office = $con->updateObj($_POST,'id');
+	$individual = $con->updateObj($_POST,'id');
 
 } else {
 	
 	$_POST['registration_no'] = $qr_code_result;
-	$office = $con->insertObj($_POST);
+	$individual = $con->insertObj($_POST);
 	// $id = $con->insertId;
 	echo $con->insertId;
 
