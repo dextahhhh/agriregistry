@@ -52,7 +52,7 @@
 				</tr>
 			</thead>
 			<tbody class="text-gray-600 fw-semibold">
-				<tr ng-repeat="data in filterData = (individuals | filter:search)">
+				<tr ng-repeat="data in filterData = (individuals | filter:search) | pagination: currentPage:pageSize">
 					<td class="d-flex align-items-center">
 						<!--begin:: Avatar -->
 						<div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
@@ -90,6 +90,17 @@
 					</td>
 				</tr>
 			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="8">
+						<div style="float: right">
+							<ul uib-pagination direction-links="false" boundary-links="true"
+								total-items="filterData.length" ng-model="currentPage" max-size="maxSize">
+							</ul>
+						</div>
+					</td>
+				</tr>
+			</tfoot>
 		</table>
 		<!--end::Table-->
 	</div>
