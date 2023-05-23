@@ -25,7 +25,18 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 			scope.individual.id = 0;
 			
 			scope.individuals = []; // list
+			
+			// for CRUD
+			scope.individual_training = {};
+			scope.individual_training.id = 0;
+			
+			scope.individual_organization = {};
+			scope.individual_organization.id = 0;
 
+			// for List
+			scope.individual_trainings = [];
+			scope.individual_organizations = [];
+		
 		};
 		
 		function mode(scope,row) {
@@ -213,29 +224,32 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 					if (scope.individual.municipality != null) {
 					  scope.municipalities =
 						response.data.municipality.municipalities;
-					}
+					};
 					
 					if (scope.individual.barangay != null) {
 					  scope.barangays = response.data.barangay.barangays;
-					}
+					};
 					
 					if (scope.individual.birth_municipality != null) {
 					  scope.birthmunicipalities =
 						response.data.birth_municipality.municipalities;
-					}
+					};
 					
 					if (scope.individual.emergency_municipality != null) {
 					  scope.emergencymunicipalities =
 						response.data.emergency_municipality.municipalities;
-					}
+					};
 					
 					if (scope.individual.emergency_barangay != null) {
 					  scope.emergencybarangays = response.data.emergency_barangay.barangays;
-					}
+					};
 					
-					mode(scope,row);
+					$timeout(function () {
+					  self.individual_trainings(scope);
+					  self.individual_organizations(scope);
+					}, 200);
 					
-					// scope.individual.birth_date = new Date();
+					// mode(scope,row);
 					
 				}, function myError(response) {
 					
@@ -331,6 +345,298 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 			
 		};
 		
+		
+		//Organization
+		self.individual_organizations = function (scope) {
+			
+          bui.show();
+
+          if (scope.$id > 2) scope = scope.$parent;
+          $http({
+            method: "POST",
+            url: "handlers/MgaIndividualOrganizations/list.php",
+            data: { id: scope.individual.id },
+          }).then(
+            function mySucces(response) {
+              scope.individual_organizations = angular.copy(response.data);
+
+              bui.hide();
+            },
+            function myError(response) {
+              bui.hide();
+            }
+          );
+
+          $("#content_individual_organizations").load("lists/individual_organizations.html", function () {
+            $timeout(function () {
+              $compile($("#content_individual_organizations")[0])(scope);
+            }, 500);
+          });
+        };
+
+        self.individual_organization = function (scope, row) {
+          var title = "New Individual Organization";
+
+          scope.individual_organization = {};
+          scope.individual_organization.id = 0;
+
+          mode(scope, row);
+
+          if (row != null) {
+            var title = "Edit";
+
+            if (scope.$id > 2) scope = scope.$parent;
+
+            $http({
+              method: "POST",
+              url: "handlers/MgaIndividualOrganizations/view.php",
+              data: { id: row.id },
+            }).then(
+              function mySucces(response) {
+                angular.copy(response.data, scope.individual_organization);
+              },
+              function myError(response) {
+                // error
+              }
+            );
+          }
+
+          var onOk = function () {
+            self.save_individual_organization(scope);
+          };
+
+          bootstrapModal.box(scope, title, "dialogs/individual_organization.html", onOk);
+		  
+        };
+
+        self.save_individual_organization = function (scope) {
+          $http({
+            method: "POST",
+            url: "handlers/MgaIndividualOrganizations/save.php",
+            data: {
+              individual_id: scope.individual.id,
+              individual_organization: scope.individual_organization,
+            },
+          }).then(
+            function mySuccess(response) {
+              if (scope.individual_organization.id == 0) {
+                scope.individual_organization.id = response.data;
+                
+                Swal.fire({
+                  title: "Success!",
+                  icon: "success",
+                  text: "Individual organization successfully added!",
+                  type: "success",
+                }).then((okay) => {
+                  if (okay) {
+                    // Nothing to do
+                  }
+                });
+
+                self.individual_organizations(scope);
+              } else {
+                Swal.fire({
+                  title: "Success!",
+                  icon: "success",
+                  text: "Individual organization successfully updated!",
+                  type: "success",
+                }).then((okay) => {
+                  if (okay) {
+                    // Nothing to do
+                  }
+                });
+
+                self.individual_organizations(scope);
+              }
+              scope.controls.ok.btn = true;
+            },
+            function myError(response) {
+              // error
+            }
+          );
+        };
+
+        self.delete_individual_organization = function (scope, row) {
+          Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              if (scope.$id > 2) scope = scope.$parent;
+
+              $http({
+                method: "POST",
+                url: "handlers/MgaIndividualOrganizations/delete.php",
+                data: { id: [row.id] },
+              }).then(
+                function mySucces(response) {
+                  self.individual_organizations(scope);
+
+                  Swal.fire(
+                    "Deleted!",
+                    "Individual organization record has been deleted.",
+                    "success"
+                  );
+                },
+                function myError(response) {
+                  // error
+                }
+              );
+            }
+          });
+        };
+		
+		
+		//Trainings
+		self.individual_trainings = function (scope) {
+			
+          bui.show();
+
+          if (scope.$id > 2) scope = scope.$parent;
+          $http({
+            method: "POST",
+            url: "handlers/MgaIndividualTrainings/list.php",
+            data: { id: scope.individual.id },
+          }).then(
+            function mySucces(response) {
+              scope.individual_trainings = angular.copy(response.data);
+
+              bui.hide();
+            },
+            function myError(response) {
+              bui.hide();
+            }
+          );
+
+          $("#content_individual_trainings").load("lists/individual_trainings.html", function () {
+            $timeout(function () {
+              $compile($("#content_individual_trainings")[0])(scope);
+            }, 500);
+          });
+        };
+
+        self.individual_training = function (scope, row) {
+          var title = "New Individual Training";
+
+          scope.individual_training = {};
+          scope.individual_training.id = 0;
+
+          mode(scope, row);
+
+          if (row != null) {
+            var title = "Edit";
+
+            if (scope.$id > 2) scope = scope.$parent;
+
+            $http({
+              method: "POST",
+              url: "handlers/MgaIndividualTrainings/view.php",
+              data: { id: row.id },
+            }).then(
+              function mySucces(response) {
+                angular.copy(response.data, scope.individual_training);
+              },
+              function myError(response) {
+                // error
+              }
+            );
+          }
+
+          var onOk = function () {
+            self.save_individual_training(scope);
+          };
+
+          bootstrapModal.box(scope, title, "dialogs/individual_training.html", onOk);
+		  
+        };
+
+        self.save_individual_training = function (scope) {
+          $http({
+            method: "POST",
+            url: "handlers/MgaIndividualTrainings/save.php",
+            data: {
+              individual_id: scope.individual.id,
+              individual_training: scope.individual_training,
+            },
+          }).then(
+            function mySuccess(response) {
+              if (scope.individual_training.id == 0) {
+                scope.individual_training.id = response.data;
+                
+                Swal.fire({
+                  title: "Success!",
+                  icon: "success",
+                  text: "Individual training successfully added!",
+                  type: "success",
+                }).then((okay) => {
+                  if (okay) {
+                    // Nothing to do
+                  }
+                });
+
+                self.individual_trainings(scope);
+              } else {
+                Swal.fire({
+                  title: "Success!",
+                  icon: "success",
+                  text: "Individual training successfully updated!",
+                  type: "success",
+                }).then((okay) => {
+                  if (okay) {
+                    // Nothing to do
+                  }
+                });
+
+                self.individual_trainings(scope);
+              }
+              scope.controls.ok.btn = true;
+            },
+            function myError(response) {
+              // error
+            }
+          );
+        };
+
+        self.delete_individual_training = function (scope, row) {
+          Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              if (scope.$id > 2) scope = scope.$parent;
+
+              $http({
+                method: "POST",
+                url: "handlers/MgaIndividualTrainings/delete.php",
+                data: { id: [row.id] },
+              }).then(
+                function mySucces(response) {
+                  self.individual_trainings(scope);
+
+                  Swal.fire(
+                    "Deleted!",
+                    "Individual training record has been deleted.",
+                    "success"
+                  );
+                },
+                function myError(response) {
+                  // error
+                }
+              );
+            }
+          });
+        };
+		
 		function provinces(scope){
 			
 			$http({
@@ -345,6 +651,7 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 			});
 			
 		};
+		
 		
 	};
 	
