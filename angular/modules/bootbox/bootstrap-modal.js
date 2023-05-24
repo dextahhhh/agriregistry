@@ -54,7 +54,7 @@ angular.module('bootstrap-modal',[]).service('bootstrapModal', function($compile
 			buttons: {
 				cancel: {
 					label: 'Close',
-					className: 'btn-danger'
+					className: 'btn-light'
 				},
 				confirm: {
 					label: 'Save',
@@ -65,7 +65,7 @@ angular.module('bootstrap-modal',[]).service('bootstrapModal', function($compile
 				if (result) {
 					return onOk(scope);
 				}else{
-					location.reload();
+					// location.reload();
 				}
 			}
 		});
