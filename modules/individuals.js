@@ -1,4 +1,4 @@
-angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','bootstrap-growl','block-ui']).factory('app', function($compile,$timeout,$http,bootstrapModal,growl,bui,validate) {
+angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','bootstrap-growl','block-ui','module-access']).factory('app', function($compile,$timeout,$http,bootstrapModal,growl,bui,validate,access) {
 	
 	function app() {
 		
@@ -190,7 +190,7 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 		// addEdit
 		self.individual = function(scope,row) {
 			
-			// if (!access.has(scope,scope.accountProfile.groups,scope.module.id,scope.module.privileges.add)) return;
+			if (!access.has(scope,scope.accountProfile.groups,scope.module.id,scope.module.privileges.add)) return;
 			
 			console.log(scope,row);
 			
@@ -309,7 +309,7 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 		
 		self.edit = function(scope) {
 			
-			// if (!access.has(scope,scope.accountProfile.groups,scope.module.id,scope.module.privileges.edit)) return;
+			if (!access.has(scope,scope.accountProfile.groups,scope.module.id,scope.module.privileges.edit)) return;
 	
 			scope.controls.ok.btn = !scope.controls.ok.btn;
 			
@@ -317,7 +317,7 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 		
 		self.delete = function(scope,row) {
 			
-			// if (!access.has(scope,scope.accountProfile.groups,scope.module.id,scope.module.privileges.delete)) return;
+			if (!access.has(scope,scope.accountProfile.groups,scope.module.id,scope.module.privileges.delete)) return;
 			
 			var onOk = function() {
 				
@@ -343,6 +343,14 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 
 		bootstrapModal.confirm(scope,'Confirmation','Are you sure you want to delete this record?',onOk,function() {});
 			
+		};
+		
+		self.print_individuals = function ExportToExcel(type, fn, dl) {
+		   var elt = document.getElementById('table_individuals');
+		   var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+		   return dl ?
+			 XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }):
+			 XLSX.writeFile(wb, fn || ('individual.' + (type || 'xlsx')));
 		};
 		
 		

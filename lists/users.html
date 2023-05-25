@@ -20,7 +20,7 @@
 			<!--begin::Toolbar-->
 			<div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
 				<!--begin::Export-->
-				<button type="button" class="btn btn-light-primary me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_export_users">
+				<button type="button" class="btn btn-light-primary me-3" ng-click="app.print_users()">
 				<i class="ki-duotone ki-exit-up fs-2">
 					<span class="path1"></span>
 					<span class="path2"></span>
@@ -39,7 +39,7 @@
 	<!--begin::Card body-->
 	<div class="card-body py-4">
 		<!--begin::Table-->
-		<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
+		<table class="table align-middle table-row-dashed fs-6 gy-5" id="table_users">
 			<thead>
 				<tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
 					<th class="min-w-125px">User</th>
