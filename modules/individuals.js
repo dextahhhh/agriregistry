@@ -645,6 +645,151 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
           });
         };
 		
+		//Profile for livestock
+		self.individual_livestocks = function (scope) {
+			
+          bui.show();
+
+          if (scope.$id > 2) scope = scope.$parent;
+          $http({
+            method: "POST",
+            url: "handlers/MgaIndividualLivestocks/list.php",
+            data: { id: scope.individual.id },
+          }).then(
+            function mySucces(response) {
+              scope.individual_livestocks = angular.copy(response.data);
+
+              bui.hide();
+            },
+            function myError(response) {
+              bui.hide();
+            }
+          );
+
+          $("#content_individual_livestocks").load("lists/individual_livestocks.html", function () {
+            $timeout(function () {
+              $compile($("#content_individual_livestocks")[0])(scope);
+            }, 500);
+          });
+        };
+
+        self.individual_livestock = function (scope, row) {
+          var title = "New Individual Profile for Livestock";
+
+          scope.individual_livestock = {};
+          scope.individual_livestock.id = 0;
+
+          mode(scope, row);
+
+          if (row != null) {
+            var title = "Edit";
+
+            if (scope.$id > 2) scope = scope.$parent;
+
+            $http({
+              method: "POST",
+              url: "handlers/MgaIndividualLivestocks/view.php",
+              data: { id: row.id },
+            }).then(
+              function mySucces(response) {
+                angular.copy(response.data, scope.individual_livestock);
+              },
+              function myError(response) {
+                // error
+              }
+            );
+          }
+
+          var onOk = function () {
+            self.save_individual_livestock(scope);
+          };
+
+          bootstrapModal.box7(scope, title, "dialogs/individual_livestock.html", onOk);
+		  
+        };
+
+        self.save_individual_livestock = function (scope) {
+          $http({
+            method: "POST",
+            url: "handlers/MgaIndividualLivestocks/save.php",
+            data: {
+              individual_id: scope.individual.id,
+              individual_livestock: scope.individual_livestock,
+            },
+          }).then(
+            function mySuccess(response) {
+              if (scope.individual_livestock.id == 0) {
+                scope.individual_livestock.id = response.data;
+                
+                Swal.fire({
+                  title: "Success!",
+                  icon: "success",
+                  text: "Individual profile for livestock successfully added!",
+                  type: "success",
+                }).then((okay) => {
+                  if (okay) {
+                    // Nothing to do
+                  }
+                });
+
+                self.individual_livestocks(scope);
+              } else {
+                Swal.fire({
+                  title: "Success!",
+                  icon: "success",
+                  text: "Individual profile for livestock successfully updated!",
+                  type: "success",
+                }).then((okay) => {
+                  if (okay) {
+                    // Nothing to do
+                  }
+                });
+
+                self.individual_livestocks(scope);
+              }
+              scope.controls.ok.btn = true;
+            },
+            function myError(response) {
+              // error
+            }
+          );
+        };
+
+        self.delete_individual_livestock = function (scope, row) {
+          Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              if (scope.$id > 2) scope = scope.$parent;
+
+              $http({
+                method: "POST",
+                url: "handlers/MgaIndividualLivestocks/delete.php",
+                data: { id: [row.id] },
+              }).then(
+                function mySucces(response) {
+                  self.individual_livestocks(scope);
+
+                  Swal.fire(
+                    "Deleted!",
+                    "Individual profile for livestock record has been deleted.",
+                    "success"
+                  );
+                },
+                function myError(response) {
+                  // error
+                }
+              );
+            }
+          });
+        };
+		
 		function provinces(scope){
 			
 			$http({
