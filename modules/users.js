@@ -199,6 +199,14 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 			
 		};
 		
+		self.print_users = function ExportToExcel(type, fn, dl) {
+		   var elt = document.getElementById('table_users');
+		   var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+		   return dl ?
+			 XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }):
+			 XLSX.writeFile(wb, fn || ('users.' + (type || 'xlsx')));
+		};
+		
 		function groups(scope){
 			
 			$http({

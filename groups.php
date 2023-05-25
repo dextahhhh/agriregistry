@@ -72,7 +72,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--end::Sidebar mobile toggle-->
 						<!--begin::Mobile logo-->
 						<div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
-							<a href="demo1/dist/index.html" class="d-lg-none">
+							<a href="demo1/dist/index.php" class="d-lg-none">
 								<img alt="Logo" src="assets/media/logos/default-small.svg" class="h-30px" />
 							</a>
 						</div>
@@ -454,7 +454,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--begin::Logo-->
 						<div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
 							<!--begin::Logo image-->
-							<a href="demo1/dist/index.html">
+							<a href="demo1/dist/index.php">
 								<img alt="Logo" src="assets/media/logos/default.svg" class="h-25px app-sidebar-logo-default theme-light-show" />
 								<img alt="Logo" src="assets/media/logos/default-dark.svg" class="h-25px app-sidebar-logo-default theme-dark-show" />
 								<img alt="Logo" src="assets/media/logos/default-small.svg" class="h-20px app-sidebar-logo-minimize" />
@@ -515,102 +515,6 @@ License: For each use you must have a valid license purchased only from above li
 										<!--end::Breadcrumb-->
 									</div>
 									<!--end::Page title-->
-									<!--begin::Actions-->
-									<div class="d-flex align-items-center gap-2 gap-lg-3">
-										<!--begin::Filter menu-->
-										<div class="m-0">
-											<!--begin::Menu toggle-->
-											<a href="#" class="btn btn-sm btn-flex bg-body btn-color-gray-700 btn-active-color-primary fw-bold" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-											<i class="ki-duotone ki-filter fs-6 text-muted me-1">
-												<span class="path1"></span>
-												<span class="path2"></span>
-											</i>Filter</a>
-											<!--end::Menu toggle-->
-											<!--begin::Menu 1-->
-											<div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true" id="kt_menu_641ac47091c4b">
-												<!--begin::Header-->
-												<div class="px-7 py-5">
-													<div class="fs-5 text-dark fw-bold">Filter Options</div>
-												</div>
-												<!--end::Header-->
-												<!--begin::Menu separator-->
-												<div class="separator border-gray-200"></div>
-												<!--end::Menu separator-->
-												<!--begin::Form-->
-												<div class="px-7 py-5">
-													<!--begin::Input group-->
-													<div class="mb-10">
-														<!--begin::Label-->
-														<label class="form-label fw-semibold">Status:</label>
-														<!--end::Label-->
-														<!--begin::Input-->
-														<div>
-															<select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-dropdown-parent="#kt_menu_641ac47091c4b" data-allow-clear="true">
-																<option></option>
-																<option value="1">Approved</option>
-																<option value="2">Pending</option>
-																<option value="2">In Process</option>
-																<option value="2">Rejected</option>
-															</select>
-														</div>
-														<!--end::Input-->
-													</div>
-													<!--end::Input group-->
-													<!--begin::Input group-->
-													<div class="mb-10">
-														<!--begin::Label-->
-														<label class="form-label fw-semibold">Member Type:</label>
-														<!--end::Label-->
-														<!--begin::Options-->
-														<div class="d-flex">
-															<!--begin::Options-->
-															<label class="form-check form-check-sm form-check-custom form-check-solid me-5">
-																<input class="form-check-input" type="checkbox" value="1" />
-																<span class="form-check-label">Author</span>
-															</label>
-															<!--end::Options-->
-															<!--begin::Options-->
-															<label class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="2" checked="checked" />
-																<span class="form-check-label">Customer</span>
-															</label>
-															<!--end::Options-->
-														</div>
-														<!--end::Options-->
-													</div>
-													<!--end::Input group-->
-													<!--begin::Input group-->
-													<div class="mb-10">
-														<!--begin::Label-->
-														<label class="form-label fw-semibold">Notifications:</label>
-														<!--end::Label-->
-														<!--begin::Switch-->
-														<div class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
-															<input class="form-check-input" type="checkbox" value="" name="notifications" checked="checked" />
-															<label class="form-check-label">Enabled</label>
-														</div>
-														<!--end::Switch-->
-													</div>
-													<!--end::Input group-->
-													<!--begin::Actions-->
-													<div class="d-flex justify-content-end">
-														<button type="reset" class="btn btn-sm btn-light btn-active-light-primary me-2" data-kt-menu-dismiss="true">Reset</button>
-														<button type="submit" class="btn btn-sm btn-primary" data-kt-menu-dismiss="true">Apply</button>
-													</div>
-													<!--end::Actions-->
-												</div>
-												<!--end::Form-->
-											</div>
-											<!--end::Menu 1-->
-										</div>
-										<!--end::Filter menu-->
-										<!--begin::Secondary button-->
-										<!--end::Secondary button-->
-										<!--begin::Primary button-->
-										<a href="#" class="btn btn-sm fw-bold btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app">Create</a>
-										<!--end::Primary button-->
-									</div>
-									<!--end::Actions-->
 								</div>
 								<!--end::Toolbar container-->
 							</div>
@@ -4098,6 +4002,7 @@ License: For each use you must have a valid license purchased only from above li
 		<script src="angular/modules/growl/growl.js"></script>
 		<script src="angular/modules/blockui/blockui.js"></script>
 		<script src="angular/modules/validation/validate.js"></script>
+		<script src="assets/js/xlsx.full.min.js"></script>
 
 		<script src="modules/notifications.js"></script><!--  for notifications --> 	  
 		<script src="modules/module-access.js"></script>

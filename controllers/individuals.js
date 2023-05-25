@@ -7,6 +7,16 @@ app.controller('individualsCtrl',function($scope,app) {
 	app.data($scope);
 	app.list($scope);
 	
+	$scope.module = {
+		id: 'individuals',
+		privileges: {
+			show: 1,
+			add: 2,
+			edit: 3,
+			delete: 4,
+		}
+	};
+	
 });
 
 
