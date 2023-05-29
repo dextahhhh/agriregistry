@@ -71,7 +71,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--end::Sidebar mobile toggle-->
 						<!--begin::Mobile logo-->
 						<div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
-							<a href="demo1/dist/index.php" class="d-lg-none">
+							<a href="index.php" class="d-lg-none">
 								<img alt="Logo" src="assets/media/logos/default-small.svg" class="h-30px" />
 							</a>
 						</div>
@@ -621,11 +621,11 @@ License: For each use you must have a valid license purchased only from above li
 						<!--begin::Logo-->
 						<div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
 							<!--begin::Logo image-->
-							<a href="demo1/dist/index.php">
-								<img alt="Logo" src="assets/media/logos/default.svg" class="h-25px app-sidebar-logo-default theme-light-show" />
+							<!-- <a href="index.php">
+								<img alt="Logo" src="assets/media/logos/default.svg" class="h-25px app-sidebar-logo-default theme-light-show" /> 
 								<img alt="Logo" src="assets/media/logos/default-dark.svg" class="h-25px app-sidebar-logo-default theme-dark-show" />
-								<img alt="Logo" src="assets/media/logos/default-small.svg" class="h-20px app-sidebar-logo-minimize" />
-							</a>
+								<img alt="Logo" src="assets/media/logos/default-small.svg" class="h-20px app-sidebar-logo-minimize" /> 
+							</a> -->
 							<!--end::Logo image-->
 							<!--begin::Sidebar toggle-->
 							<!--begin::Minimized sidebar setup:
@@ -678,7 +678,7 @@ License: For each use you must have a valid license purchased only from above li
 										<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
 											<!--begin::Item-->
 											<li class="breadcrumb-item text-muted">
-												<a href="demo1/dist/index.php" class="text-muted text-hover-primary">Home</a>
+												<a href="index.php" class="text-muted text-hover-primary">Home</a>
 											</li>
 											<!--end::Item-->
 											<!--begin::Item-->

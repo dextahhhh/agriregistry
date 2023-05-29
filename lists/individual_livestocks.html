@@ -3,24 +3,20 @@
 	<thead>
 		<tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
 			<th class="min-w-125px">#</th>
-			<th class="min-w-125px">Name of Organization</th>
-			<th class="min-w-125px">Member Since</th>
-			<th class="min-w-125px">Position/Official Designation</th>
+			<th class="min-w-125px">Main source of Income (Type of Livestock farm)</th>
 			<th class="min-w-125px">Actions</th>
 		</tr>
 	</thead>
 	<tbody class="text-gray-600 fw-semibold">
-		<tr ng-repeat="data in filterData = (individual_organizations | filter:search_individual_trainings) | pagination: currentPage:pageSize">
+		<tr ng-repeat="data in filterData = (individual_livestocks | filter:search_individual_livestocks) | pagination: currentPage:pageSize">
 			<td>{{data.id}}</td>
-			<td>{{data.name_of_organization}}</td>
-			<td>{{data.member_since}}</td>
-			<td>{{data.position}}</td>
+			<td>{{data.source_of_income}}</td>
 			<td>
-				<a href="" ng-click="app.individual_organization(this,data)" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"><i class="ki-duotone ki-notepad-edit fs-2qx">
+				<a href="" ng-click="app.individual_livestock(this,data)" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"><i class="ki-duotone ki-notepad-edit fs-2qx">
 					 <i class="path1"></i>
 					 <i class="path2"></i>
 				</i></a>
-				<a href="" ng-click="app.delete_individual_organization(this,data)" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"><i class="ki-duotone ki-trash fs-2qx">
+				<a href="" ng-click="app.delete_individual_livestock(this,data)" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"><i class="ki-duotone ki-trash fs-2qx">
 					 <i class="path1"></i>
 					 <i class="path2"></i>
 					 <i class="path3"></i>

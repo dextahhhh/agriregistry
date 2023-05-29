@@ -247,6 +247,7 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 					$timeout(function () {
 					  self.individual_trainings(scope);
 					  self.individual_organizations(scope);
+					  self.individual_livestocks(scope);
 					}, 200);
 					
 					// mode(scope,row);
