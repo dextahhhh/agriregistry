@@ -229,22 +229,22 @@
 							</li>
 							<!--end::Nav item-->
 							<!--begin::Nav item-->
-							<li class="nav-item mt-2">
+							<li class="nav-item mt-2" ng-hide="individual.id=='0'">
 								<a class="nav-link text-active-primary ms-0 me-10 py-5" data-bs-toggle="tab" href="#2">Livelihood</a>
 							</li>
 							<!--end::Nav item-->
 							<!--begin::Nav item-->
-							<li class="nav-item mt-2">
+							<li class="nav-item mt-2" ng-hide="individual.id=='0'">
 								<a class="nav-link text-active-primary ms-0 me-10 py-5" data-bs-toggle="tab" href="#3">Farm Parcel/Commodity/Machineries</a>
 							</li>
 							<!--end::Nav item-->
 							<!--begin::Nav item-->
-							<li class="nav-item mt-2">
+							<li class="nav-item mt-2" ng-hide="individual.id=='0'">
 								<a class="nav-link text-active-primary ms-0 me-10 py-5" data-bs-toggle="tab" href="#4">Organization</a>
 							</li>
 							<!--end::Nav item-->
 							<!--begin::Nav item-->
-							<li class="nav-item mt-2">
+							<li class="nav-item mt-2" ng-hide="individual.id=='0'">
 								<a class="nav-link text-active-primary ms-0 me-10 py-5" data-bs-toggle="tab" href="#5">Trainings Participated</a>
 							</li>
 							<!--end::Nav item-->
@@ -817,6 +817,8 @@
 											<select class="form-select" aria-label="Select example" name="civil_status" ng-model="individual.civil_status" ng-disabled="controls.ok.btn" />
 												<option value="Single">Single</option>
 												<option value="Married">Married</option>
+												<option value="Separated">Separated</option>
+												<option value="Widow">Widow</option>
 											</select>
 											<!--end::Input-->
 										</div>
@@ -1185,6 +1187,7 @@
 												<option value="Elementary">Elementary</option>
 												<option value="High School">High School</option>
 												<option value="Vocational">Vocational</option>
+												<option value="College">College</option>
 												<option value="Post-Graduate">Post-Graduate</option>
 												<option value="Others">Others</option>
 											</select>
@@ -1760,7 +1763,7 @@
 							</div>
 							<!--end::d-flex flex-wrap flex-stack-->
 							
-							
+							<div class="separator my-7"></div>
 							<!--begin::d-flex flex-wrap flex-stack-->
 							<div class="d-flex flex-wrap flex-stack">
 								<!--begin::Wrapper-->
@@ -1850,7 +1853,7 @@
 	<!-------------------------------end::tab-pane 1------------------------------->
 
 	<!-------------------------------start::tab-pane 2------------------------------->
-	<div class="tab-pane fade" id="2" role="tabpane1">	
+	<div class="tab-pane fade" id="2" role="tabpane1" ng-hide="individual.id=='0'">	
 	<div id="kt_app_content" class="">
 		<!--begin::kt_app_content_container-->
 		<div id="kt_app_content_container" class="card-body pt-0 pb-0">
@@ -1906,7 +1909,7 @@
 												<!--begin::Checkboxes-->
 												<div class="d-flex align-items-center">
 													<div class="form-check form-switch form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-30px w-50px" type="checkbox" ng-value="1" name="for_farmers" ng-model="individual.for_farmers" id="flexSwitch20x30"/>
+													<input class="form-check-input h-30px w-50px" type="checkbox" ng-value="1" name="for_farmers" ng-model="individual.for_farmers" id="flexSwitch20x30" ng-disabled="controls.ok.btn"/>
 													</div>
 												</div>
 												<!--end::Checkboxes-->
@@ -1933,7 +1936,7 @@
 												<!--begin::Checkboxes-->
 												<div class="d-flex align-items-center">
 													<div class="form-check form-switch form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-30px w-50px" type="checkbox" ng-value="1" name="for_livestock" ng-model="individual.for_livestock" id="flexSwitch20x30"/>
+													<input class="form-check-input h-30px w-50px" type="checkbox" ng-value="1" name="for_livestock" ng-model="individual.for_livestock" id="flexSwitch20x30" ng-disabled="controls.ok.btn"/>
 													</div>
 												</div>
 												<!--end::Checkboxes-->
@@ -1960,7 +1963,7 @@
 												<!--begin::Checkboxes-->
 												<div class="d-flex align-items-center">
 													<div class="form-check form-switch form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-30px w-50px" type="checkbox" ng-value="1" name="for_fisherfolk" ng-model="individual.for_fisherfolk" id="flexSwitch20x30"/>
+													<input class="form-check-input h-30px w-50px" type="checkbox" ng-value="1" name="for_fisherfolk" ng-model="individual.for_fisherfolk" id="flexSwitch20x30" ng-disabled="controls.ok.btn"/>
 													</div>
 												</div>
 												<!--end::Checkboxes-->
@@ -2029,7 +2032,7 @@
 											<div class="d-flex align-items-center mb-5">
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_rice" ng-model="individual.for_farmers_rice" id="flexRadio30"/>
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_rice" ng-model="individual.for_farmers_rice" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">Rice</span>
 												</label>
 												<!--end::Radio-->
@@ -2040,7 +2043,7 @@
 											<div class="d-flex align-items-center mb-5">
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_corn" ng-model="individual.for_farmers_corn" id="flexRadio30"/>
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_corn" ng-model="individual.for_farmers_corn" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">Corn</span>
 												</label>
 												<!--end::Radio-->
@@ -2051,13 +2054,13 @@
 											<div class="d-flex mb-5">
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_other_crops" ng-model="individual.for_farmers_other_crops" id="flexRadio30"/>
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_other_crops" ng-model="individual.for_farmers_other_crops" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">Other crops, please specify</span>
 												</label>
 												<!--end::Radio-->
 												<!--begin::Input group-->
 												<div class="input-group input-group-sm mb-1">
-													<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="for_farmers_other_crops_specify" ng-model="individual.for_farmers_other_crops_specify"/>
+													<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="for_farmers_other_crops_specify" ng-model="individual.for_farmers_other_crops_specify" ng-disabled="controls.ok.btn" />
 												</div>
 												<!--end::Input group-->
 											</div>
@@ -2066,13 +2069,13 @@
 											<div class="d-flex mb-5">
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-13">
-													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_livestock" ng-model="individual.for_farmers_livestock" id="flexRadio30"/>
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_livestock" ng-model="individual.for_farmers_livestock" id="flexRadio30" ng-disabled="controls.ok.btn"/>
 													<span class="form-check-label fw-semibold">Livestock, please specify</span>
 												</label>
 												<!--end::Radio-->
 												<!--begin::Input group-->
 												<div class="input-group input-group-sm mb-1">
-													<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="for_farmers_livestock_specify" ng-model="individual.for_farmers_livestock_specify"/>
+													<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="for_farmers_livestock_specify" ng-model="individual.for_farmers_livestock_specify" ng-disabled="controls.ok.btn" />
 												</div>
 												<!--end::Input group-->
 											</div>
@@ -2081,13 +2084,13 @@
 											<div class="d-flex mb-5">
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-15">
-													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_poultry" ng-model="individual.for_farmers_poultry" id="flexRadio30"/>
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_poultry" ng-model="individual.for_farmers_poultry" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">Poultry, please specify</span>
 												</label>
 												<!--end::Radio-->
 												<!--begin::Input group-->
 												<div class="input-group input-group-sm mb-1">
-													<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="for_farmers_poultry_specify" ng-model="individual.for_farmers_poultry_specify"/>
+													<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="for_farmers_poultry_specify" ng-model="individual.for_farmers_poultry_specify" ng-disabled="controls.ok.btn" />
 												</div>
 												<!--end::Input group-->
 											</div>
@@ -2102,7 +2105,7 @@
 											<div class="d-flex align-items-center mb-5">
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_land_preparation" ng-model="individual.for_farmers_land_preparation" id="flexRadio30"/>
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_land_preparation" ng-model="individual.for_farmers_land_preparation" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">Land Preparation</span>
 												</label>
 												<!--end::Radio-->
@@ -2113,7 +2116,7 @@
 											<div class="d-flex align-items-center mb-5">
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_planting" ng-model="individual.for_farmers_planting" id="flexRadio30"/>
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_planting" ng-model="individual.for_farmers_planting" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">Planting/Transplanting</span>
 												</label>
 												<!--end::Radio-->
@@ -2124,7 +2127,7 @@
 											<div class="d-flex mb-5">
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-10">
-													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_cultivation" ng-model="individual.for_farmers_cultivation" id="flexRadio30"/>
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_cultivation" ng-model="individual.for_farmers_cultivation" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">Cultivation</span>
 												</label>
 												<!--end::Radio-->
@@ -2134,7 +2137,7 @@
 											<div class="d-flex mb-5">
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-13">
-													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_harvesting" ng-model="individual.for_farmers_harvesting" id="flexRadio30"/>
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_harvesting" ng-model="individual.for_farmers_harvesting" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">Harvesting</span>
 												</label>
 												<!--end::Radio-->
@@ -2144,13 +2147,13 @@
 											<div class="d-flex mb-5">
 												<!--begin::Radio-->
 												<label class="form-check form-check-custom form-check-solid me-15">
-													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_others" ng-model="individual.for_farmers_others" id="flexRadio30"/>
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_others" ng-model="individual.for_farmers_others" id="flexRadio30" ng-disabled="controls.ok.btn" />
 													<span class="form-check-label fw-semibold">Others, please specify</span>
 												</label>
 												<!--end::Radio-->
 												<!--begin::Input group-->
 												<div class="input-group input-group-sm mb-1">
-													<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="for_farmers_others_specify" ng-model="individual.for_farmers_others_specify"/>
+													<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="for_farmers_others_specify" ng-model="individual.for_farmers_others_specify" ng-disabled="controls.ok.btn" />
 												</div>
 												<!--end::Input group-->
 											</div>
@@ -2190,7 +2193,7 @@
 												</label>
 												<!--end::Label-->
 												<!--begin::Input-->
-												<input type="text" class="form-control" placeholder="" name="no_of_farm_parcels" ng-model="individual.no_of_farm_parcels" value="" />
+												<input type="text" class="form-control" placeholder="" name="no_of_farm_parcels" ng-model="individual.no_of_farm_parcels" ng-disabled="controls.ok.btn" />
 												<!--end::Input-->
 											</div>
 											<!--end::Input group-->
@@ -2251,20 +2254,10 @@
 									
 										</div>
 									</div>
-									
-									
-									
-									
-									
 								</div>
 								<!--end::Wrapper-->
 							</div>
 							<!--end::d-flex flex-wrap flex-stack-->
-							
-							
-							
-						
-							
 						</div>
 						<!--end::flex-grow-1-->
 					</div>
@@ -2278,7 +2271,7 @@
 	</div>
 	<!--end::Content-->
 		
-	<div id="kt_app_content" class="">
+	<div id="kt_app_content" class="" ng-show="individual.for_livestock=='1'">
 		<!--begin::kt_app_content_container-->
 		<div id="kt_app_content_container" class="card-body pt-0 pb-0">
 				<!-- <div id="kt_app_content_container" class="card mb-5 mb-xl-10"> -->
@@ -2286,21 +2279,19 @@
 			<div class="card mb-5 mb-xxl-8">
 				<!--begin::card-body pt-9 pb-0-->
 				<div class="card-body pt-9 pb-0">
-						
-						
 						<!--begin::d-flex justify-content-between align-items-start flex-wrap mb-2-->
-							<div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
-								<!--begin::d-flex flex-column-->
-								<div class="d-flex flex-column">
-									<!--begin::d-flex align-items-center mb-2-->
-									<div class="d-flex align-items-center mb-2">
-										<h3 class="text-danger">2.B PROFILE FOR LIVESTOCK</h3>
-									</div>
-									<!--end::d-flex align-items-center mb-2-->
+						<div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
+							<!--begin::d-flex flex-column-->
+							<div class="d-flex flex-column">
+								<!--begin::d-flex align-items-center mb-2-->
+								<div class="d-flex align-items-center mb-2">
+									<h3 class="text-danger">2.B PROFILE FOR LIVESTOCK</h3>
 								</div>
-								<!--end::d-flex flex-column-->
+								<!--end::d-flex align-items-center mb-2-->
 							</div>
-							<!--end::d-flex justify-content-between align-items-start flex-wrap mb-2-->
+							<!--end::d-flex flex-column-->
+						</div>
+						<!--end::d-flex justify-content-between align-items-start flex-wrap mb-2-->
 						
 						<!---------------------------begin::Table------------------------------------------->
 						<div class="card">
@@ -2342,46 +2333,7 @@
 							<!--end::Card header-->
 							<!--begin::Card body-->
 							<div class="card-body py-4">
-								<!--begin::Table-->
-								<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
-									<thead>
-										<tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
-											<th class="min-w-125px">Main source of Income (Type of Livestock farm)</th>
-											<th class="min-w-125px">Livelihood Description (choose all that apply)</th>
-											<th class="min-w-125px">Actions</th>
-										</tr>
-									</thead>
-									<tbody class="text-gray-600 fw-semibold">
-										<tr ng-repeat="data in filterData = (individuals | filter:search)">
-											<td class="d-flex align-items-center">
-												<!--begin::User details-->
-												<div class="d-flex flex-column">
-													<a class="text-gray-800 text-hover-primary mb-1">{{}}</a>
-													<!-- <span>{{data.username}}</span> -->
-												</div>
-												<!--begin::User details-->
-											</td>
-											<td>{{}}</td>
-											<td>
-												<a href="" ng-click="app.individual(this,data)" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"><i class="ki-duotone ki-notepad-edit fs-2qx">
-													 <i class="path1"></i>
-													 <i class="path2"></i>
-												</i></a>
-												<a href="" ng-click="app.delete(this,data)" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"><i class="ki-duotone ki-trash fs-2qx">
-													 <i class="path1"></i>
-													 <i class="path2"></i>
-													 <i class="path3"></i>
-													 <i class="path4"></i>
-													 <i class="path5"></i>
-												</i></a>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-								<!--end::Table-->
-								<!--start::pagination-->
-								<div class="row"><div class="col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start"></div><div class="col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end"><div class="dataTables_paginate paging_simple_numbers" id="kt_table_users_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="kt_table_users_previous"><a href="#" aria-controls="kt_table_users" data-dt-idx="0" tabindex="0" class="page-link"><i class="previous"></i></a></li><li class="paginate_button page-item active"><a href="#" aria-controls="kt_table_users" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="kt_table_users" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="#" aria-controls="kt_table_users" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item next" id="kt_table_users_next"><a href="#" aria-controls="kt_table_users" data-dt-idx="4" tabindex="0" class="page-link"><i class="next"></i></a></li></ul></div></div></div>
-								<!--end::pagination-->
+								<div id="content_individual_livestocks"></div>
 							</div>
 							<!--end::Card body-->
 							
@@ -2457,7 +2409,7 @@
 													<!--begin::Checkboxes-->
 													<div class="d-flex align-items-center">
 														<div class="form-check form-switch form-check-custom form-check-solid me-10">
-														<input class="form-check-input h-30px w-50px" type="checkbox" value="" id="flexSwitch20x30"/>
+														<input class="form-check-input h-30px w-50px" type="checkbox" ng-value="1" name="is_fisherfolk_capture_fishing" ng-model="individual.is_fisherfolk_capture_fishing" id="flexSwitch20x30" ng-disabled="controls.ok.btn" />
 														</div>
 													</div>
 													<!--end::Checkboxes-->
@@ -2484,7 +2436,7 @@
 													<!--begin::Checkboxes-->
 													<div class="d-flex align-items-center">
 														<div class="form-check form-switch form-check-custom form-check-solid me-10">
-														<input class="form-check-input h-30px w-50px" type="checkbox" value="" id="flexSwitch20x30"/>
+														<input class="form-check-input h-30px w-50px" type="checkbox" ng-value="1" name="is_fisherfolk_aquaculture" ng-model="individual.is_fisherfolk_aquaculture" id="flexSwitch20x30" ng-disabled="controls.ok.btn" />
 														</div>
 													</div>
 													<!--end::Checkboxes-->
@@ -2511,7 +2463,7 @@
 													<!--begin::Checkboxes-->
 													<div class="d-flex align-items-center">
 														<div class="form-check form-switch form-check-custom form-check-solid me-10">
-														<input class="form-check-input h-30px w-50px" type="checkbox" value="" id="flexSwitch20x30"/>
+														<input class="form-check-input h-30px w-50px" type="checkbox" ng-value="1" name="is_fisherfolk_gleaning" ng-model="individual.is_fisherfolk_gleaning" id="flexSwitch20x30" ng-disabled="controls.ok.btn" />
 														</div>
 													</div>
 													<!--end::Checkboxes-->
@@ -2538,7 +2490,7 @@
 													<!--begin::Checkboxes-->
 													<div class="d-flex align-items-center">
 														<div class="form-check form-switch form-check-custom form-check-solid me-10">
-														<input class="form-check-input h-30px w-50px" type="checkbox" value="" id="flexSwitch20x30"/>
+														<input class="form-check-input h-30px w-50px" type="checkbox" ng-value="1" name="is_fisherfolk_fish_vending" ng-model="individual.is_fisherfolk_fish_vending" id="flexSwitch20x30" ng-disabled="controls.ok.btn" />
 														</div>
 													</div>
 													<!--end::Checkboxes-->
@@ -2589,7 +2541,7 @@
 													<!--begin::Checkboxes-->
 													<div class="d-flex align-items-center">
 														<div class="form-check form-check-custom form-check-solid me-10">
-														<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
+														<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="is_capture_fishing_motorized" ng-model="individual.is_capture_fishing_motorized" id="flexRadio30" ng-disabled="controls.ok.btn"/>
 														</div>
 													</div>
 													<!--end::Checkboxes-->
@@ -2616,7 +2568,7 @@
 													<!--begin::Checkboxes-->
 													<div class="d-flex align-items-center">
 														<div class="form-check form-check-custom form-check-solid me-10">
-														<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
+														<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="is_capture_fishing_non_motorized" ng-model="individual.is_capture_fishing_non_motorized" id="flexRadio30" ng-disabled="controls.ok.btn" />
 														</div>
 													</div>
 													<!--end::Checkboxes-->
@@ -2643,7 +2595,7 @@
 													<!--begin::Checkboxes-->
 													<div class="d-flex align-items-center">
 														<div class="form-check form-check-custom form-check-solid me-10">
-														<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
+														<input class="form-check-input h-30px w-30px"  type="checkbox" ng-value="1" name="is_capture_fishing_commercial" ng-model="individual.is_capture_fishing_commercial" id="flexRadio30" ng-disabled="controls.ok.btn" />
 														</div>
 													</div>
 													<!--end::Checkboxes-->
@@ -2651,8 +2603,6 @@
 												<!--end::Input group-->
 											</div>
 											<!--end::Col-->
-											
-											
 										</div>
 										<!--end::Row-->	
 									</div>
@@ -2664,11 +2614,11 @@
 							<div class="d-flex flex-wrap flex-stack mb-5">
 								<!--begin::Wrapper-->
 								<div class="d-flex flex-column flex-grow-1 pe-8">
-													<!--begin::d-flex align-items-center mb-2-->
-													<div class="d-flex align-items-center mb-2">
-														<h6>Method</h6>
-													</div>
-													<!--end::d-flex align-items-center mb-2-->
+									<!--begin::d-flex align-items-center mb-2-->
+									<div class="d-flex align-items-center mb-2">
+										<h6>Method</h6>
+									</div>
+									<!--end::d-flex align-items-center mb-2-->
 									<div class="row row-cols-1 row-cols-md-2">
 										<!--begin::Col-->
 										<div class="col">
@@ -2676,7 +2626,7 @@
 												<div class="d-flex align-items-center mb-5">
 													<!--begin::Radio-->
 													<label class="form-check form-check-custom form-check-solid me-10">
-														<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
+														<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="is_method_hook" ng-model="individual.is_method_hook" id="flexRadio30" ng-disabled="controls.ok.btn" />
 														<span class="form-check-label fw-semibold">Hook & Line</span>
 													</label>
 													<!--end::Radio-->
@@ -2687,8 +2637,8 @@
 												<div class="d-flex align-items-center mb-5">
 													<!--begin::Radio-->
 													<label class="form-check form-check-custom form-check-solid me-10">
-														<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
-														<span class="form-check-label fw-semibold">Gell Nets</span>
+														<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="is_method_gill" ng-model="individual.is_method_gill" id="flexRadio30" ng-disabled="controls.ok.btn" />
+														<span class="form-check-label fw-semibold">Gill Nets</span>
 													</label>
 													<!--end::Radio-->
 												</div>
@@ -2698,7 +2648,7 @@
 												<div class="d-flex align-items-center mb-5">
 													<!--begin::Radio-->
 													<label class="form-check form-check-custom form-check-solid me-10">
-														<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
+														<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="is_method_seine" ng-model="individual.is_method_seine" id="flexRadio30" ng-disabled="controls.ok.btn" />
 														<span class="form-check-label fw-semibold">Seine Nets</span>
 													</label>
 													<!--end::Radio-->
@@ -2709,7 +2659,7 @@
 												<div class="d-flex align-items-center mb-5">
 													<!--begin::Radio-->
 													<label class="form-check form-check-custom form-check-solid me-10">
-														<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
+														<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="is_method_scoop" ng-model="individual.is_method_scoop" id="flexRadio30" ng-disabled="controls.ok.btn" />
 														<span class="form-check-label fw-semibold">Scoop Nets</span>
 													</label>
 													<!--end::Radio-->
@@ -2724,7 +2674,7 @@
 												<div class="d-flex align-items-center mb-5">
 													<!--begin::Radio-->
 													<label class="form-check form-check-custom form-check-solid me-10">
-														<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
+														<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="is_method_pots" ng-model="individual.is_method_pots" id="flexRadio30" ng-disabled="controls.ok.btn" />
 														<span class="form-check-label fw-semibold">Pots & Traps</span>
 													</label>
 													<!--end::Radio-->
@@ -2735,7 +2685,7 @@
 												<div class="d-flex align-items-center mb-5">
 													<!--begin::Radio-->
 													<label class="form-check form-check-custom form-check-solid me-10">
-														<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
+														<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="is_method_lift" ng-model="individual.is_method_lift" id="flexRadio30" ng-disabled="controls.ok.btn" />
 														<span class="form-check-label fw-semibold">Lift Nets</span>
 													</label>
 													<!--end::Radio-->
@@ -2746,7 +2696,7 @@
 												<div class="d-flex mb-5">
 													<!--begin::Radio-->
 													<label class="form-check form-check-custom form-check-solid me-10">
-														<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
+														<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="is_method_falling" ng-model="individual.is_method_falling" id="flexRadio30" ng-disabled="controls.ok.btn" />
 														<span class="form-check-label fw-semibold">Falling Gear</span>
 													</label>
 													<!--end::Radio-->
@@ -2756,7 +2706,7 @@
 												<div class="d-flex mb-5">
 													<!--begin::Radio-->
 													<label class="form-check form-check-custom form-check-solid me-13">
-														<input class="form-check-input h-30px w-30px" name="rsbsa" type="checkbox" value="Yes" id="flexRadio30"/>
+														<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="is_method_misc" ng-model="individual.is_method_misc" id="flexRadio30" ng-disabled="controls.ok.btn" />
 														<span class="form-check-label fw-semibold">Miscellaneous Fishing Gears</span>
 													</label>
 													<!--end::Radio-->
@@ -2790,7 +2740,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<select class="form-select" aria-label="Select example">
+											<select class="form-select" aria-label="Select example" ng-disabled="controls.ok.btn">
 												<option></option>
 												<option value=""></option>
 											</select>
@@ -2816,7 +2766,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
+											<input type="text" class="form-control" placeholder="" name="no_of_fishing_days" ng-model="individual.no_of_fishing_days" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -2839,7 +2789,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
+											<input type="text" class="form-control" placeholder="" name="no_of_catch_daily" ng-model="individual.no_of_catch_daily" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -2862,7 +2812,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
+											<input type="text" class="form-control" placeholder="" name="boat_license_no" ng-model="individual.boat_license_no" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -3219,7 +3169,7 @@
 								</label>
 								<!--end::Label-->
 								<!--begin::Input-->
-								<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
+								<input type="text" class="form-control" placeholder="" name="bill_email" value="" ng-disabled="controls.ok.btn"/>
 								<!--end::Input-->
 							</div>
 							<!--end::Input group-->
@@ -3242,7 +3192,7 @@
 								</label>
 								<!--end::Label-->
 								<!--begin::Input-->
-								<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
+								<input type="text" class="form-control" placeholder="" name="bill_email" value="" ng-disabled="controls.ok.btn" />
 								<!--end::Input-->
 							</div>
 							<!--end::Input group-->
@@ -3262,23 +3212,23 @@
 					<div class="separator my-7"></div>
 						
 					<div class="d-flex flex-wrap flex-stack mb-10">
-								<!--begin::Wrapper-->
-								<div class="d-flex flex-column flex-grow-1 pe-8">
-									<div class="card-header">
-										<h5 class="card-title">FISH VENDING</h5>
-									</div>
-								<div class="card shadow-sm">
-									<div class="card-body">
-									<div class="d-flex flex-wrap flex-stack mb-5">
-									<!--begin::Wrapper-->
-									
-									<!--end::Wrapper-->
-								</div>
-								<!--end::d-flex flex-wrap flex-stack-->
-					
-									<!--begin::Wrapper-->
-							<div class="d-flex flex-column flex-grow-1 pe-8">
-								<!--begin::row-->
+					<!--begin::Wrapper-->
+					<div class="d-flex flex-column flex-grow-1 pe-8">
+						<div class="card-header">
+							<h5 class="card-title">FISH VENDING</h5>
+						</div>
+					<div class="card shadow-sm">
+						<div class="card-body">
+						<div class="d-flex flex-wrap flex-stack mb-5">
+						<!--begin::Wrapper-->
+						
+						<!--end::Wrapper-->
+					</div>
+					<!--end::d-flex flex-wrap flex-stack-->
+		
+					<!--begin::Wrapper-->
+					<div class="d-flex flex-column flex-grow-1 pe-8">
+					<!--begin::row-->
 					<div class="row row-cols-1 row-cols-md-2">
 						<!--begin::Col-->
 						<div class="col">
@@ -3297,11 +3247,11 @@
 								</label>
 								<!--end::Label-->
 								<!--begin::Input-->
-								<select class="form-select" aria-label="Select example">
+								<select class="form-select" aria-label="Select example" ng-disabled="controls.ok.btn">
 									<option></option>
-									<option value="">Ambulant</option>
-									<option value="">Market</option>
-									<option value="">Dealer</option>
+									<option value="Ambulant">Ambulant</option>
+									<option value="Market">Market</option>
+									<option value="Dealer">Dealer</option>
 								</select>
 								<!--end::Input-->
 							</div>
@@ -3311,15 +3261,15 @@
 									
 					</div>
 					<!--end::Row-->
+					</div>
+					<!--end::Wrapper-->
 							</div>
-							<!--end::Wrapper-->
-									</div>
-								</div>
-								
-								</div>
-								<!--end::Wrapper-->
-							</div>
-							<!--end::d-flex flex-wrap flex-stack-->
+						</div>
+						
+						</div>
+						<!--end::Wrapper-->
+					</div>
+					<!--end::d-flex flex-wrap flex-stack-->
 					
 					<!--end::d-flex align-items-center mb-2-->
 					
@@ -3349,7 +3299,7 @@
 	
 	
 	
-	<div class="tab-pane fade" id="3" role="tabpane1">	
+	<div class="tab-pane fade" id="3" role="tabpane1" ng-hide="individual.id=='0'">	
 	<!---input here--->
 	
 	<div id="kt_app_content" class="">
@@ -4616,7 +4566,7 @@
 
 
 
-	<div class="tab-pane fade" id="4" role="tabpane1">
+	<div class="tab-pane fade" id="4" role="tabpane1" ng-hide="individual.id=='0'">
 	
 	<div id="kt_app_content" class="">
 		<!--begin::kt_app_content_container-->
@@ -4701,7 +4651,7 @@
 	<!--end::tab-pane fade show active-->	
 		
 		
-	<div class="tab-pane fade" id="5" role="tabpane1">	
+	<div class="tab-pane fade" id="5" role="tabpane1" ng-hide="individual.id=='0'">	
 	
 	<div id="kt_app_content" class="">
 		<!--begin::kt_app_content_container-->
