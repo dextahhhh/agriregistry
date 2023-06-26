@@ -10,10 +10,10 @@ $con = new pdo_db();
 
 if($_SESSION['id']) {
 
-    $individual_organization = $con->getData("SELECT * FROM individual_organizations WHERE id = $_POST[id]");
+    $individual_aquaculture = $con->getData("SELECT * FROM individual_aquacultures WHERE id = $_POST[id]");
     
     header("Content-Type: application/json");
-    echo json_encode($individual_organization[0]);
+    echo json_encode($individual_aquaculture[0]);
 
 } else {
 

@@ -1,5 +1,5 @@
 <!--begin::Table-->
-<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
+<table class="table align-middle table-row-dashed fs-6 gy-5" id="table_individual_organizations">
 	<thead>
 		<tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
 			<th class="min-w-125px">#</th>
@@ -10,8 +10,8 @@
 		</tr>
 	</thead>
 	<tbody class="text-gray-600 fw-semibold">
-		<tr ng-repeat="data in filterData = (individual_organizations | filter:search_individual_trainings) | pagination: currentPage:pageSize">
-			<td>{{data.id}}</td>
+		<tr ng-repeat="data in filterData = (individual_organizations | filter:search_organizations) | pagination: currentPage:pageSize">
+			<td>{{$index+1}}</td>
 			<td>{{data.name_of_organization}}</td>
 			<td>{{data.member_since}}</td>
 			<td>{{data.position}}</td>
