@@ -427,7 +427,7 @@ License: For each use you must have a valid license purchased only from above li
 								</div>
 								<!--end::Theme mode-->
 								<!--begin::User menu-->
-									<?php require_once 'account-profile.php'?> 
+								<?php require_once 'account-profile.php'?> 
 								<!--end::User menu-->
 								<!--begin::Header menu toggle-->
 								<div class="app-navbar-item d-lg-none ms-2 me-n2" title="Show header menu">
@@ -479,7 +479,7 @@ License: For each use you must have a valid license purchased only from above li
 						</div>
 						<!--end::Logo-->
 						<!--begin::sidebar menu-->
-							<?php require_once 'sidebar.php'?> 
+						<?php require_once 'sidebar.php'?> 
 						<!--end::sidebar menu-->
 					</div>
 					<!--end::Sidebar-->
@@ -532,16 +532,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--end::Content wrapper-->
 						<!--begin::Footer-->
 						<div id="kt_app_footer" class="app-footer">
-							<!--begin::Footer container-->
-							<div class="app-container container-fluid d-flex flex-column flex-md-row flex-center flex-md-stack py-3">
-								<!--begin::Copyright-->
-								<div class="text-dark order-2 order-md-1">
-									<span class="text-muted fw-semibold me-1">2023&copy;</span>
-									<a href="https://keenthemes.com" target="_blank" class="text-gray-800 text-hover-primary">Keenthemes</a>
-								</div>
-								<!--end::Copyright-->
-							</div>
-							<!--end::Footer container-->
+							<?php require_once 'footer.php'?>
 						</div>
 						<!--end::Footer-->
 					</div>

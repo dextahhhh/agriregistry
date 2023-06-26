@@ -225,27 +225,27 @@
 						<ul class="nav nav-tabs nav-line-tabs mb-5 fs-6">
 							<!--begin::Nav item-->
 							<li class="nav-item mt-2">
-								<a class="nav-link text-active-primary ms-0 me-10 py-5 active" data-bs-toggle="tab" href="#1">Personal Info</a>
+								<a class="nav-link text-active-primary ms-0 me-10 py-5 active" data-bs-toggle="tab" href="#1">1. Personal Info</a>
 							</li>
 							<!--end::Nav item-->
 							<!--begin::Nav item-->
 							<li class="nav-item mt-2" ng-hide="individual.id=='0'">
-								<a class="nav-link text-active-primary ms-0 me-10 py-5" data-bs-toggle="tab" href="#2">Livelihood</a>
+								<a class="nav-link text-active-primary ms-0 me-10 py-5" data-bs-toggle="tab" href="#2">2. Livelihood</a>
 							</li>
 							<!--end::Nav item-->
 							<!--begin::Nav item-->
 							<li class="nav-item mt-2" ng-hide="individual.id=='0'">
-								<a class="nav-link text-active-primary ms-0 me-10 py-5" data-bs-toggle="tab" href="#3">Farm Parcel/Commodity/Machineries</a>
+								<a class="nav-link text-active-primary ms-0 me-10 py-5" data-bs-toggle="tab" href="#3">3. Farm Parcel/Commodity/Machineries</a>
 							</li>
 							<!--end::Nav item-->
 							<!--begin::Nav item-->
 							<li class="nav-item mt-2" ng-hide="individual.id=='0'">
-								<a class="nav-link text-active-primary ms-0 me-10 py-5" data-bs-toggle="tab" href="#4">Organization</a>
+								<a class="nav-link text-active-primary ms-0 me-10 py-5" data-bs-toggle="tab" href="#4">4. Organization</a>
 							</li>
 							<!--end::Nav item-->
 							<!--begin::Nav item-->
 							<li class="nav-item mt-2" ng-hide="individual.id=='0'">
-								<a class="nav-link text-active-primary ms-0 me-10 py-5" data-bs-toggle="tab" href="#5">Trainings Participated</a>
+								<a class="nav-link text-active-primary ms-0 me-10 py-5" data-bs-toggle="tab" href="#5">5. Trainings Participated</a>
 							</li>
 							<!--end::Nav item-->
 						</ul>
@@ -280,8 +280,8 @@
 						<!--begin::flex-grow-1-->
 						<div class="flex-grow-1">
 							<div class="card-header d-flex justify-content-end py-6 px-9 mb-5">
-							<input type="reset" class="btn btn-light me-4" value="{{controls.cancel.label}}"  ng-click="app.list(this)">
-							<input type="button" class="btn btn-primary first" value="{{controls.ok.label}}" ng-click="app.save(this)" ng-disabled="controls.ok.btn">
+								<input type="reset" class="btn btn-light me-4" value="{{controls.cancel.label}}"  ng-click="app.list(this)">
+								<input type="button" class="btn btn-primary first" value="{{controls.ok.label}}" ng-click="app.save(this)" ng-disabled="controls.ok.btn">
 							</div>
 							<!--begin::d-flex justify-content-between align-items-start flex-wrap mb-2-->
 							<div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
@@ -685,7 +685,6 @@
 								<!--end::Wrapper-->
 							</div>
 							<!--end::d-flex flex-wrap flex-stack-->
-							
 							
 							<!--begin::d-flex flex-wrap flex-stack-->
 							<div class="d-flex flex-wrap flex-stack">
@@ -1835,8 +1834,6 @@
 						<!--end::flex-grow-1-->
 					</div>
 					<!--end::d-flex flex-wrap flex-sm-nowrap-->
-					
-
 				</div>
 				<div class="card-footer d-flex justify-content-end py-6 px-9">
 					<input type="reset" class="btn btn-light me-4" value="{{controls.cancel.label}}"  ng-click="app.list(this)">
@@ -1871,6 +1868,10 @@
 						<!--begin::flex-grow-1-->
 						<div class="flex-grow-1">
 							<!--begin::d-flex justify-content-between align-items-start flex-wrap mb-2-->
+							<div class="card-header d-flex justify-content-end py-6 px-9 mb-5">
+								<input type="reset" class="btn btn-light me-4" value="{{controls.cancel.label}}"  ng-click="app.list(this)">
+								<input type="button" class="btn btn-primary first" value="{{controls.ok.label}}" ng-click="app.save(this)" ng-disabled="controls.ok.btn">
+							</div>
 							<div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
 								<!--begin::d-flex flex-column-->
 								<div class="d-flex flex-column">
@@ -1889,7 +1890,7 @@
 							<div class="d-flex flex-wrap flex-stack">
 								<!--begin::Wrapper-->
 								<div class="d-flex flex-column flex-grow-1 pe-8">
-									<div class="row row-cols-1 row-cols-md-3">
+									<div class="row row-cols-1 row-cols-md-3 mb-10">
 										<!--begin::Col-->
 										<div class="col">
 											<!--begin::Input group-->
@@ -2305,7 +2306,7 @@
 											<span class="path1"></span>
 											<span class="path2"></span>
 										</i>
-										<input type="text" ng-model="search" class="form-control form-control-solid w-250px ps-13" placeholder="Search individual" />
+										<input type="text" ng-model="search_livestocks" class="form-control form-control-solid w-250px ps-13" placeholder="Search livestocks" />
 									</div>
 									<!--end::Search-->
 								</div>
@@ -2315,7 +2316,7 @@
 									<!--begin::Toolbar-->
 									<div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
 										<!--begin::Export-->
-										<button type="button" class="btn btn-light-primary me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_export_users">
+										<button type="button" class="btn btn-light-primary me-3" ng-click="app.print_individual_livestocks();">
 										<i class="ki-duotone ki-exit-up fs-2">
 											<span class="path1"></span>
 											<span class="path2"></span>
@@ -2323,7 +2324,7 @@
 										<!--end::Export-->
 										<!--begin::Add user-->
 										<button type="button" class="btn btn-primary" ng-click="app.individual_livestock(this);">
-										<i class="ki-duotone ki-plus fs-2"></i>Add</button>
+										<i class="ki-duotone ki-plus fs-2"></i>Add Livestock</button>
 										<!--end::Add user-->
 									</div>
 									<!--end::Toolbar-->
@@ -2336,11 +2337,9 @@
 								<div id="content_individual_livestocks"></div>
 							</div>
 							<!--end::Card body-->
-							
 						</div>
 						<!--end::Card-->
-						
-						<!---------------------------end::Table------------------------------------------->
+						<!----------------------------end::Table-------------------------------------->
 				</div>
 				<!--end::card-body pt-9 pb-0-->
 			</div>
@@ -2349,9 +2348,6 @@
 		<!--end::kt_app_content_container-->
 	</div>
 	<!--kt_app_content-->
-	
-	
-	
 	
 	<div id="kt_app_content" class="" ng-show="individual.for_fisherfolk=='1'">
 		<!--begin::kt_app_content_container-->
@@ -2364,251 +2360,249 @@
 					<!--begin::d-flex flex-wrap flex-sm-nowrap-->
 					<div class="d-flex flex-wrap flex-sm-nowrap">
 						<!--begin: me-7 mb-4-->
-						<div class="me-7 mb-4">
-							
-						</div>
+						<!-- <div class="me-7 mb-4"> -->
+						<!-- </div> -->
 						<!--end::me-7 mb-4-->
 						
 						<!--begin::flex-grow-1-->
 						<div class="flex-grow-1">
-								<!--begin::d-flex justify-content-between align-items-start flex-wrap mb-2-->
-								<div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
-									<!--begin::d-flex flex-column-->
-									<div class="d-flex flex-column">
-										<!--begin::d-flex align-items-center mb-2-->
-										<div class="d-flex align-items-center mb-2">
-											<h3 class="text-danger">2.C PROFILE FOR FISHERFOLK</h3>
-										</div>
-										<!--end::d-flex align-items-center mb-2-->
+							<!--begin::d-flex justify-content-between align-items-start flex-wrap mb-2-->
+							<div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
+								<!--begin::d-flex flex-column-->
+								<div class="d-flex flex-column">
+									<!--begin::d-flex align-items-center mb-2-->
+									<div class="d-flex align-items-center mb-2">
+										<h3 class="text-danger">2.C PROFILE FOR FISHERFOLK</h3>
 									</div>
-									<!--end::d-flex flex-column-->
+									<!--end::d-flex align-items-center mb-2-->
 								</div>
-								<!--end::d-flex justify-content-between align-items-start flex-wrap mb-2-->
+								<!--end::d-flex flex-column-->
+							</div>
+							<!--end::d-flex justify-content-between align-items-start flex-wrap mb-2-->
 						
-								<!--begin::d-flex flex-wrap flex-stack-->
-								<div class="d-flex flex-wrap flex-stack">
-									<!--begin::Wrapper-->
-									<div class="d-flex flex-column flex-grow-1 pe-8">
-										<div class="row row-cols-1 row-cols-md-4">
-											<!--begin::Col-->
-											<div class="col">
-												<!--begin::Input group-->
-												<div class="fv-row mb-4">
-													<!--begin::Label-->
-													<label class="fs-6 fw-semibold mb-2">
-														<span>Capture Fishing</span>
-														<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
-															<i class="ki-duotone ki-information fs-7">
-																<span class="path1"></span>
-																<span class="path2"></span>
-																<span class="path3"></span>
-															</i>
-														</span>
-													</label>
-													<!--end::Label-->
-													<!--begin::Checkboxes-->
-													<div class="d-flex align-items-center">
-														<div class="form-check form-switch form-check-custom form-check-solid me-10">
-														<input class="form-check-input h-30px w-50px" type="checkbox" ng-value="1" name="is_fisherfolk_capture_fishing" ng-model="individual.is_fisherfolk_capture_fishing" id="flexSwitch20x30" ng-disabled="controls.ok.btn" />
-														</div>
+							<!--begin::d-flex flex-wrap flex-stack-->
+							<div class="d-flex flex-wrap flex-stack">
+								<!--begin::Wrapper-->
+								<div class="d-flex flex-column flex-grow-1 pe-8">
+									<div class="row row-cols-1 row-cols-md-4">
+										<!--begin::Col-->
+										<div class="col">
+											<!--begin::Input group-->
+											<div class="fv-row mb-4">
+												<!--begin::Label-->
+												<label class="fs-6 fw-semibold mb-2">
+													<span>Capture Fishing</span>
+													<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+														<i class="ki-duotone ki-information fs-7">
+															<span class="path1"></span>
+															<span class="path2"></span>
+															<span class="path3"></span>
+														</i>
+													</span>
+												</label>
+												<!--end::Label-->
+												<!--begin::Checkboxes-->
+												<div class="d-flex align-items-center">
+													<div class="form-check form-switch form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-50px" type="checkbox" ng-value="1" name="is_fisherfolk_capture_fishing" ng-model="individual.is_fisherfolk_capture_fishing" id="flexSwitch20x30" ng-disabled="controls.ok.btn" />
 													</div>
-													<!--end::Checkboxes-->
 												</div>
-												<!--end::Input group-->
+												<!--end::Checkboxes-->
 											</div>
-											<!--end::Col-->
-											<!--begin::Col-->
-											<div class="col">
-												<!--begin::Input group-->
-												<div class="fv-row mb-4">
-													<!--begin::Label-->
-													<label class="fs-6 fw-semibold mb-2">
-														<span>Aquaculture</span>
-														<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
-															<i class="ki-duotone ki-information fs-7">
-																<span class="path1"></span>
-																<span class="path2"></span>
-																<span class="path3"></span>
-															</i>
-														</span>
-													</label>
-													<!--end::Label-->
-													<!--begin::Checkboxes-->
-													<div class="d-flex align-items-center">
-														<div class="form-check form-switch form-check-custom form-check-solid me-10">
-														<input class="form-check-input h-30px w-50px" type="checkbox" ng-value="1" name="is_fisherfolk_aquaculture" ng-model="individual.is_fisherfolk_aquaculture" id="flexSwitch20x30" ng-disabled="controls.ok.btn" />
-														</div>
-													</div>
-													<!--end::Checkboxes-->
-												</div>
-												<!--end::Input group-->
-											</div>
-											<!--end::Col-->
-											<!--begin::Col-->
-											<div class="col">
-												<!--begin::Input group-->
-												<div class="fv-row mb-4">
-													<!--begin::Label-->
-													<label class="fs-6 fw-semibold mb-2">
-														<span>Gleaning (Agkamkammel)</span>
-														<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
-															<i class="ki-duotone ki-information fs-7">
-																<span class="path1"></span>
-																<span class="path2"></span>
-																<span class="path3"></span>
-															</i>
-														</span>
-													</label>
-													<!--end::Label-->
-													<!--begin::Checkboxes-->
-													<div class="d-flex align-items-center">
-														<div class="form-check form-switch form-check-custom form-check-solid me-10">
-														<input class="form-check-input h-30px w-50px" type="checkbox" ng-value="1" name="is_fisherfolk_gleaning" ng-model="individual.is_fisherfolk_gleaning" id="flexSwitch20x30" ng-disabled="controls.ok.btn" />
-														</div>
-													</div>
-													<!--end::Checkboxes-->
-												</div>
-												<!--end::Input group-->
-											</div>
-											<!--end::Col-->
-											<!--begin::Col-->
-											<div class="col">
-												<!--begin::Input group-->
-												<div class="fv-row mb-4">
-													<!--begin::Label-->
-													<label class="fs-6 fw-semibold mb-2">
-														<span>Fish Vending</span>
-														<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
-															<i class="ki-duotone ki-information fs-7">
-																<span class="path1"></span>
-																<span class="path2"></span>
-																<span class="path3"></span>
-															</i>
-														</span>
-													</label>
-													<!--end::Label-->
-													<!--begin::Checkboxes-->
-													<div class="d-flex align-items-center">
-														<div class="form-check form-switch form-check-custom form-check-solid me-10">
-														<input class="form-check-input h-30px w-50px" type="checkbox" ng-value="1" name="is_fisherfolk_fish_vending" ng-model="individual.is_fisherfolk_fish_vending" id="flexSwitch20x30" ng-disabled="controls.ok.btn" />
-														</div>
-													</div>
-													<!--end::Checkboxes-->
-												</div>
-												<!--end::Input group-->
-											</div>
-											<!--end::Col-->
-											
+											<!--end::Input group-->
 										</div>
-										<!--end::Row-->	
+										<!--end::Col-->
+										<!--begin::Col-->
+										<div class="col">
+											<!--begin::Input group-->
+											<div class="fv-row mb-4">
+												<!--begin::Label-->
+												<label class="fs-6 fw-semibold mb-2">
+													<span>Aquaculture</span>
+													<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+														<i class="ki-duotone ki-information fs-7">
+															<span class="path1"></span>
+															<span class="path2"></span>
+															<span class="path3"></span>
+														</i>
+													</span>
+												</label>
+												<!--end::Label-->
+												<!--begin::Checkboxes-->
+												<div class="d-flex align-items-center">
+													<div class="form-check form-switch form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-50px" type="checkbox" ng-value="1" name="is_fisherfolk_aquaculture" ng-model="individual.is_fisherfolk_aquaculture" id="flexSwitch20x30" ng-disabled="controls.ok.btn" />
+													</div>
+												</div>
+												<!--end::Checkboxes-->
+											</div>
+											<!--end::Input group-->
+										</div>
+										<!--end::Col-->
+										<!--begin::Col-->
+										<div class="col">
+											<!--begin::Input group-->
+											<div class="fv-row mb-4">
+												<!--begin::Label-->
+												<label class="fs-6 fw-semibold mb-2">
+													<span>Gleaning (Agkamkammel)</span>
+													<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+														<i class="ki-duotone ki-information fs-7">
+															<span class="path1"></span>
+															<span class="path2"></span>
+															<span class="path3"></span>
+														</i>
+													</span>
+												</label>
+												<!--end::Label-->
+												<!--begin::Checkboxes-->
+												<div class="d-flex align-items-center">
+													<div class="form-check form-switch form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-50px" type="checkbox" ng-value="1" name="is_fisherfolk_gleaning" ng-model="individual.is_fisherfolk_gleaning" id="flexSwitch20x30" ng-disabled="controls.ok.btn" />
+													</div>
+												</div>
+												<!--end::Checkboxes-->
+											</div>
+											<!--end::Input group-->
+										</div>
+										<!--end::Col-->
+										<!--begin::Col-->
+										<div class="col">
+											<!--begin::Input group-->
+											<div class="fv-row mb-4">
+												<!--begin::Label-->
+												<label class="fs-6 fw-semibold mb-2">
+													<span>Fish Vending</span>
+													<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+														<i class="ki-duotone ki-information fs-7">
+															<span class="path1"></span>
+															<span class="path2"></span>
+															<span class="path3"></span>
+														</i>
+													</span>
+												</label>
+												<!--end::Label-->
+												<!--begin::Checkboxes-->
+												<div class="d-flex align-items-center">
+													<div class="form-check form-switch form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-50px" type="checkbox" ng-value="1" name="is_fisherfolk_fish_vending" ng-model="individual.is_fisherfolk_fish_vending" id="flexSwitch20x30" ng-disabled="controls.ok.btn" />
+													</div>
+												</div>
+												<!--end::Checkboxes-->
+											</div>
+											<!--end::Input group-->
+										</div>
+										<!--end::Col-->
 									</div>
-									<!--end::Wrapper-->
+									<!--end::Row-->	
 								</div>
-								<!--end::d-flex flex-wrap flex-stack-->
+								<!--end::Wrapper-->
+							</div>
+							<!--end::d-flex flex-wrap flex-stack-->
 						
 							<!--end::flex-grow-1-->
 							<div class="separator my-7"></div>
 							
 							<div class="d-flex flex-wrap flex-stack mb-10">
+							<!--begin::Wrapper-->
+							<div class="d-flex flex-column flex-grow-1 pe-8">
+							<div class="card shadow-sm">
+							<div class="card-header">
+								<h3 class="card-title fw-bold">CAPTURE FISHING</h3>
+							</div>
+							<div class="card-body">
+							<div class="d-flex flex-wrap flex-stack mb-5">
 								<!--begin::Wrapper-->
 								<div class="d-flex flex-column flex-grow-1 pe-8">
-									<div class="card-header">
-										<h5 class="card-title">CAPTURE FISHING</h5>
-									</div>
-								<div class="card shadow-sm">
-									<div class="card-body">
-									<div class="d-flex flex-wrap flex-stack mb-5">
-									<!--begin::Wrapper-->
-									<div class="d-flex flex-column flex-grow-1 pe-8">
-									<div class="card-title"><h6 class="mb-1">Fishing vessel</h6></div>
-										<div class="row row-cols-1 row-cols-md-3">
-											<!--begin::Col-->
-											<div class="col">
-												<!--begin::Input group-->
-												<div class="fv-row mb-4">
-													<!--begin::Label-->
-													<label class="fs-6 fw-semibold mb-2">
-														<span>Motorized</span>
-														<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
-															<i class="ki-duotone ki-information fs-7">
-																<span class="path1"></span>
-																<span class="path2"></span>
-																<span class="path3"></span>
-															</i>
-														</span>
-													</label>
-													<!--end::Label-->
-													<!--begin::Checkboxes-->
-													<div class="d-flex align-items-center">
-														<div class="form-check form-check-custom form-check-solid me-10">
-														<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="is_capture_fishing_motorized" ng-model="individual.is_capture_fishing_motorized" id="flexRadio30" ng-disabled="controls.ok.btn"/>
-														</div>
+								<div class="card-title"><h6 class="mb-1">Fishing vessel</h6></div>
+									<div class="row row-cols-1 row-cols-md-3">
+										<!--begin::Col-->
+										<div class="col">
+											<!--begin::Input group-->
+											<div class="fv-row mb-4">
+												<!--begin::Label-->
+												<label class="fs-6 fw-semibold mb-2">
+													<span>Motorized</span>
+													<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+														<i class="ki-duotone ki-information fs-7">
+															<span class="path1"></span>
+															<span class="path2"></span>
+															<span class="path3"></span>
+														</i>
+													</span>
+												</label>
+												<!--end::Label-->
+												<!--begin::Checkboxes-->
+												<div class="d-flex align-items-center">
+													<div class="form-check form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="is_capture_fishing_motorized" ng-model="individual.is_capture_fishing_motorized" id="flexRadio30" ng-disabled="controls.ok.btn"/>
 													</div>
-													<!--end::Checkboxes-->
 												</div>
-												<!--end::Input group-->
+												<!--end::Checkboxes-->
 											</div>
-											<!--end::Col-->
-											<!--begin::Col-->
-											<div class="col">
-												<!--begin::Input group-->
-												<div class="fv-row mb-4">
-													<!--begin::Label-->
-													<label class="fs-6 fw-semibold mb-2">
-														<span>Non-motorized</span>
-														<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
-															<i class="ki-duotone ki-information fs-7">
-																<span class="path1"></span>
-																<span class="path2"></span>
-																<span class="path3"></span>
-															</i>
-														</span>
-													</label>
-													<!--end::Label-->
-													<!--begin::Checkboxes-->
-													<div class="d-flex align-items-center">
-														<div class="form-check form-check-custom form-check-solid me-10">
-														<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="is_capture_fishing_non_motorized" ng-model="individual.is_capture_fishing_non_motorized" id="flexRadio30" ng-disabled="controls.ok.btn" />
-														</div>
-													</div>
-													<!--end::Checkboxes-->
-												</div>
-												<!--end::Input group-->
-											</div>
-											<!--end::Col-->
-											<!--begin::Col-->
-											<div class="col">
-												<!--begin::Input group-->
-												<div class="fv-row mb-4">
-													<!--begin::Label-->
-													<label class="fs-7 fw-semibold mb-2">
-														<span>Commercial Fishing Vessel Operated</span>
-														<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
-															<i class="ki-duotone ki-information fs-7">
-																<span class="path1"></span>
-																<span class="path2"></span>
-																<span class="path3"></span>
-															</i>
-														</span>
-													</label>
-													<!--end::Label-->
-													<!--begin::Checkboxes-->
-													<div class="d-flex align-items-center">
-														<div class="form-check form-check-custom form-check-solid me-10">
-														<input class="form-check-input h-30px w-30px"  type="checkbox" ng-value="1" name="is_capture_fishing_commercial" ng-model="individual.is_capture_fishing_commercial" id="flexRadio30" ng-disabled="controls.ok.btn" />
-														</div>
-													</div>
-													<!--end::Checkboxes-->
-												</div>
-												<!--end::Input group-->
-											</div>
-											<!--end::Col-->
+											<!--end::Input group-->
 										</div>
-										<!--end::Row-->	
+										<!--end::Col-->
+										<!--begin::Col-->
+										<div class="col">
+											<!--begin::Input group-->
+											<div class="fv-row mb-4">
+												<!--begin::Label-->
+												<label class="fs-6 fw-semibold mb-2">
+													<span>Non-motorized</span>
+													<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+														<i class="ki-duotone ki-information fs-7">
+															<span class="path1"></span>
+															<span class="path2"></span>
+															<span class="path3"></span>
+														</i>
+													</span>
+												</label>
+												<!--end::Label-->
+												<!--begin::Checkboxes-->
+												<div class="d-flex align-items-center">
+													<div class="form-check form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="is_capture_fishing_non_motorized" ng-model="individual.is_capture_fishing_non_motorized" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													</div>
+												</div>
+												<!--end::Checkboxes-->
+											</div>
+											<!--end::Input group-->
+										</div>
+										<!--end::Col-->
+										<!--begin::Col-->
+										<div class="col">
+											<!--begin::Input group-->
+											<div class="fv-row mb-4">
+												<!--begin::Label-->
+												<label class="fs-7 fw-semibold mb-2">
+													<span>Commercial Fishing Vessel Operated</span>
+													<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+														<i class="ki-duotone ki-information fs-7">
+															<span class="path1"></span>
+															<span class="path2"></span>
+															<span class="path3"></span>
+														</i>
+													</span>
+												</label>
+												<!--end::Label-->
+												<!--begin::Checkboxes-->
+												<div class="d-flex align-items-center">
+													<div class="form-check form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-30px"  type="checkbox" ng-value="1" name="is_capture_fishing_commercial" ng-model="individual.is_capture_fishing_commercial" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													</div>
+												</div>
+												<!--end::Checkboxes-->
+											</div>
+											<!--end::Input group-->
+										</div>
+										<!--end::Col-->
 									</div>
-									<!--end::Wrapper-->
+									<!--end::Row-->	
 								</div>
-								<!--end::d-flex flex-wrap flex-stack-->
+								<!--end::Wrapper-->
+							</div>
+							<!--end::d-flex flex-wrap flex-stack-->
 					
 							<!--begin::d-flex flex-wrap flex-stack-->
 							<div class="d-flex flex-wrap flex-stack mb-5">
@@ -2720,7 +2714,7 @@
 								<!--end::Wrapper-->
 							</div>
 							<!--end::d-flex flex-wrap flex-stack-->
-									<!--begin::Wrapper-->
+							<!--begin::Wrapper-->
 							<div class="d-flex flex-column flex-grow-1 pe-8">
 								<div class="row row-cols-1 row-cols-md-4">
 									<!--begin::Col-->
@@ -2822,402 +2816,23 @@
 								<!--end::Row-->	
 							</div>
 							<!--end::Wrapper-->
-									</div>
-								</div>
+							</div>
+							</div>
 								
-								</div>
-								<!--end::Wrapper-->
-							</div>
-							<!--end::d-flex flex-wrap flex-stack-->
-				
-							<div class="separator my-7"></div>
-					<div class="d-flex flex-wrap flex-stack mb-10">
-								<!--begin::Wrapper-->
-								<div class="d-flex flex-column flex-grow-1 pe-8">
-									<div class="card-header">
-										<h5 class="card-title">AQUACULTURE</h5>
-									</div>
-								<div class="card shadow-sm">
-									<div class="card-body">
-								<!--end::d-flex flex-wrap flex-stack-->
-								<!--TABLE FOR AQUACULTURE-->
-											
-											
-											<!---------------------------begin::Table------------------------------------------->
-											<div class="card">
-												<!--begin::Card header-->
-												<div class="card-header border-0 pt-6">
-													<!--begin::Card title-->
-													<div class="card-title">
-														<!--begin::Search-->
-														<div class="d-flex align-items-center position-relative my-1">
-															<i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5">
-																<span class="path1"></span>
-																<span class="path2"></span>
-															</i>
-															<input type="text" ng-model="search" class="form-control form-control-solid w-250px ps-13" placeholder="Search individual" />
-														</div>
-														<!--end::Search-->
-													</div>
-													<!--begin::Card title-->
-													<!--begin::Card toolbar-->
-													<div class="card-toolbar">
-														<!--begin::Toolbar-->
-														<div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
-															<!--begin::Export-->
-															<button type="button" class="btn btn-light-primary me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_export_users">
-															<i class="ki-duotone ki-exit-up fs-2">
-																<span class="path1"></span>
-																<span class="path2"></span>
-															</i>Export CSV</button>
-															<!--end::Export-->
-															<!--begin::Add user-->
-															<button type="button" class="btn btn-primary" ng-click="app.individual(this);">
-															<i class="ki-duotone ki-plus fs-2"></i>Add</button>
-															<!--end::Add user-->
-														</div>
-														<!--end::Toolbar-->
-													</div>
-													<!--end::Card toolbar-->
-												</div>
-												<!--end::Card header-->
-												<!--begin::Card body-->
-												<div class="card-body py-4">
-													<!--begin::Table-->
-													<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
-														<thead>
-															<tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
-																<th class="min-w-125px">Type</th>
-																<th class="min-w-125px">Method</th>
-																<th class="min-w-125px">Actions</th>
-															</tr>
-														</thead>
-														<tbody class="text-gray-600 fw-semibold">
-															<tr ng-repeat="data in filterData = (individuals | filter:search)">
-																<td class="d-flex align-items-center">
-																	<!--begin::User details-->
-																	<div class="d-flex flex-column">
-																		<a class="text-gray-800 text-hover-primary mb-1">{{}}</a>
-																		<!-- <span>{{data.username}}</span> -->
-																	</div>
-																	<!--begin::User details-->
-																</td>
-																<td>{{}}</td>
-																<td>
-																	<a href="" ng-click="app.individual(this,data)" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"><i class="ki-duotone ki-notepad-edit fs-2qx">
-																		 <i class="path1"></i>
-																		 <i class="path2"></i>
-																	</i></a>
-																	<a href="" ng-click="app.delete(this,data)" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"><i class="ki-duotone ki-trash fs-2qx">
-																		 <i class="path1"></i>
-																		 <i class="path2"></i>
-																		 <i class="path3"></i>
-																		 <i class="path4"></i>
-																		 <i class="path5"></i>
-																	</i></a>
-																</td>
-															</tr>
-														</tbody>
-													</table>
-													<!--end::Table-->
-													<!--start::pagination-->
-													<div class="row"><div class="col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start"></div><div class="col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end"><div class="dataTables_paginate paging_simple_numbers" id="kt_table_users_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="kt_table_users_previous"><a href="#" aria-controls="kt_table_users" data-dt-idx="0" tabindex="0" class="page-link"><i class="previous"></i></a></li><li class="paginate_button page-item active"><a href="#" aria-controls="kt_table_users" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="kt_table_users" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="#" aria-controls="kt_table_users" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item next" id="kt_table_users_next"><a href="#" aria-controls="kt_table_users" data-dt-idx="4" tabindex="0" class="page-link"><i class="next"></i></a></li></ul></div></div></div>
-													<!--end::pagination-->
-												</div>
-												<!--end::Card body-->
-												
-											</div>
-											<!--end::Card-->
-											
-											<!---------------------------end::Table------------------------------------------->
-								
-							<!--END-TABLE FOR AQUACULTURE-->
-						
-									</div>
-								</div>
-								
-								</div>
-								<!--end::Wrapper-->
-							</div>
-							<!--end::d-flex flex-wrap flex-stack-->
-				
-				
-				
-				
-				
-					<!--begin::d-flex flex-wrap flex-stack-->
-					<div class="d-flex flex-wrap flex-stack mb-10">
-						<!--begin::Wrapper-->
-						<div class="d-flex flex-column flex-grow-1 pe-8">
-							<div class="card-header">
-								<h5 class="card-title">AQUACULTURE</h5>
-								<div class="card-toolbar">
-									<a href="#" class="btn btn-primary">
-								<i class="ki-duotone ki-plus-square fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
-								Add
-								</a>
-								</div>
-							</div>
-						<div class="card shadow-sm">
-							<div class="card-header">
-								<h3 class="card-title"></h3>
-								<div class="card-toolbar">
-									<a href="#" class="btn btn-icon btn-danger">
-											<i class="ki-duotone ki-trash-square fs-2x"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
-											</a>
-								</div>
-							</div>
-							<div class="card-body">
-							<!--begin::Wrapper-->
-								<div class="d-flex flex-column flex-grow-1 pe-8">
-									<div class="row row-cols-1 row-cols-md-3">
-										<!--begin::Col-->
-										<div class="col">
-											<!--begin::Input group-->
-											<div class="fv-row mb-4">
-												<!--begin::Label-->
-												<label class="fs-6 fw-semibold mb-2">
-													<span>Type</span>
-													<span class="ms-1" data-bs-toggle="tooltip" title="">
-														<i class="ki-duotone ki-information fs-7">
-															<span class="path1"></span>
-															<span class="path2"></span>
-															<span class="path3"></span>
-														</i>
-													</span>
-												</label>
-												<!--end::Label-->
-												<!--begin::Input-->
-												<select class="form-select" aria-label="Select example">
-													<option></option>
-													<option value="">Fresh Water</option>
-													<option value="">Brackish Water</option>
-													<option value="">Marine Water</option>
-												</select>
-												<!--end::Input-->
-											</div>
-											<!--end::Input group-->
-										</div>
-										<!--end::Col-->
-										<!--begin::Col-->
-										<div class="col">
-											<!--begin::Input group-->
-											<div class="fv-row mb-4">
-												<!--begin::Label-->
-												<label class="fs-6 fw-semibold mb-2">
-													<span>Method</span>
-													<span class="ms-1" data-bs-toggle="tooltip" title="">
-														<i class="ki-duotone ki-information fs-7">
-															<span class="path1"></span>
-															<span class="path2"></span>
-															<span class="path3"></span>
-														</i>
-													</span>
-												</label>
-												<!--end::Label-->
-												<!--begin::Input-->
-												<select class="form-select" aria-label="Select example">
-													<option></option>
-													<option value="">Land culture</option>
-												</select>
-												<!--end::Input-->
-											</div>
-											<!--end::Input group-->
-										</div>
-										<!--end::Col-->
-										<!--begin::Col-->
-										<div class="col">
-											<!--begin::Input group-->
-											<div class="fv-row mb-4">
-												<!--begin::Label-->
-												<label class="fs-6 fw-semibold mb-2">
-													<span>Area(ha)</span>
-													<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
-														<i class="ki-duotone ki-information fs-7">
-															<span class="path1"></span>
-															<span class="path2"></span>
-															<span class="path3"></span>
-														</i>
-													</span>
-												</label>
-												<!--end::Label-->
-												<!--begin::Input-->
-												<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
-												<!--end::Input-->
-											</div>
-											<!--end::Input group-->
-										</div>
-										<!--end::Col-->
-									</div>
-									<!--end::Row-->	
-									<div class="row row-cols-1 row-cols-md-3">
-										<!--begin::Col-->
-										<div class="col">
-											<!--begin::Input group-->
-											<div class="fv-row mb-4">
-												<!--begin::Label-->
-												<label class="fs-6 fw-semibold mb-2">
-													<span>Production/cycle</span>
-													<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
-														<i class="ki-duotone ki-information fs-7">
-															<span class="path1"></span>
-															<span class="path2"></span>
-															<span class="path3"></span>
-														</i>
-													</span>
-												</label>
-												<!--end::Label-->
-												<!--begin::Input-->
-												<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
-												<!--end::Input-->
-											</div>
-											<!--end::Input group-->
-										</div>
-										<!--end::Col-->
-										<!--begin::Col-->
-										<div class="col">
-											<!--begin::Input group-->
-											<div class="fv-row mb-4">
-												<!--begin::Label-->
-												<label class="fs-6 fw-semibold mb-2">
-													<span>Species cultured</span>
-													<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
-														<i class="ki-duotone ki-information fs-7">
-															<span class="path1"></span>
-															<span class="path2"></span>
-															<span class="path3"></span>
-														</i>
-													</span>
-												</label>
-												<!--end::Label-->
-												<!--begin::Input-->
-												<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
-												<!--end::Input-->
-											</div>
-											<!--end::Input group-->
-										</div>
-										<!--end::Col-->
-										<!--begin::Col-->
-										<div class="col">
-											<!--begin::Input group-->
-											<div class="fv-row mb-4">
-												<!--begin::Label-->
-												<label class="fs-6 fw-semibold mb-2">
-													<span>No. of production cycle/year</span>
-													<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
-														<i class="ki-duotone ki-information fs-7">
-															<span class="path1"></span>
-															<span class="path2"></span>
-															<span class="path3"></span>
-														</i>
-													</span>
-												</label>
-												<!--end::Label-->
-												<!--begin::Input-->
-												<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
-												<!--end::Input-->
-											</div>
-											<!--end::Input group-->
-										</div>
-										<!--end::Col-->
-									</div>
-									<!--end::Row-->	
-								</div>
-								<!--end::Wrapper-->
-							</div>
-						</div>
-						
-						</div>
-						<!--end::Wrapper-->
-					</div>
-					<!--end::d-flex flex-wrap flex-stack-->
-					<div class="separator my-7"></div>
-				
-					<div class="d-flex flex-wrap flex-stack mb-10">
-								<!--begin::Wrapper-->
-								<div class="d-flex flex-column flex-grow-1 pe-8">
-									<div class="card-header">
-										<h5 class="card-title">GLEANING (AGKAMKAMMEL)</h5>
-									</div>
-								<div class="card shadow-sm">
-									<div class="card-body">
-									<div class="d-flex flex-wrap flex-stack mb-5">
-									<!--begin::Wrapper-->
-									
-									<!--end::Wrapper-->
-								</div>
-								<!--end::d-flex flex-wrap flex-stack-->
-					
-									<!--begin::Wrapper-->
-							<div class="d-flex flex-column flex-grow-1 pe-8">
-								<!--begin::row-->
-					<div class="row row-cols-1 row-cols-md-2">
-						<!--begin::Col-->
-						<div class="col">
-							<!--begin::Input group-->
-							<div class="fv-row mb-4">
-								<!--begin::Label-->
-								<label class="fs-6 fw-semibold mb-2">
-									<span>Specie</span>
-									<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
-										<i class="ki-duotone ki-information fs-7">
-											<span class="path1"></span>
-											<span class="path2"></span>
-											<span class="path3"></span>
-										</i>
-									</span>
-								</label>
-								<!--end::Label-->
-								<!--begin::Input-->
-								<input type="text" class="form-control" placeholder="" name="bill_email" value="" ng-disabled="controls.ok.btn"/>
-								<!--end::Input-->
-							</div>
-							<!--end::Input group-->
-						</div>
-						<!--end::Col-->
-						<!--begin::Col-->
-						<div class="col">
-							<!--begin::Input group-->
-							<div class="fv-row mb-4">
-								<!--begin::Label-->
-								<label class="fs-6 fw-semibold mb-2">
-									<span>Average gleaned per day (kg)</span>
-									<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
-										<i class="ki-duotone ki-information fs-7">
-											<span class="path1"></span>
-											<span class="path2"></span>
-											<span class="path3"></span>
-										</i>
-									</span>
-								</label>
-								<!--end::Label-->
-								<!--begin::Input-->
-								<input type="text" class="form-control" placeholder="" name="bill_email" value="" ng-disabled="controls.ok.btn" />
-								<!--end::Input-->
-							</div>
-							<!--end::Input group-->
-						</div>
-						<!--end::Col-->
-					</div>
-					<!--end::Row-->
 							</div>
 							<!--end::Wrapper-->
-									</div>
-								</div>
-								
-								</div>
-								<!--end::Wrapper-->
 							</div>
 							<!--end::d-flex flex-wrap flex-stack-->
+				
 					<div class="separator my-7"></div>
-						
+								
 					<div class="d-flex flex-wrap flex-stack mb-10">
 					<!--begin::Wrapper-->
 					<div class="d-flex flex-column flex-grow-1 pe-8">
-						<div class="card-header">
-							<h5 class="card-title">FISH VENDING</h5>
-						</div>
 					<div class="card shadow-sm">
+						<div class="card-header">
+							<h3 class="card-title fw-bold">AQUACULTURE</h3>
+						</div>
 						<div class="card-body">
 						<div class="d-flex flex-wrap flex-stack mb-5">
 						<!--begin::Wrapper-->
@@ -3225,45 +2840,246 @@
 						<!--end::Wrapper-->
 					</div>
 					<!--end::d-flex flex-wrap flex-stack-->
-		
 					<!--begin::Wrapper-->
 					<div class="d-flex flex-column flex-grow-1 pe-8">
-					<!--begin::row-->
-					<div class="row row-cols-1 row-cols-md-2">
-						<!--begin::Col-->
-						<div class="col">
-							<!--begin::Input group-->
-							<div class="fv-row mb-4">
-								<!--begin::Label-->
-								<label class="fs-6 fw-semibold mb-2">
-									<span>Type</span>
-									<span class="ms-1" data-bs-toggle="tooltip" title="">
-										<i class="ki-duotone ki-information fs-7">
-											<span class="path1"></span>
-											<span class="path2"></span>
-											<span class="path3"></span>
-										</i>
-									</span>
-								</label>
-								<!--end::Label-->
-								<!--begin::Input-->
-								<select class="form-select" aria-label="Select example" ng-disabled="controls.ok.btn">
-									<option></option>
-									<option value="Ambulant">Ambulant</option>
-									<option value="Market">Market</option>
-									<option value="Dealer">Dealer</option>
-								</select>
-								<!--end::Input-->
+					<!--begin::Card-->
+					<div class="card">
+						<!--begin::Card header-->
+						<div class="card-header border-0 pt-6">
+							<!--begin::Card title-->
+							<div class="card-title">
+								<!--begin::Search-->
+								<div class="d-flex align-items-center position-relative my-1">
+									<i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5">
+										<span class="path1"></span>
+										<span class="path2"></span>
+									</i>
+									<input type="text" ng-model="search_aquacultures" class="form-control form-control-solid w-250px ps-13" placeholder="Search aquaculture" />
+								</div>
+								<!--end::Search-->
 							</div>
-							<!--end::Input group-->
+							<!--begin::Card title-->
+							<!--begin::Card toolbar-->
+							<div class="card-toolbar">
+								<!--begin::Toolbar-->
+								<div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
+									<!--begin::Export-->
+									<button type="button" class="btn btn-light-primary me-3" ng-click="app.print_individual_aquacultures()">
+									<i class="ki-duotone ki-exit-up fs-2">
+										<span class="path1"></span>
+										<span class="path2"></span>
+									</i>Export CSV</button>
+									<!--end::Export-->
+									<!--begin::Add user-->
+									<button type="button" class="btn btn-primary" ng-click="app.individual_aquaculture(this);">
+									<i class="ki-duotone ki-plus fs-2"></i>Add Aquaculture</button>
+									<!--end::Add user-->
+								</div>
+								<!--end::Toolbar-->
+							</div>
+							<!--end::Card toolbar-->
 						</div>
-						<!--end::Col-->
-									
+						<!--end::Card header-->
+						<!--begin::Card body-->
+						<div class="card-body py-4">
+							<!--begin::Table-->
+							<div id="content_individual_aquacultures"></div>
+							<!--end::Table-->
+						</div>
+						<!--end::Card body-->
 					</div>
-					<!--end::Row-->
+					<!--end::Card-->	
 					</div>
 					<!--end::Wrapper-->
+						</div>
+					</div>
+					
+					</div>
+					<!--end::Wrapper-->
+					</div>
+					<!--end::d-flex flex-wrap flex-stack-->
+					
+					<div class="d-flex flex-wrap flex-stack mb-10">
+					<!--begin::Wrapper-->
+					<div class="d-flex flex-column flex-grow-1 pe-8">
+					<div class="card shadow-sm">
+						<div class="card-header">
+							<h3 class="card-title fw-bold">GLEANING(AGKAMKAMMEL)</h3>
+						</div>
+						<div class="card-body">
+						<div class="d-flex flex-wrap flex-stack mb-5">
+						<!--begin::Wrapper-->
+						
+						<!--end::Wrapper-->
+					</div>
+					<!--end::d-flex flex-wrap flex-stack-->
+					<!--begin::Wrapper-->
+					<div class="d-flex flex-column flex-grow-1 pe-8">
+					<!--begin::Card-->
+					<div class="card">
+						<!--begin::Card header-->
+						<div class="card-header border-0 pt-6">
+							<!--begin::Card title-->
+							<div class="card-title">
+								<!--begin::Search-->
+								<div class="d-flex align-items-center position-relative my-1">
+									<i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5">
+										<span class="path1"></span>
+										<span class="path2"></span>
+									</i>
+									<input type="text" ng-model="search_gleanings" class="form-control form-control-solid w-250px ps-13" placeholder="Search gleaning" />
+								</div>
+								<!--end::Search-->
 							</div>
+							<!--begin::Card title-->
+							<!--begin::Card toolbar-->
+							<div class="card-toolbar">
+								<!--begin::Toolbar-->
+								<div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
+									<!--begin::Export-->
+									<button type="button" class="btn btn-light-primary me-3" ng-click="app.print_individual_gleanings()">
+									<i class="ki-duotone ki-exit-up fs-2">
+										<span class="path1"></span>
+										<span class="path2"></span>
+									</i>Export CSV</button>
+									<!--end::Export-->
+									<!--begin::Add user-->
+									<button type="button" class="btn btn-primary" ng-click="app.individual_gleaning(this);">
+									<i class="ki-duotone ki-plus fs-2"></i>Add Gleaning</button>
+									<!--end::Add user-->
+								</div>
+								<!--end::Toolbar-->
+							</div>
+							<!--end::Card toolbar-->
+						</div>
+						<!--end::Card header-->
+						<!--begin::Card body-->
+						<div class="card-body py-4">
+							<!--begin::Table-->
+							<div id="content_individual_gleanings"></div>
+							<!--end::Table-->
+						</div>
+						<!--end::Card body-->
+					</div>
+					<!--end::Card-->	
+					</div>
+					<!--end::Wrapper-->
+						</div>
+					</div>
+					
+					</div>
+					<!--end::Wrapper-->
+					</div>
+					<!--end::d-flex flex-wrap flex-stack-->
+					
+					
+					<div class="separator my-7"></div>
+						
+					<div class="d-flex flex-wrap flex-stack mb-10">
+					<!--begin::Wrapper-->
+					<div class="d-flex flex-column flex-grow-1 pe-8">
+					<div class="card shadow-sm">
+						<div class="card-header">
+							<h3 class="card-title">FISH VENDING</h3>
+						</div>
+						<div class="card-body">
+						<div class="d-flex flex-wrap flex-stack mb-5">
+						<!--begin::Wrapper-->
+						<!--end::Wrapper-->
+						</div>
+						<!--end::d-flex flex-wrap flex-stack-->
+			
+						<!--begin::Wrapper-->
+						<div class="d-flex flex-column flex-grow-1 pe-8">
+						<!--begin::row-->
+						<div class="card-title"><h6 class="mb-1">Type:</h6></div>
+						<div class="row row-cols-1 row-cols-md-3">
+							<!--begin::Col-->
+							<div class="col">
+								<!--begin::Input group-->
+								<div class="fv-row mb-4">
+									<!--begin::Label-->
+									<label class="fs-6 fw-semibold mb-2">
+										<span>Ambulant</span>
+										<span class="ms-1" data-bs-toggle="tooltip">
+											<i class="ki-duotone ki-information fs-7">
+												<span class="path1"></span>
+												<span class="path2"></span>
+												<span class="path3"></span>
+											</i>
+										</span>
+									</label>
+									<!--end::Label-->
+									<!--begin::Checkboxes-->
+									<div class="d-flex align-items-center">
+										<div class="form-check form-switch form-check-custom form-check-solid me-10">
+										<input class="form-check-input h-30px w-50px" type="checkbox" ng-value="1" name="is_fish_vending_ambulant" ng-model="individual.is_fish_vending_ambulant" id="flexSwitch20x30" ng-disabled="controls.ok.btn"/>
+										</div>
+									</div>
+									<!--end::Checkboxes-->
+								</div>
+								<!--end::Input group-->
+							</div>
+							<!--end::Col-->
+							<!--begin::Col-->
+							<div class="col">
+								<!--begin::Input group-->
+								<div class="fv-row mb-4">
+									<!--begin::Label-->
+									<label class="fs-6 fw-semibold mb-2">
+										<span>Market</span>
+										<span class="ms-1" data-bs-toggle="tooltip">
+											<i class="ki-duotone ki-information fs-7">
+												<span class="path1"></span>
+												<span class="path2"></span>
+												<span class="path3"></span>
+											</i>
+										</span>
+									</label>
+									<!--end::Label-->
+									<!--begin::Checkboxes-->
+									<div class="d-flex align-items-center">
+										<div class="form-check form-switch form-check-custom form-check-solid me-10">
+										<input class="form-check-input h-30px w-50px" type="checkbox" ng-value="1" name="is_fish_vending_market" ng-model="individual.is_fish_vending_market" id="flexSwitch20x30" ng-disabled="controls.ok.btn"/>
+										</div>
+									</div>
+									<!--end::Checkboxes-->
+								</div>
+								<!--end::Input group-->
+							</div>
+							<!--end::Col-->
+							<!--begin::Col-->
+							<div class="col">
+								<!--begin::Input group-->
+								<div class="fv-row mb-4">
+									<!--begin::Label-->
+									<label class="fs-6 fw-semibold mb-2">
+										<span>Dealer</span>
+										<span class="ms-1" data-bs-toggle="tooltip">
+											<i class="ki-duotone ki-information fs-7">
+												<span class="path1"></span>
+												<span class="path2"></span>
+												<span class="path3"></span>
+											</i>
+										</span>
+									</label>
+									<!--end::Label-->
+									<!--begin::Checkboxes-->
+									<div class="d-flex align-items-center">
+										<div class="form-check form-switch form-check-custom form-check-solid me-10">
+										<input class="form-check-input h-30px w-50px" type="checkbox" ng-value="1" name="is_fish_vending_dealer" ng-model="individual.is_fish_vending_dealer" id="flexSwitch20x30" ng-disabled="controls.ok.btn"/>
+										</div>
+									</div>
+									<!--end::Checkboxes-->
+								</div>
+								<!--end::Input group-->
+							</div>
+							<!--end::Col-->
+						</div>
+						<!--end::Row-->	
+						</div>
+						<!--end::Wrapper-->
+						</div>
 						</div>
 						
 						</div>
@@ -3275,8 +3091,8 @@
 					
 					<!--begin::row-->
 								
-						</div>
-						<!--end::flex-grow-1-->
+					</div>
+					<!--end::flex-grow-1-->
 					</div>
 					<!--end::d-flex flex-wrap flex-sm-nowrap-->
 				</div>
@@ -3324,15 +3140,15 @@
 							<div class="d-flex flex-wrap flex-stack mb-10">
 								<!--begin::Wrapper-->
 								<div class="d-flex flex-column flex-grow-1 pe-8">
-									<div class="card-header">
-										<h3 class="text-danger">3.A FARM PARCEL (FOR FARMERS,FARM WORKERS & LIVESTOCK</h3>
-										<div class="card-toolbar">
-											<a href="#" class="btn btn-primary">
-										<i class="ki-duotone ki-plus-square fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
-										Add
-										</a>
-										</div>
+								<div class="card-header">
+									<h3 class="text-danger">3.A FARM PARCEL (FOR FARMERS,FARM WORKERS & LIVESTOCK</h3>
+									<div class="card-toolbar">
+										<a href="#" class="btn btn-primary">
+									<i class="ki-duotone ki-plus-square fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+									Add
+									</a>
 									</div>
+								</div>
 								<div class="card shadow-sm">
 									<div class="card-header">
 										<h3 class="card-title"></h3>
@@ -4211,7 +4027,7 @@
 	<div id="kt_app_content" class="">
 		<!--begin::kt_app_content_container-->
 		<div id="kt_app_content_container" class="card-body pt-0 pb-0">
-				<!-- <div id="kt_app_content_container" class="card mb-5 mb-xl-10"> -->
+			<!-- <div id="kt_app_content_container" class="card mb-5 mb-xl-10"> -->
 			<!--begin::card mb-5 mb-xxl-8-->
 			<div class="card mb-5 mb-xxl-8">
 				<!--begin::card-body pt-9 pb-0-->
@@ -4219,314 +4035,60 @@
 					<!--begin::d-flex flex-wrap flex-sm-nowrap-->
 					<div class="d-flex flex-wrap flex-sm-nowrap">
 						<!--begin: me-7 mb-4-->
-						<div class="me-7 mb-4">
-							
-						</div>
+						<div class="me-7 mb-4"></div>
 						<!--end::me-7 mb-4-->
-						
 						<!--begin::flex-grow-1-->
 						<div class="flex-grow-1">
 							<!--begin::d-flex flex-wrap flex-stack-->
 							<div class="d-flex flex-wrap flex-stack mb-10">
 								<!--begin::Wrapper-->
 								<div class="d-flex flex-column flex-grow-1 pe-8">
-									<div class="card-header">
-										<h3 class="text-danger">3.C MACHINERIES</h3>
-										<div class="card-toolbar">
-											<a href="#" class="btn btn-primary">
-										<i class="ki-duotone ki-plus-square fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
-										Add
-										</a>
-										</div>
-									</div>
+								<div class="card-header ">
+									<h3 class="text-danger">3.C MACHINERIES</h3>
+								</div>
 								<div class="card shadow-sm">
-									<div class="card-header">
-										<h3 class="card-title"></h3>
+									<!--begin::Card header-->
+									<div class="card-header border-0 pt-6">
+										<!--begin::Card title-->
+										<div class="card-title">
+											<!--begin::Search-->
+											<div class="d-flex align-items-center position-relative my-1">
+												<i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5">
+													<span class="path1"></span>
+													<span class="path2"></span>
+												</i>
+												<input type="text" ng-model="search_machineries" class="form-control form-control-solid w-250px ps-13" placeholder="Search name of machinery" />
+											</div>
+											<!--end::Search-->
+										</div>
+										<!--begin::Card title-->
+										<!--begin::Card toolbar-->
 										<div class="card-toolbar">
-											<a href="#" class="btn btn-icon btn-danger">
-											<i class="ki-duotone ki-trash-square fs-2x"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
-											</a>
+											<!--begin::Toolbar-->
+											<div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
+												<!--begin::Export-->
+												<button type="button" class="btn btn-light-primary me-3" ng-click="app.print_individual_machineries();">
+												<i class="ki-duotone ki-exit-up fs-2">
+													<span class="path1"></span>
+													<span class="path2"></span>
+												</i>Export CSV</button>
+												<!--end::Export-->
+												<!--begin::Add user-->
+												<button type="button" class="btn btn-primary" ng-click="app.individual_machinery(this);">
+												<i class="ki-duotone ki-plus fs-2"></i>Add Machinery</button>
+												<!--end::Add user-->
+											</div>
+											<!--end::Toolbar-->
 										</div>
+										<!--end::Card toolbar-->
 									</div>
+									<!--end::Card header-->
+									<!--begin::Card body-->
+									<div class="card-body py-4">
+										<div id="content_individual_machineries"></div>
+									</div>
+									<!--end::Card body-->
 									
-									<div class="card-body">
-										<!--begin::Wrapper-->
-										<div class="d-flex flex-column flex-grow-1 pe-5">
-											
-											<!--begin::d-flex align-items-center mb-2-->
-											<div class="d-flex align-items-center mb-3">
-												<h5>List of Owned Machineries</h5>
-											</div>
-											<!--end::d-flex align-items-center mb-2-->
-											<div class="row row-cols-1 row-cols-md-5">
-												<!--begin::Col-->
-												<div class="col">
-													<!--begin::Input group-->
-													<div class="fv-row mb-4">
-														<!--begin::Label-->
-														<label class="fs-6 fw-semibold mb-2">
-															<span>Kind/Type</span>
-															<span class="ms-1" data-bs-toggle="tooltip" title="">
-																<i class="ki-duotone ki-information fs-7">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																	<span class="path3"></span>
-																</i>
-															</span>
-														</label>
-														<!--end::Label-->
-														<!--begin::Input-->
-														<select class="form-select" aria-label="Select example">
-															<option></option>
-															<option value="">Harvester</option>
-															<option value="">Hand Tractor</option>
-															<option value="">4-wheel drive tractor</option>
-															<option value="">Cultivator</option>
-														</select>
-														<!--end::Input-->
-													</div>
-													<!--end::Input group-->
-												</div>
-												<!--end::Col-->
-												<!--begin::Col-->
-												<div class="col">
-													<!--begin::Input group-->
-													<div class="fv-row mb-4">
-														<!--begin::Label-->
-														<label class="fs-6 fw-semibold mb-2">
-															<span>Brand</span>
-															<span class="ms-1" data-bs-toggle="tooltip" title="">
-																<i class="ki-duotone ki-information fs-7">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																	<span class="path3"></span>
-																</i>
-															</span>
-														</label>
-														<!--end::Label-->
-														<!--begin::Input-->
-														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
-														<!--end::Input-->
-													</div>
-													<!--end::Input group-->
-												</div>
-												<!--end::Col-->
-												<!--begin::Col-->
-												<div class="col">
-													<!--begin::Input group-->
-													<div class="fv-row mb-4">
-														<!--begin::Label-->
-														<label class="fs-6 fw-semibold mb-2">
-															<span>Power Rating</span>
-															<span class="ms-1" data-bs-toggle="tooltip" title="">
-																<i class="ki-duotone ki-information fs-7">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																	<span class="path3"></span>
-																</i>
-															</span>
-														</label>
-														<!--end::Label-->
-														<!--begin::Input-->
-														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
-														<!--end::Input-->
-													</div>
-													<!--end::Input group-->
-												</div>
-												<!--end::Col-->
-												<!--begin::Col-->
-												<div class="col">
-													<!--begin::Input group-->
-													<div class="fv-row mb-4">
-														<!--begin::Label-->
-														<label class="fs-6 fw-semibold mb-2">
-															<span>Mode of</span>
-															<span class="ms-1" data-bs-toggle="tooltip" title="">
-																<i class="ki-duotone ki-information fs-7">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																	<span class="path3"></span>
-																</i>
-															</span>
-														</label>
-														<!--end::Label-->
-														<!--begin::Input-->
-														<select class="form-select" aria-label="Select example">
-															<option></option>
-															<option value="">Purchased</option>
-															<option value="">Grant</option>
-														</select>
-														<!--end::Input-->
-													</div>
-													<!--end::Input group-->
-												</div>
-												<!--end::Col-->
-												<!--begin::Col-->
-												<div class="col">
-													<!--begin::Input group-->
-													<div class="fv-row mb-4">
-														<!--begin::Label-->
-														<label class="fs-7 fw-semibold mb-2">
-															<span>Funding Agency (if grant)</span>
-															<span class="ms-1" data-bs-toggle="tooltip" title="">
-																<i class="ki-duotone ki-information fs-7">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																	<span class="path3"></span>
-																</i>
-															</span>
-														</label>
-														<!--end::Label-->
-														<!--begin::Input-->
-														<select class="form-select" aria-label="Select example">
-															<option></option>
-															<option value="">Department of Agriculture-RFO I</option>
-															<option value="">PhilMech</option>
-															<option value="">Department of Agrarian Reform</option>
-															<option value="">Provincial GOvernment of La Union</option>
-															<option value="">Local Government Unit</option>
-															<option value="">Barangay</option>
-														</select>
-														<!--end::Input-->
-													</div>
-													<!--end::Input group-->
-												</div>
-												<!--end::Col-->
-											</div>
-											<!--end::Row-->
-											
-											<!--end::d-flex align-items-center mb-2-->
-											<div class="row row-cols-1 row-cols-md-5">
-												<!--begin::Col-->
-												<div class="col">
-													<!--begin::Input group-->
-													<div class="fv-row mb-4">
-														<!--begin::Label-->
-														<label class="fs-6 fw-semibold mb-2">
-															<span>Year Acquired</span>
-															<span class="ms-1" data-bs-toggle="tooltip" title="">
-																<i class="ki-duotone ki-information fs-7">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																	<span class="path3"></span>
-																</i>
-															</span>
-														</label>
-														<!--end::Label-->
-														<!--begin::Input-->
-														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
-														<!--end::Input-->
-													</div>
-													<!--end::Input group-->
-												</div>
-												<!--end::Col-->
-												<!--begin::Col-->
-												<div class="col">
-													<!--begin::Input group-->
-													<div class="fv-row mb-4">
-														<!--begin::Label-->
-														<label class="fs-6 fw-semibold mb-2">
-															<span>Serial No.</span>
-															<span class="ms-1" data-bs-toggle="tooltip" title="">
-																<i class="ki-duotone ki-information fs-7">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																	<span class="path3"></span>
-																</i>
-															</span>
-														</label>
-														<!--end::Label-->
-														<!--begin::Input-->
-														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
-														<!--end::Input-->
-													</div>
-													<!--end::Input group-->
-												</div>
-												<!--end::Col-->
-												<!--begin::Col-->
-												<div class="col">
-													<!--begin::Input group-->
-													<div class="fv-row mb-4">
-														<!--begin::Label-->
-														<label class="fs-6 fw-semibold mb-2">
-															<span>Status</span>
-															<span class="ms-1" data-bs-toggle="tooltip" title="">
-																<i class="ki-duotone ki-information fs-7">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																	<span class="path3"></span>
-																</i>
-															</span>
-														</label>
-														<!--end::Label-->
-														<!--begin::Input-->
-														<select class="form-select" aria-label="Select example">
-															<option></option>
-															<option value="">Operational</option>
-															<option value="">Not Operational</option>
-														</select>
-														<!--end::Input-->
-													</div>
-													<!--end::Input group-->
-												</div>
-												<!--end::Col-->
-												<!--begin::Col-->
-												<div class="col">
-													<!--begin::Input group-->
-													<div class="fv-row mb-4">
-														<!--begin::Label-->
-														<label class="fs-6 fw-semibold mb-2">
-															<span>Name of Affiliated</span>
-															<span class="ms-1" data-bs-toggle="tooltip" title="">
-																<i class="ki-duotone ki-information fs-7">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																	<span class="path3"></span>
-																</i>
-															</span>
-														</label>
-														<!--end::Label-->
-														<!--begin::Input-->
-														<select class="form-select" aria-label="Select example">
-															<option></option>
-															<option value="">Purchased</option>
-															<option value="">Grant</option>
-														</select>
-														<!--end::Input-->
-													</div>
-													<!--end::Input group-->
-												</div>
-												<!--end::Col-->
-												<!--begin::Col-->
-												<div class="col">
-													<!--begin::Input group-->
-													<div class="fv-row mb-4">
-														<!--begin::Label-->
-														<label class="fs-7 fw-semibold mb-2">
-															<span>Position on the Association</span>
-															<span class="ms-1" data-bs-toggle="tooltip" title="">
-																<i class="ki-duotone ki-information fs-7">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																	<span class="path3"></span>
-																</i>
-															</span>
-														</label>
-														<!--end::Label-->
-														<!--begin::Input-->
-														<input type="text" class="form-control" placeholder="" name="bill_email" value="" />
-														<!--end::Input-->
-													</div>
-													<!--end::Input group-->
-												</div>
-												<!--end::Col-->
-											</div>
-											<!--end::Row-->
-											
-										</div>
-										<!--end::Wrapper-->		
-									</div>
-									<!--end::Card Body-->
 								</div>
 								<!--end card shadow-sm-->
 								</div>
@@ -4539,6 +4101,9 @@
 					<!--end::d-flex flex-wrap flex-sm-nowrap-->
 				</div>
 				<!--end::card-body pt-9 pb-0-->
+				<div class="card-footer d-flex justify-content-end py-6 px-9">
+					<input type="reset" class="btn btn-light me-4" value="{{controls.cancel.label}}"  ng-click="app.list(this)">
+				</div>
 			</div>
 			<!--end::card mb-5 mb-xxl-8-->
 		</div>
@@ -4548,26 +4113,7 @@
 	</div>
 	<!-------------------------------end::tab-pane 3------------------------------->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	<div class="tab-pane fade" id="4" role="tabpane1" ng-hide="individual.id=='0'">
-	
+	<div class="tab-pane fade" id="4" role="tabpane1" ng-hide="individual.id=='0'">	
 	<div id="kt_app_content" class="">
 		<!--begin::kt_app_content_container-->
 		<div id="kt_app_content_container" class="card-body pt-0 pb-0">
@@ -4575,25 +4121,22 @@
 			<!--begin::card mb-5 mb-xxl-8-->
 			<div class="card mb-5 mb-xxl-8">
 				<!--begin::card-body pt-9 pb-0-->
-				<div class="card-body pt-9 pb-0">
-						
-						
+					<div class="card-body pt-9 pb-0">
 						<!--begin::d-flex justify-content-between align-items-start flex-wrap mb-2-->
-							<div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
-								<!--begin::d-flex flex-column-->
-								<div class="d-flex flex-column">
-									<!--begin::d-flex align-items-center mb-2-->
-									<div class="d-flex align-items-center mb-2">
-										<h3 class="text-danger">4. ORGANIZATION</h3>
-									</div>
-									<!--end::d-flex align-items-center mb-2-->
+						<div class="d-flex justify-content-between align-items-start flex-wrap mb-10">
+							<!--begin::d-flex flex-column-->
+							<div class="d-flex flex-column">
+								<!--begin::d-flex align-items-center mb-2-->
+								<div class="d-flex align-items-center mb-2">
+									<h3 class="text-danger">4. ORGANIZATION</h3>
 								</div>
-								<!--end::d-flex flex-column-->
+								<!--end::d-flex align-items-center mb-2-->
 							</div>
-							<!--end::d-flex justify-content-between align-items-start flex-wrap mb-2-->
-						
-						<!---------------------------begin::Table------------------------------------------->
-						<div class="card">
+							<!--end::d-flex flex-column-->
+						</div>
+						<!--end::d-flex justify-content-between align-items-start flex-wrap mb-2-->
+						<!---------------------------begin::Table------------------------------------->
+						<div class="card shadow-sm mb-10">
 							<!--begin::Card header-->
 							<div class="card-header border-0 pt-6">
 								<!--begin::Card title-->
@@ -4604,7 +4147,7 @@
 											<span class="path1"></span>
 											<span class="path2"></span>
 										</i>
-										<input type="text" ng-model="search" class="form-control form-control-solid w-250px ps-13" placeholder="Search name of organization" />
+										<input type="text" ng-model="search_organizations" class="form-control form-control-solid w-250px ps-13" placeholder="Search name of organization" />
 									</div>
 									<!--end::Search-->
 								</div>
@@ -4614,7 +4157,7 @@
 									<!--begin::Toolbar-->
 									<div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
 										<!--begin::Export-->
-										<button type="button" class="btn btn-light-primary me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_export_users">
+										<button type="button" class="btn btn-light-primary me-3" ng-click="app.print_individual_organizations();">
 										<i class="ki-duotone ki-exit-up fs-2">
 											<span class="path1"></span>
 											<span class="path2"></span>
@@ -4635,11 +4178,10 @@
 								<div id="content_individual_organizations"></div>
 							</div>
 							<!--end::Card body-->
-							
 						</div>
 						<!--end::Card-->
-						<!---------------------------end::Table------------------------------------------->
-				</div>
+						<!---------------------------end::Table--------------------------------------->
+					</div>
 				<!--end::card-body pt-9 pb-0-->
 			</div>
 			<!--end::card mb-5 mb-xxl-8-->
@@ -4652,7 +4194,6 @@
 		
 		
 	<div class="tab-pane fade" id="5" role="tabpane1" ng-hide="individual.id=='0'">	
-	
 	<div id="kt_app_content" class="">
 		<!--begin::kt_app_content_container-->
 		<div id="kt_app_content_container" class="card-body pt-0 pb-0">
@@ -4662,7 +4203,7 @@
 				<!--begin::card-body pt-9 pb-0-->
 				<div class="card-body pt-9 pb-0">
 					<!--begin::d-flex justify-content-between align-items-start flex-wrap mb-2-->
-						<div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
+						<div class="d-flex justify-content-between align-items-start flex-wrap mb-10">
 							<!--begin::d-flex flex-column-->
 							<div class="d-flex flex-column">
 								<!--begin::d-flex align-items-center mb-2-->
@@ -4676,7 +4217,7 @@
 					<!--end::d-flex justify-content-between align-items-start flex-wrap mb-2-->
 						
 					<!---------------------------begin::Table----------------------------------------->
-					<div class="card">
+					<div class="card shadow-sm mb-10">
 						<!--begin::Card header-->
 						<div class="card-header border-0 pt-6">
 							<!--begin::Card title-->
@@ -4687,7 +4228,7 @@
 										<span class="path1"></span>
 										<span class="path2"></span>
 									</i>
-									<input type="text" ng-model="search" class="form-control form-control-solid w-250px ps-13" placeholder="Search Training" />
+									<input type="text" ng-model="search_trainings" class="form-control form-control-solid w-250px ps-13" placeholder="Search Training" />
 								</div>
 								<!--end::Search-->
 							</div>
@@ -4697,7 +4238,7 @@
 								<!--begin::Toolbar-->
 								<div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
 									<!--begin::Export-->
-									<button type="button" class="btn btn-light-primary me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_export_users">
+									<button type="button" class="btn btn-light-primary me-3" ng-click="app.print_individual_trainings();">
 									<i class="ki-duotone ki-exit-up fs-2">
 										<span class="path1"></span>
 										<span class="path2"></span>

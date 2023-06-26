@@ -1,0 +1,36 @@
+<table class="table align-middle table-row-dashed fs-6 gy-5" id="table_individual_machineries">
+	<thead>
+		<tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
+			<th class="min-w-125px">#</th>
+			<th class="min-w-125px">Kind/Type</th>
+			<th class="min-w-125px">Brand</th>
+			<th class="min-w-125px">Power Rating</th>
+			<th class="min-w-125px">Mode of</th>
+			<th class="min-w-125px">Funding Agency</th>
+			<th class="min-w-125px"></th>
+		</tr>
+	</thead>
+	<tbody class="text-gray-600 fw-semibold">
+		<tr ng-repeat="data in filterData = (individual_machineries | filter:search_machineries)">
+			<td>{{index+1}}</td>
+			<td>{{data.kind}}</td>
+			<td>{{data.brand}}</td>
+			<td>{{data.power_rating}}</td>
+			<td>{{data.mode_of}}</td>
+			<td>{{data.funding_agency}}</td>
+			<td width="10%">
+				<a href="" ng-click="app.individual_machinery(this,data)" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"><i class="ki-duotone ki-notepad-edit fs-2qx">
+					 <i class="path1"></i>
+					 <i class="path2"></i>
+				</i></a>
+				<a href="" ng-click="app.delete_individual_machinery(this,data)" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"><i class="ki-duotone ki-trash fs-2qx">
+					 <i class="path1"></i>
+					 <i class="path2"></i>
+					 <i class="path3"></i>
+					 <i class="path4"></i>
+					 <i class="path5"></i>
+				</i></a>
+			</td>
+		</tr>
+	</tbody>
+</table>

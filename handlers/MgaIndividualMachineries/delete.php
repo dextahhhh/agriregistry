@@ -1,19 +1,18 @@
 <?php
 
+header("Content-Type: application/json");
+
 $_POST = json_decode(file_get_contents('php://input'), true);
 
 require_once '../../db.php';
 
 session_start();
 
-$con = new pdo_db();
+$con = new pdo_db("individual_machineries");
 
 if($_SESSION['id']) {
 
-    $individual_organization = $con->getData("SELECT * FROM individual_organizations WHERE id = $_POST[id]");
-    
-    header("Content-Type: application/json");
-    echo json_encode($individual_organization[0]);
+    $delete = $con->deleteData(array("id" => implode(",", $_POST['id'])));
 
 } else {
 

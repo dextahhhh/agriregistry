@@ -21,6 +21,10 @@ $individuals[0]['is_fisherfolk_aquaculture'] = ($individuals[0]['is_fisherfolk_a
 $individuals[0]['is_fisherfolk_gleaning'] = ($individuals[0]['is_fisherfolk_gleaning'])?true:false;
 $individuals[0]['is_fisherfolk_fish_vending'] = ($individuals[0]['is_fisherfolk_fish_vending'])?true:false;
 
+$individuals[0]['is_fish_vending_ambulant'] = ($individuals[0]['is_fish_vending_ambulant'])?true:false;
+$individuals[0]['is_fish_vending_market'] = ($individuals[0]['is_fish_vending_market'])?true:false;
+$individuals[0]['is_fish_vending_dealer'] = ($individuals[0]['is_fish_vending_dealer'])?true:false;
+
 //checkbox
 $individuals[0]['for_farmers_rice'] = ($individuals[0]['for_farmers_rice'])?true:false;
 $individuals[0]['for_farmers_corn'] = ($individuals[0]['for_farmers_corn'])?true:false;

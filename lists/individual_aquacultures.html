@@ -1,0 +1,38 @@
+<table class="table align-middle table-row-dashed fs-6 gy-5" id="table_individual_aquacultures">
+	<thead>
+		<tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
+			<th class="min-w-125px">#</th>
+			<th class="min-w-125px">Type</th>
+			<th class="min-w-125px">Method</th>
+			<th class="min-w-125px">Area(ha)</th>
+			<th class="min-w-125px">Production/cycle</th>
+			<th class="min-w-125px">Species cultured</th>
+			<th class="min-w-125px">No. of production cycle/year</th>
+			<th class="min-w-125px"></th>
+		</tr>
+	</thead>
+	<tbody class="text-gray-600 fw-semibold">
+		<tr ng-repeat="data in filterData = (individual_aquacultures | filter:search_aquacultures)">
+			<td>{{$index+1}}</td>
+			<td>{{data.type}}</td>
+			<td>{{data.method}}</td>
+			<td>{{data.area}}</td>
+			<td>{{data.production}}</td>
+			<td>{{data.species_cultured}}</td>
+			<td>{{data.no_of_production_cycle}}</td>
+			<td width="10%">
+				<a href="" ng-click="app.individual_aquaculture(this,data)" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"><i class="ki-duotone ki-notepad-edit fs-2qx">
+					 <i class="path1"></i>
+					 <i class="path2"></i>
+				</i></a>
+				<a href="" ng-click="app.delete_individual_aquaculture(this,data)" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"><i class="ki-duotone ki-trash fs-2qx">
+					 <i class="path1"></i>
+					 <i class="path2"></i>
+					 <i class="path3"></i>
+					 <i class="path4"></i>
+					 <i class="path5"></i>
+				</i></a>
+			</td>
+		</tr>
+	</tbody>
+</table>
