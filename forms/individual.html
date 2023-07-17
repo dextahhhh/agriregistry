@@ -302,7 +302,29 @@
 								<!--begin::Wrapper-->
 								<div class="d-flex flex-column flex-grow-1 pe-8">
 									<div class="row row-cols-1 row-cols-md-5">
-									
+									<!--begin::Col-->
+									<div class="col">
+										<!--begin::Input group-->
+										<div class="fv-row mb-4">
+											<!--begin::Label-->
+											<label class="fs-6 fw-semibold mb-2">
+												<span>Last Name</span>
+												<span class="ms-1" data-bs-toggle="tooltip" title="">
+													<i class="ki-duotone ki-information fs-7">
+														<span class="path1"></span>
+														<span class="path2"></span>
+														<span class="path3"></span>
+													</i>
+												</span>
+											</label>
+											<!--end::Label-->
+											<!--begin::Input-->
+											<input type="text" class="form-control" placeholder="" name="lastname" ng-model="individual.lastname" ng-disabled="controls.ok.btn" />
+											<!--end::Input-->
+										</div>
+										<!--end::Input group-->
+									</div>
+									<!--end::Col-->
 									<!--begin::Col-->
 									<div class="col">
 										<!--begin::Input group-->
@@ -344,29 +366,6 @@
 											<!--end::Label-->
 											<!--begin::Input-->
 											<input type="text" class="form-control" placeholder="" name="middlename" ng-model="individual.middlename" ng-disabled="controls.ok.btn" />
-											<!--end::Input-->
-										</div>
-										<!--end::Input group-->
-									</div>
-									<!--end::Col-->
-									<!--begin::Col-->
-									<div class="col">
-										<!--begin::Input group-->
-										<div class="fv-row mb-4">
-											<!--begin::Label-->
-											<label class="fs-6 fw-semibold mb-2">
-												<span>Last Name</span>
-												<span class="ms-1" data-bs-toggle="tooltip" title="">
-													<i class="ki-duotone ki-information fs-7">
-														<span class="path1"></span>
-														<span class="path2"></span>
-														<span class="path3"></span>
-													</i>
-												</span>
-											</label>
-											<!--end::Label-->
-											<!--begin::Input-->
-											<input type="text" class="form-control" placeholder="" name="lastname" ng-model="individual.lastname" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -768,7 +767,7 @@
 							<div class="d-flex flex-wrap flex-stack">
 								<!--begin::Wrapper-->
 								<div class="d-flex flex-column flex-grow-1 pe-8">
-									<div class="row row-cols-1 row-cols-md-4">
+									<div class="row row-cols-1 row-cols-md-5">
 									<!--begin::Col-->
 									<div class="col">
 										<!--begin::Input group-->
@@ -864,7 +863,40 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="text" class="form-control" placeholder="" name="religion" ng-model="individual.religion" ng-disabled="controls.ok.btn" />
+											<select class="form-select" aria-label="Select example" name="religion" ng-model="individual.religion" ng-disabled="controls.ok.btn" />
+												<option value="Roman Catholic">Roman Catholic</option>
+												<option value="Iglesia ni Cristo">Iglesia ni Cristo</option>
+												<option value="Islam">Islam</option>
+												<option value="Seventh-day Adventist Church">Seventh-day Adventist Church</option>
+												<option value="Jehovah's Witnesses">Jehovah's Witnesses</option>
+												<option value="Jesus Miracle Crusade International Ministry">Jesus Miracle Crusade International Ministry</option>
+												<option value="Protestantism">Protestantism</option>
+												<option value="Pentecostal">Pentecostal</option>
+												<option value="">Others</option>
+											</select>
+											<!--end::Input-->
+										</div>
+										<!--end::Input group-->
+									</div> 
+									<!--end::Col-->
+									<!--begin::Col-->
+									<div class="col">
+										<!--begin::Input group-->
+										<div class="fv-row mb-4">
+											<!--begin::Label-->
+											<label class="fs-6 fw-semibold mb-2">
+												<span>Please specify</span>
+												<span class="ms-1" data-bs-toggle="tooltip" title="">
+													<i class="ki-duotone ki-information fs-7">
+														<span class="path1"></span>
+														<span class="path2"></span>
+														<span class="path3"></span>
+													</i>
+												</span>
+											</label>
+											<!--end::Label-->
+											<!--begin::Input-->
+											<input type="text" class="form-control" placeholder="" name="" ng-model="" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -877,12 +909,12 @@
 							</div>
 							<!--end::d-flex flex-wrap flex-stack-->
 							
-							
+							<div class="separator my-7"></div>
 							<!--begin::d-flex flex-wrap flex-stack-->
-							<div class="d-flex flex-wrap flex-stack">
+							<div class="d-flex flex-wrap flex-stack mb-5">
 								<!--begin::Wrapper-->
 								<div class="d-flex flex-column flex-grow-1 pe-8">
-									<div class="row row-cols-1 row-cols-md-3">
+									<div class="row row-cols-1 row-cols-md-2">
 									<!--begin::Col-->
 									<div class="col">
 										<!--begin::Input group-->
@@ -912,7 +944,178 @@
 										<div class="fv-row mb-4">
 											<!--begin::Label-->
 											<label class="fs-6 fw-semibold mb-2">
-												<span>Name of Spouse if married</span>
+												<span>Father's Maiden Name</span>
+												<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+													<i class="ki-duotone ki-information fs-7">
+														<span class="path1"></span>
+														<span class="path2"></span>
+														<span class="path3"></span>
+													</i>
+												</span>
+											</label>
+											<!--end::Label-->
+											<!--begin::Input-->
+											<input type="text" class="form-control" placeholder="" name="mother_maiden_name" ng-model="individual.mother_maiden_name" ng-disabled="controls.ok.btn" />
+											<!--end::Input-->
+										</div>
+										<!--end::Input group-->
+									</div>
+									<!--end::Col-->	
+								</div>
+									<!--end::Row-->	
+								</div>
+								<!--end::Wrapper-->
+							</div>
+							<!--end::d-flex flex-wrap flex-stack-->
+							<!--begin::d-flex flex-wrap flex-stack-->
+							<div class="d-flex flex-wrap flex-stack mb-5">
+								<!--begin::Wrapper-->
+								<div class="d-flex flex-column flex-grow-1 pe-8">
+									<div class="row row-cols-1 row-cols-md-2">
+										<!--begin::Col-->
+										<div class="col">
+											<label class="fs-6 fw-semibold mb-2">
+												<span>Mother/Father's Work (Choose all that apply)</span>
+												<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+													<i class="ki-duotone ki-information fs-7">
+														<span class="path1"></span>
+														<span class="path2"></span>
+														<span class="path3"></span>
+													</i>
+												</span>
+											</label>
+											
+											<!--begin::d-flex align-items-center-->
+											<div class="d-flex align-items-center mb-5">
+												<!--begin::Radio-->
+												<label class="form-check form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="" ng-model="Farmer" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<span class="form-check-label fw-semibold">Farmer</span>
+												</label>
+												<!--end::Radio-->
+											</div>
+											<!--end::d-flex align-items-center-->
+											<!--begin::d-flex align-items-center-->
+											<div class="d-flex align-items-center mb-5">
+												<!--begin::Radio-->
+												<label class="form-check form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="" ng-model="Owner" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<span class="form-check-label fw-semibold">Farm Owner</span>
+												</label>
+												<!--end::Radio-->
+											</div>
+											<!--end::d-flex align-items-center-->
+											<!--begin::d-flex align-items-center-->
+											<div class="d-flex align-items-center mb-5">
+												<!--begin::Radio-->
+												<label class="form-check form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="" ng-model="Worker" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<span class="form-check-label fw-semibold">Farm Worker</span>
+												</label>
+												<!--end::Radio-->
+											</div>
+											<!--end::d-flex align-items-center-->
+											<!--begin::d-flex align-items-center-->
+											<div class="d-flex align-items-center mb-5">
+												<!--begin::Radio-->
+												<label class="form-check form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="" ng-model="Livestock" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<span class="form-check-label fw-semibold">Livestock</span>
+												</label>
+												<!--end::Radio-->
+											</div>
+											<!--end::d-flex align-items-center-->
+											
+											
+										</div>
+										<!--end::Col-->
+										
+										<!--begin::Col-->
+										<div class="col">
+											<label class="fs-6 fw-semibold mb-2">
+												<span></span>
+												
+											</label>
+											
+											
+											<!--begin::d-flex align-items-center-->
+											<div class="d-flex align-items-center mb-5">
+												<!--begin::Radio-->
+												<label class="form-check form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="" ng-model="Farmer" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<span class="form-check-label fw-semibold">Fisherfolk</span>
+												</label>
+												<!--end::Radio-->
+											</div>  
+											<!--end::d-flex align-items-center-->
+											<!--begin::d-flex align-items-center-->
+											<div class="d-flex align-items-center mb-5">
+												<!--begin::Radio-->
+												
+												
+												
+												<label class="form-check form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="" ng-model="Owner" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<span class="form-check-label fw-semibold">Unemployed</span>
+												</label>
+												<!--end::Radio-->
+											</div>
+											<!--end::d-flex align-items-center-->
+											<!--begin::d-flex align-items-center-->
+											<div class="d-flex mb-5">
+												<!--begin::Radio-->
+												<label class="form-check form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="" ng-model="vendor" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<span class="form-check-label fw-semibold">Vendor</span>
+												</label>
+												<!--end::Radio-->
+												<!--begin::Input group-->
+												<div class="input-group input-group-sm mb-1">
+													<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder ="please specify good sold" name="" ng-model="" ng-disabled="controls.ok.btn" />
+												</div>
+												<!--end::Input group-->
+											</div>
+											<!--end::d-flex align-items-center-->
+											<!--begin::d-flex align-items-center-->
+											<div class="d-flex mb-5">
+												<!--begin::Radio-->
+												<label class="form-check form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_other_crops" ng-model="individual.for_farmers_other_crops" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<span class="form-check-label fw-semibold">Others</span>
+												</label>
+												<!--end::Radio-->
+												<!--begin::Input group-->
+												<div class="input-group input-group-sm mb-1">
+													<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder ="please specify" name="" ng-model="" ng-disabled="controls.ok.btn" />
+												</div>
+												<!--end::Input group-->
+											</div>
+											<!--end::d-flex align-items-center-->
+										</div>
+										<!--end::Col-->
+										
+									</div>
+									<!--end::Row-->	
+								</div>
+								<!--end::Wrapper-->
+							</div>
+							<!--end::d-flex flex-wrap flex-stack-->
+							
+							
+							<div class="separator my-7"></div>
+							<!--begin::d-flex flex-wrap flex-stack-->
+							<div class="d-flex flex-wrap flex-stack">
+								<!--begin::Wrapper-->
+								<div class="d-flex flex-column flex-grow-1 pe-8">
+	
+									<div class="row row-cols-1 row-cols-md-2">
+									<!--begin::Col-->
+									<div class="col">
+										<!--begin::Input group-->
+										<div class="fv-row mb-4">
+											<!--begin::Label-->
+											<label class="fs-6 fw-semibold mb-2">
+												<span>Name of Spouse(if married)</span>
 												<span class="ms-1" data-bs-toggle="tooltip" title="">
 													<i class="ki-duotone ki-information fs-7">
 														<span class="path1"></span>
@@ -936,7 +1139,7 @@
 										<div class="fv-row mb-4">
 											<!--begin::Label-->
 											<label class="fs-6 fw-semibold mb-2">
-												<span>Spouse's Work </span>
+												<span>Birthday of Spouse</span>
 												<span class="ms-1" data-bs-toggle="tooltip" title="">
 													<i class="ki-duotone ki-information fs-7">
 														<span class="path1"></span>
@@ -947,7 +1150,7 @@
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
-											<input type="text" class="form-control" placeholder="" name="spouse_work" ng-model="individual.spouse_work" ng-disabled="controls.ok.btn" />
+											<input type="date" class="form-control" placeholder="" name="" ng-model="" ng-disabled="controls.ok.btn" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -959,8 +1162,142 @@
 								<!--end::Wrapper-->
 							</div>
 							<!--end::d-flex flex-wrap flex-stack-->
+							<!--begin::d-flex flex-wrap flex-stack-->
+							<div class="d-flex flex-wrap flex-stack mb-5">
+								<!--begin::Wrapper-->
+								<div class="d-flex flex-column flex-grow-1 pe-8">
+									<div class="row row-cols-1 row-cols-md-2">
+										<!--begin::Col-->
+										<div class="col">
+											<label class="fs-6 fw-semibold mb-2">
+												<span>Spouse's Work</span>
+												<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+													<i class="ki-duotone ki-information fs-7">
+														<span class="path1"></span>
+														<span class="path2"></span>
+														<span class="path3"></span>
+													</i>
+												</span>
+											</label>
+											
+											<!--begin::d-flex align-items-center-->
+											<div class="d-flex align-items-center mb-5">
+												<!--begin::Radio-->
+												<label class="form-check form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="" ng-model="Farmer" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<span class="form-check-label fw-semibold">Farmer</span>
+												</label>
+												<!--end::Radio-->
+											</div>
+											<!--end::d-flex align-items-center-->
+											<!--begin::d-flex align-items-center-->
+											<div class="d-flex align-items-center mb-5">
+												<!--begin::Radio-->
+												<label class="form-check form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="" ng-model="Owner" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<span class="form-check-label fw-semibold">Farm Owner</span>
+												</label>
+												<!--end::Radio-->
+											</div>
+											<!--end::d-flex align-items-center-->
+											<!--begin::d-flex align-items-center-->
+											<div class="d-flex align-items-center mb-5">
+												<!--begin::Radio-->
+												<label class="form-check form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="" ng-model="Worker" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<span class="form-check-label fw-semibold">Farm Worker</span>
+												</label>
+												<!--end::Radio-->
+											</div>
+											<!--end::d-flex align-items-center-->
+											<!--begin::d-flex align-items-center-->
+											<div class="d-flex align-items-center mb-5">
+												<!--begin::Radio-->
+												<label class="form-check form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="" ng-model="Livestock" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<span class="form-check-label fw-semibold">Livestock</span>
+												</label>
+												<!--end::Radio-->
+											</div>
+											<!--end::d-flex align-items-center-->
+											
+											
+										</div>
+										<!--end::Col-->
+										
+										<!--begin::Col-->
+										<div class="col">
+											<label class="fs-6 fw-semibold mb-2">
+												<span></span>
+												
+											</label>
+											
+											
+											<!--begin::d-flex align-items-center-->
+											<div class="d-flex align-items-center mb-5">
+												<!--begin::Radio-->
+												<label class="form-check form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="" ng-model="Farmer" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<span class="form-check-label fw-semibold">Fisherfolk</span>
+												</label>
+												<!--end::Radio-->
+											</div>  
+											<!--end::d-flex align-items-center-->
+											<!--begin::d-flex align-items-center-->
+											<div class="d-flex align-items-center mb-5">
+												<!--begin::Radio-->
+												
+												
+												
+												<label class="form-check form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="" ng-model="Owner" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<span class="form-check-label fw-semibold">Unemployed</span>
+												</label>
+												<!--end::Radio-->
+											</div>
+											<!--end::d-flex align-items-center-->
+											<!--begin::d-flex align-items-center-->
+											<div class="d-flex mb-5">
+												<!--begin::Radio-->
+												<label class="form-check form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="" ng-model="vendor" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<span class="form-check-label fw-semibold">Vendor</span>
+												</label>
+												<!--end::Radio-->
+												<!--begin::Input group-->
+												<div class="input-group input-group-sm mb-1">
+													<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder ="please specify good sold" name="" ng-model="" ng-disabled="controls.ok.btn" />
+												</div>
+												<!--end::Input group-->
+											</div>
+											<!--end::d-flex align-items-center-->
+											<!--begin::d-flex align-items-center-->
+											<div class="d-flex mb-5">
+												<!--begin::Radio-->
+												<label class="form-check form-check-custom form-check-solid me-10">
+													<input class="form-check-input h-30px w-30px" type="checkbox" ng-value="1" name="for_farmers_other_crops" ng-model="individual.for_farmers_other_crops" id="flexRadio30" ng-disabled="controls.ok.btn" />
+													<span class="form-check-label fw-semibold">Others</span>
+												</label>
+												<!--end::Radio-->
+												<!--begin::Input group-->
+												<div class="input-group input-group-sm mb-1">
+													<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder ="please specify" name="" ng-model="" ng-disabled="controls.ok.btn" />
+												</div>
+												<!--end::Input group-->
+											</div>
+											<!--end::d-flex align-items-center-->
+										</div>
+										<!--end::Col-->
+										
+									</div>
+									<!--end::Row-->	
+								</div>
+								<!--end::Wrapper-->
+							</div>
+							<!--end::d-flex flex-wrap flex-stack-->
 							
 							
+							<div class="separator my-7"></div>
 							<!--begin::d-flex flex-wrap flex-stack-->
 							<div class="d-flex flex-wrap flex-stack">
 								<!--begin::Wrapper-->
@@ -1330,6 +1667,7 @@
 										<!--end::Input group-->
 									</div>
 									<!--end::Col-->
+									
 								</div>
 									<!--end::Row-->	
 								</div>
@@ -1774,7 +2112,7 @@
 										<div class="fv-row mb-4">
 											<!--begin::Label-->
 											<label class="fs-7 fw-semibold mb-2">
-												<span>Household monthly income on fishing/farm laboring (Net)</span>
+												<span>Household monthly income on fishing/farming/livestock(Net)</span>
 											</label>
 											<!--end::Label-->
 											<!--begin::Input-->
@@ -1790,7 +2128,7 @@
 										<div class="fv-row mb-4">
 											<!--begin::Label-->
 											<label class="fs-7 fw-semibold mb-2">
-												<span>Other Source of income that are not agriculture related</span>
+												<span>Other Source of monthly income that are not agriculture related</span>
 												
 											</label>
 											<!--end::Label-->
@@ -1806,8 +2144,8 @@
 										<!--begin::Input group-->
 										<div class="fv-row mb-4">
 											<!--begin::Label-->
-											<label class="fs-6 fw-semibold mb-2">
-												<span>Monthly Income Value (Net)</span>
+											<label class="fs-7 fw-semibold mb-2">
+												<span>Monthly Net Income Value (Income from Agriculture from non agriculture)</span>
 												<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
 													<i class="ki-duotone ki-information fs-7">
 														<span class="path1"></span>
