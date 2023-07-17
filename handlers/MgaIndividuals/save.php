@@ -16,7 +16,7 @@ $date_year = date("Y");
 
 $check_qr_code = $con->getData("SELECT id, registration_no FROM individuals ORDER BY id DESC LIMIT 1");
 
-$municipality = $_POST['municipality']['citymunDesc'];
+$municipality = $_POST['municipality']['citymunShortDesc'];
 
 if(isset($check_qr_code[0]['registration_no'])) {
 

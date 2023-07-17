@@ -8,7 +8,7 @@
 		</tr>
 	</thead>
 	<tbody class="text-gray-600 fw-semibold">
-		<tr ng-repeat="data in filterData = (individual_gleanings | filter:search_gleanings)">
+		<tr ng-repeat="data in filterData = (individual_gleanings | filter:search_gleanings) | pagination: currentPage:pageSize">
 			<td>{{$index+1}}</td>
 			<td>{{data.specie}}</td>
 			<td>{{data.average_gleaned_per_day}}</td>
@@ -27,4 +27,15 @@
 			</td>
 		</tr>
 	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="8">
+				<div style="float: right">
+					<ul uib-pagination direction-links="false" boundary-links="true"
+						total-items="filterData.length" ng-model="currentPage" max-size="maxSize">
+					</ul>
+				</div>
+			</td>
+		</tr>
+	</tfoot>
 </table>
