@@ -11,8 +11,8 @@
 		</tr>
 	</thead>
 	<tbody class="text-gray-600 fw-semibold">
-		<tr ng-repeat="data in filterData = (individual_machineries | filter:search_machineries)">
-			<td>{{index+1}}</td>
+		<tr ng-repeat="data in filterData = (individual_machineries | filter:search_machineries) | pagination: currentPage:pageSize">
+			<td>{{$index+1}}</td>
 			<td>{{data.kind}}</td>
 			<td>{{data.brand}}</td>
 			<td>{{data.power_rating}}</td>
@@ -33,4 +33,15 @@
 			</td>
 		</tr>
 	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="8">
+				<div style="float: right">
+					<ul uib-pagination direction-links="false" boundary-links="true"
+						total-items="filterData.length" ng-model="currentPage" max-size="maxSize">
+					</ul>
+				</div>
+			</td>
+		</tr>
+	</tfoot>
 </table>

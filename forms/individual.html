@@ -268,21 +268,19 @@
 			<!--begin::card mb-5 mb-xxl-8-->
 			<div class="card mb-5 mb-xxl-8">
 				<!--begin::card-body pt-9 pb-0-->
+				<div class="card-header d-flex justify-content-end py-6 px-9 mb-5">
+					<input type="reset" class="btn btn-light me-4" value="{{controls.cancel.label}}"  ng-click="app.list(this)">
+					<input type="button" class="btn btn-primary first" value="{{controls.ok.label}}" ng-click="app.save(this)" ng-disabled="controls.ok.btn">
+				</div>
 				<div class="card-body pt-9 pb-0">
 					<!--begin::d-flex flex-wrap flex-sm-nowrap-->
 					<div class="d-flex flex-wrap flex-sm-nowrap">
 						<!--begin: me-7 mb-4-->
 						<div class="me-7 mb-4">
-							
 						</div>
 						<!--end::me-7 mb-4-->
-						
 						<!--begin::flex-grow-1-->
 						<div class="flex-grow-1">
-							<div class="card-header d-flex justify-content-end py-6 px-9 mb-5">
-								<input type="reset" class="btn btn-light me-4" value="{{controls.cancel.label}}"  ng-click="app.list(this)">
-								<input type="button" class="btn btn-primary first" value="{{controls.ok.label}}" ng-click="app.save(this)" ng-disabled="controls.ok.btn">
-							</div>
 							<!--begin::d-flex justify-content-between align-items-start flex-wrap mb-2-->
 							<div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
 								<!--begin::d-flex flex-column-->
@@ -1857,6 +1855,10 @@
 			<!--begin::card mb-5 mb-xxl-8-->
 			<div class="card mb-5 mb-xxl-8">
 				<!--begin::card-body pt-9 pb-0-->
+				<div class="card-header d-flex justify-content-end py-6 px-9 mb-5">
+					<input type="reset" class="btn btn-light me-4" value="{{controls.cancel.label}}"  ng-click="app.list(this)">
+					<input type="button" class="btn btn-primary first" value="{{controls.ok.label}}" ng-click="app.save(this)" ng-disabled="controls.ok.btn">
+				</div>
 				<div class="card-body pt-9 pb-0">
 					<!--begin::d-flex flex-wrap flex-sm-nowrap-->
 					<div class="d-flex flex-wrap flex-sm-nowrap">
@@ -1868,10 +1870,6 @@
 						<!--begin::flex-grow-1-->
 						<div class="flex-grow-1">
 							<!--begin::d-flex justify-content-between align-items-start flex-wrap mb-2-->
-							<div class="card-header d-flex justify-content-end py-6 px-9 mb-5">
-								<input type="reset" class="btn btn-light me-4" value="{{controls.cancel.label}}"  ng-click="app.list(this)">
-								<input type="button" class="btn btn-primary first" value="{{controls.ok.label}}" ng-click="app.save(this)" ng-disabled="controls.ok.btn">
-							</div>
 							<div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
 								<!--begin::d-flex flex-column-->
 								<div class="d-flex flex-column">
@@ -2206,7 +2204,6 @@
 								<!--end::Wrapper-->
 							</div>
 							<!--end::d-flex flex-wrap flex-stack-->
-							
 							<div class="separator my-7"></div>
 							
 							<!--begin::d-flex flex-wrap flex-stack-->
@@ -2246,12 +2243,9 @@
 													<!--end::d-flex-->
 												</div>
 												<!--end::mb-10-->
-												
 											</div>
 											<!--end::Input group-->
-									
-									
-									<!--end::Row-->	
+										<!--end::Row-->	
 									
 										</div>
 									</div>
@@ -2265,6 +2259,10 @@
 					<!--end::d-flex flex-wrap flex-sm-nowrap-->
 				</div>
 				<!--end::card-body pt-9 pb-0-->
+				<div class="card-footer d-flex justify-content-end py-6 px-9">
+					<input type="reset" class="btn btn-light me-4" value="{{controls.cancel.label}}"  ng-click="app.list(this)">
+					<input type="button" class="btn btn-primary first" value="{{controls.ok.label}}" ng-click="app.save(this)" ng-disabled="controls.ok.btn">
+				</div>
 			</div>	
 			<!--end::card mb-5 mb-xxl-8-->
 		</div>
@@ -2363,7 +2361,6 @@
 						<!-- <div class="me-7 mb-4"> -->
 						<!-- </div> -->
 						<!--end::me-7 mb-4-->
-						
 						<!--begin::flex-grow-1-->
 						<div class="flex-grow-1">
 							<!--begin::d-flex justify-content-between align-items-start flex-wrap mb-2-->
@@ -2499,11 +2496,10 @@
 								<!--end::Wrapper-->
 							</div>
 							<!--end::d-flex flex-wrap flex-stack-->
-						
 							<!--end::flex-grow-1-->
 							<div class="separator my-7"></div>
 							
-							<div class="d-flex flex-wrap flex-stack mb-10">
+							<div class="d-flex flex-wrap flex-stack mb-10" ng-show="individual.is_fisherfolk_capture_fishing=='1'">
 							<!--begin::Wrapper-->
 							<div class="d-flex flex-column flex-grow-1 pe-8">
 							<div class="card shadow-sm">
@@ -2557,7 +2553,7 @@
 															<span class="path3"></span>
 														</i>
 													</span>
-												</label>
+												</labindividual.is_fisherfolk_capture_fishingel>
 												<!--end::Label-->
 												<!--begin::Checkboxes-->
 												<div class="d-flex align-items-center">
@@ -2824,9 +2820,9 @@
 							</div>
 							<!--end::d-flex flex-wrap flex-stack-->
 				
-					<div class="separator my-7"></div>
+					<div class="separator my-7" ng-show="individual.is_fisherfolk_capture_fishing=='1'"></div>
 								
-					<div class="d-flex flex-wrap flex-stack mb-10">
+					<div class="d-flex flex-wrap flex-stack mb-10" ng-show="individual.is_fisherfolk_aquaculture=='1'">
 					<!--begin::Wrapper-->
 					<div class="d-flex flex-column flex-grow-1 pe-8">
 					<div class="card shadow-sm">
@@ -2899,7 +2895,7 @@
 					</div>
 					<!--end::d-flex flex-wrap flex-stack-->
 					
-					<div class="d-flex flex-wrap flex-stack mb-10">
+					<div class="d-flex flex-wrap flex-stack mb-10" ng-show="individual.is_fisherfolk_gleaning=='1'">
 					<!--begin::Wrapper-->
 					<div class="d-flex flex-column flex-grow-1 pe-8">
 					<div class="card shadow-sm">
@@ -2973,9 +2969,9 @@
 					<!--end::d-flex flex-wrap flex-stack-->
 					
 					
-					<div class="separator my-7"></div>
+					<div class="separator my-7" ng-show="individual.is_fisherfolk_gleaning=='1'"></div>
 						
-					<div class="d-flex flex-wrap flex-stack mb-10">
+					<div class="d-flex flex-wrap flex-stack mb-10" ng-show="individual.is_fisherfolk_fish_vending=='1'">
 					<!--begin::Wrapper-->
 					<div class="d-flex flex-column flex-grow-1 pe-8">
 					<div class="card shadow-sm">
@@ -3107,17 +3103,11 @@
 		<!--end::kt_app_content_container-->
 	</div>
 	<!--end::Content-->
-	
 	</div>
 	<!-------------------------------end::tab-pane 2------------------------------->
 	
-	
-	
-	
-	
 	<div class="tab-pane fade" id="3" role="tabpane1" ng-hide="individual.id=='0'">	
 	<!---input here--->
-	
 	<div id="kt_app_content" class="">
 		<!--begin::kt_app_content_container-->
 		<div id="kt_app_content_container" class="card-body pt-0 pb-0">
@@ -3125,26 +3115,22 @@
 			<!--begin::card mb-5 mb-xxl-8-->
 			<div class="card mb-5 mb-xxl-8">
 				<!--begin::card-body pt-9 pb-0-->
+				<div class="card-header d-flex justify-content-end py-6 px-9 mb-5">
+					<input type="reset" class="btn btn-light me-4" value="{{controls.cancel.label}}"  ng-click="app.list(this)">
+				</div>
 				<div class="card-body pt-9 pb-0">
 					<!--begin::d-flex flex-wrap flex-sm-nowrap-->
 					<div class="d-flex flex-wrap flex-sm-nowrap">
 						<!--begin: me-7 mb-4-->
 						<div class="me-7 mb-4">
-							
 						</div>
 						<!--end::me-7 mb-4-->
-						
 						<!--begin::flex-grow-1-->
 						<div class="flex-grow-1">
 							<!--begin::d-flex flex-wrap flex-stack-->
 							<div class="d-flex flex-wrap flex-stack mb-10">
 								<!--begin::Wrapper-->
 								<div class="d-flex flex-column flex-grow-1 pe-8">
-								
-								<div class="card-header d-flex justify-content-end py-6 px-9 mb-5">
-									<input type="reset" class="btn btn-light me-4" value="{{controls.cancel.label}}"  ng-click="app.list(this)">
-									<input type="button" class="btn btn-primary first" value="{{controls.ok.label}}" ng-click="app.save(this)" ng-disabled="controls.ok.btn">
-								</div>
 								<div class="card-header">
 									<h3 class="text-danger">3.A FARM PARCEL (FOR FARMERS,FARM WORKERS & LIVESTOCK</h3>
 									<div class="card-toolbar">
@@ -3163,7 +3149,6 @@
 											</a>
 										</div>
 									</div>
-									
 									<div class="card-body">
 										<!--begin::Wrapper-->
 										<div class="d-flex flex-column flex-grow-1 pe-5">
@@ -3589,17 +3574,16 @@
 												<!--end::Col-->
 												<!--begin::Col-->
 												<div class="d-flex my-6">
-											<!--begin::Input group-->
+												<!--begin::Input group-->
 												<a href="#" class="btn btn-warning">
 												<i class="ki-duotone ki-file-up fs-2qx"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
 												Upload Brgy Cert
 												</a>
 											<!--end::Input group-->
-										</div>
-												<!--begin::Col-->
+											</div>
+											<!--begin::Col-->
 											</div>
 											<!--end::Row-->
-											
 										</div>
 										<!--end::Wrapper-->		
 									</div>
@@ -4005,7 +3989,6 @@
 												<!--end::Col-->
 											</div>
 											<!--end::Row-->
-											
 										</div>
 										<!--end::Wrapper-->		
 									</div>
@@ -4093,7 +4076,6 @@
 										<div id="content_individual_machineries"></div>
 									</div>
 									<!--end::Card body-->
-									
 								</div>
 								<!--end card shadow-sm-->
 								</div>
@@ -4117,7 +4099,6 @@
 	<!--kt_app_content-->
 	</div>
 	<!-------------------------------end::tab-pane 3------------------------------->
-
 	<div class="tab-pane fade" id="4" role="tabpane1" ng-hide="individual.id=='0'">	
 	<div id="kt_app_content" class="">
 		<!--begin::kt_app_content_container-->
@@ -4126,68 +4107,74 @@
 			<!--begin::card mb-5 mb-xxl-8-->
 			<div class="card mb-5 mb-xxl-8">
 				<!--begin::card-body pt-9 pb-0-->
-					<div class="card-body pt-9 pb-0">
-						<!--begin::d-flex justify-content-between align-items-start flex-wrap mb-2-->
-						<div class="d-flex justify-content-between align-items-start flex-wrap mb-10">
-							<!--begin::d-flex flex-column-->
-							<div class="d-flex flex-column">
-								<!--begin::d-flex align-items-center mb-2-->
-								<div class="d-flex align-items-center mb-2">
-									<h3 class="text-danger">4. ORGANIZATION</h3>
-								</div>
-								<!--end::d-flex align-items-center mb-2-->
+				<div class="card-header d-flex justify-content-end py-6 px-9 mb-5">
+					<input type="reset" class="btn btn-light me-4" value="{{controls.cancel.label}}"  ng-click="app.list(this)">
+				</div>
+				<div class="card-body pt-9 pb-0">
+					<!--begin::d-flex justify-content-between align-items-start flex-wrap mb-2-->
+					<div class="d-flex justify-content-between align-items-start flex-wrap mb-10">
+						<!--begin::d-flex flex-column-->
+						<div class="d-flex flex-column">
+							<!--begin::d-flex align-items-center mb-2-->
+							<div class="d-flex align-items-center mb-2">
+								<h3 class="text-danger">4. ORGANIZATION</h3>
 							</div>
-							<!--end::d-flex flex-column-->
+							<!--end::d-flex align-items-center mb-2-->
 						</div>
-						<!--end::d-flex justify-content-between align-items-start flex-wrap mb-2-->
-						<!---------------------------begin::Table------------------------------------->
-						<div class="card shadow-sm mb-10">
-							<!--begin::Card header-->
-							<div class="card-header border-0 pt-6">
-								<!--begin::Card title-->
-								<div class="card-title">
-									<!--begin::Search-->
-									<div class="d-flex align-items-center position-relative my-1">
-										<i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5">
-											<span class="path1"></span>
-											<span class="path2"></span>
-										</i>
-										<input type="text" ng-model="search_organizations" class="form-control form-control-solid w-250px ps-13" placeholder="Search name of organization" />
-									</div>
-									<!--end::Search-->
-								</div>
-								<!--begin::Card title-->
-								<!--begin::Card toolbar-->
-								<div class="card-toolbar">
-									<!--begin::Toolbar-->
-									<div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
-										<!--begin::Export-->
-										<button type="button" class="btn btn-light-primary me-3" ng-click="app.print_individual_organizations();">
-										<i class="ki-duotone ki-exit-up fs-2">
-											<span class="path1"></span>
-											<span class="path2"></span>
-										</i>Export CSV</button>
-										<!--end::Export-->
-										<!--begin::Add user-->
-										<button type="button" class="btn btn-primary" ng-click="app.individual_organization(this);">
-										<i class="ki-duotone ki-plus fs-2"></i>Add Organization</button>
-										<!--end::Add user-->
-									</div>
-									<!--end::Toolbar-->
-								</div>
-								<!--end::Card toolbar-->
-							</div>
-							<!--end::Card header-->
-							<!--begin::Card body-->
-							<div class="card-body py-4">
-								<div id="content_individual_organizations"></div>
-							</div>
-							<!--end::Card body-->
-						</div>
-						<!--end::Card-->
-						<!---------------------------end::Table--------------------------------------->
+						<!--end::d-flex flex-column-->
 					</div>
+					<!--end::d-flex justify-content-between align-items-start flex-wrap mb-2-->
+					<!---------------------------begin::Table------------------------------------->
+					<div class="card shadow-sm mb-10">
+						<!--begin::Card header-->
+						<div class="card-header border-0 pt-6">
+							<!--begin::Card title-->
+							<div class="card-title">
+								<!--begin::Search-->
+								<div class="d-flex align-items-center position-relative my-1">
+									<i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5">
+										<span class="path1"></span>
+										<span class="path2"></span>
+									</i>
+									<input type="text" ng-model="search_organizations" class="form-control form-control-solid w-250px ps-13" placeholder="Search name of organization" />
+								</div>
+								<!--end::Search-->
+							</div>
+							<!--begin::Card title-->
+							<!--begin::Card toolbar-->
+							<div class="card-toolbar">
+								<!--begin::Toolbar-->
+								<div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
+									<!--begin::Export-->
+									<button type="button" class="btn btn-light-primary me-3" ng-click="app.print_individual_organizations();">
+									<i class="ki-duotone ki-exit-up fs-2">
+										<span class="path1"></span>
+										<span class="path2"></span>
+									</i>Export CSV</button>
+									<!--end::Export-->
+									<!--begin::Add user-->
+									<button type="button" class="btn btn-primary" ng-click="app.individual_organization(this);">
+									<i class="ki-duotone ki-plus fs-2"></i>Add Organization</button>
+									<!--end::Add user-->
+								</div>
+								<!--end::Toolbar-->
+							</div>
+							<!--end::Card toolbar-->
+						</div>
+						<!--end::Card header-->
+						<!--begin::Card body-->
+						<div class="card-body py-4">
+							<div id="content_individual_organizations"></div>
+						</div>
+						<!--end::Card body-->
+					</div>
+					<!--end::Card-->
+					<!---------------------------end::Table--------------------------------------->
+				</div>
 				<!--end::card-body pt-9 pb-0-->
+				<div class="card-footer d-flex justify-content-end py-6 px-9">
+					<input type="reset" class="btn btn-light me-4" value="{{controls.cancel.label}}"  ng-click	="app.list(this)">
+				</div>
 			</div>
 			<!--end::card mb-5 mb-xxl-8-->
 		</div>
@@ -4197,7 +4184,6 @@
 	</div>
 	<!--end::tab-pane fade show active-->	
 		
-		
 	<div class="tab-pane fade" id="5" role="tabpane1" ng-hide="individual.id=='0'">	
 	<div id="kt_app_content" class="">
 		<!--begin::kt_app_content_container-->
@@ -4206,6 +4192,9 @@
 			<!--begin::card mb-5 mb-xxl-8-->
 			<div class="card mb-5 mb-xxl-8">
 				<!--begin::card-body pt-9 pb-0-->
+				<div class="card-header d-flex justify-content-end py-6 px-9 mb-5">
+					<input type="reset" class="btn btn-light me-4" value="{{controls.cancel.label}}"  ng-click="app.list(this)">
+				</div>
 				<div class="card-body pt-9 pb-0">
 					<!--begin::d-flex justify-content-between align-items-start flex-wrap mb-2-->
 						<div class="d-flex justify-content-between align-items-start flex-wrap mb-10">
@@ -4268,6 +4257,9 @@
 					<!--end::Card-->
 					<!---------------------------end::Table------------------------------------------->
 				</div>
+				<div class="card-footer d-flex justify-content-end py-6 px-9">
+					<input type="reset" class="btn btn-light me-4" value="{{controls.cancel.label}}"  ng-click	="app.list(this)">
+				</div>
 				<!--end::card-body pt-9 pb-0-->
 			</div>
 			<!--end::card mb-5 mb-xxl-8-->
@@ -4275,7 +4267,6 @@
 		<!--end::kt_app_content_container-->
 	</div>
 	<!--kt_app_content-->
-	
 	</div>
 	<!--end::tab-pane fade show active-->
 	</form>

@@ -222,6 +222,24 @@ angular.module('app-module',['form-validator','ui.bootstrap','bootstrap-modal','
 			
 		}
 		
+		// show password
+		self.inputType = 'password';
+	  
+		self.hideShowPassword = function(scope){
+			if (self.inputType == 'password'){
+				
+				self.inputType = 'text';
+				scope.controls.icon.label = 'fa-eye-slash';
+				
+			}else{
+				
+			  self.inputType = 'password';
+			  scope.controls.icon.label = 'fa-eye';
+			  
+			};	
+		
+		};
+		
 	};
 	
 	return new app();
